@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :phases
+
   resources :evaluation_periods
 
   resources :working_conditions
