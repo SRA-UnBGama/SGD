@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :competences
+
   resources :users
 
   resources :evaluations
