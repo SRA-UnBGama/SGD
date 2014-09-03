@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :evaluation_periods
+
   resources :working_conditions
 
   resources :goals

@@ -1,0 +1,25 @@
+<%= form_for(@evaluation_period) do |f| %>
+  <% if @evaluation_period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h2>
+
+      <ul>
+      <% @evaluation_period.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_date_evaluation %><br>
+    <%= f.text_field :start_date_evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date_evaluation %><br>
+    <%= f.text_field :end_date_evaluation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
