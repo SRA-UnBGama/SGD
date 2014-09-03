@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :working_conditions
+
   resources :goals
 
   resources :competences

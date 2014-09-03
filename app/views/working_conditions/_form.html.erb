@@ -1,0 +1,29 @@
+<%= form_for(@working_condition) do |f| %>
+  <% if @working_condition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@working_condition.errors.count, "error") %> prohibited this working_condition from being saved:</h2>
+
+      <ul>
+      <% @working_condition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name_working_condition %><br>
+    <%= f.text_field :name_working_condition %>
+  </div>
+  <div class="field">
+    <%= f.label :description_working_condition %><br>
+    <%= f.text_field :description_working_condition %>
+  </div>
+  <div class="field">
+    <%= f.label :value_working_condition %><br>
+    <%= f.text_field :value_working_condition %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

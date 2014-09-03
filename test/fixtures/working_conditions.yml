@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_working_condition: MyString
+  description_working_condition: MyString
+  value_working_condition: MyString
+
+two:
+  name_working_condition: MyString
+  description_working_condition: MyString
+  value_working_condition: MyString
