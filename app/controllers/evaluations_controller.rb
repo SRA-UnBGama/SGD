@@ -5,7 +5,6 @@ class EvaluationsController < ApplicationController
   # GET /evaluations.json
   def index
     @evaluations = Evaluation.all
-    @goals = Goal.all
   end
 
   # GET /evaluations/1
