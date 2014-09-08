@@ -5,6 +5,7 @@ class FormsController < ApplicationController
   # GET /forms.json
   def index
     @forms = Form.all
+    @working_conditions = Working_conditions.all
   end
 
   # GET /forms/1
@@ -69,6 +70,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:date)
+      params.require(:form).permit(:date, :working_condition_ids => [])
     end
 end

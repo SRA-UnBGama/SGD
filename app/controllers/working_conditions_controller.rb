@@ -5,6 +5,7 @@ class WorkingConditionsController < ApplicationController
   # GET /working_conditions.json
   def index
     @working_conditions = WorkingCondition.all
+    @forms = Form.all
   end
 
   # GET /working_conditions/1
@@ -69,6 +70,6 @@ class WorkingConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_condition_params
-      params.require(:working_condition).permit(:name_working_condition, :description_working_condition, :value_working_condition)
+      params.require(:working_condition).permit(:name_working_condition, :description_working_condition, :value_working_condition, :form_ids => [])
     end
 end
