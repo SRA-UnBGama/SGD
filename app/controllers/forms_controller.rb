@@ -5,8 +5,9 @@ class FormsController < ApplicationController
   # GET /forms.json
   def index
     @forms = Form.all
-    @working_conditions = Working_conditions.all
+    @working_conditions = Working_condition.all
     @goals = Goal.all
+    @competences = Competence.all
   end
 
   # GET /forms/1
@@ -71,6 +72,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:date, :working_condition_ids => [], :goals => [])
+      params.require(:form).permit(:date, :working_condition_ids => [], :goal_ids => [], :competence_ids => [])
     end
 end
