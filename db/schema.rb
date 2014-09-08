@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908193952) do
+ActiveRecord::Schema.define(version: 20140908201149) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20140908193952) do
 
   create_table "forms", force: true do |t|
     t.datetime "date"
+  end
+
+  create_table "forms_goals", id: false, force: true do |t|
+    t.integer "form_id"
+    t.integer "goal_id"
   end
 
   create_table "forms_working_conditions", id: false, force: true do |t|
