@@ -5,6 +5,7 @@ class EvaluationsController < ApplicationController
   # GET /evaluations.json
   def index
     @evaluations = Evaluation.all
+    @goals = Goal.all
   end
 
   # GET /evaluations/1
@@ -69,6 +70,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:evaluated_user, :evaluator_user, :evaluated_compentencies, :evaluated_goals, :evaluated_working_conditions, :evaluation_date, :observations_evaluated)
+      params.require(:evaluation).permit(:evaluation_date, :observations_evaluated, :goal_ids => [])
     end
 end
