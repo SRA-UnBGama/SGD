@@ -7,9 +7,9 @@
   })
 </script>
 
-<!-- <%= form_for(@evaluation_period) do |f| %>
+<%= form_for(@evaluation_period) do |f| %>
   <% if @evaluation_period.errors.any? %>
-    <div id="error_explanation">
+    <div  class="alert-error">
       <h2><%= pluralize(@evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h2>
 
       <ul>
@@ -18,7 +18,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>-->
+  <% end %>
 
   <div class="field">
     <%= f.label :start_date_evaluation %><br>
@@ -28,8 +28,8 @@
     <%= f.label :end_date_evaluation %><br>
     <%= f.text_field :end_date_evaluation,'data-behaviour' => 'datepicker' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class=  "action">
+    <%= f.submit 'Definir período', class:"btn btn-success" %>
   </div>
   
 <% end %>
