@@ -1,0 +1,27 @@
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+<%= form_for(@evaluation) do |f| %>
+<div class="control-group">
+  <label class="control-label" for="Nome">Competencias</label>
+  <div class="controls">
+    <input id="Nome" name="Nome" placeholder="Nome Completo" class="input-xlarge" required="" type="text">
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="Matricula">Infome</label>
+  <div class="controls">
+    <input id="Matricula" name="Matricula" placeholder="placeholder" class="input-xlarge" type="password">
+    <p class="help-block">help</p>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<% end %>
