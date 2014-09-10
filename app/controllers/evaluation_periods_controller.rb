@@ -15,6 +15,7 @@ class EvaluationPeriodsController < ApplicationController
   # GET /evaluation_periods/new
   def new
     @evaluation_period = EvaluationPeriod.new
+
   end
 
   # GET /evaluation_periods/1/edit
@@ -28,8 +29,9 @@ class EvaluationPeriodsController < ApplicationController
 
     respond_to do |format|
       if @evaluation_period.save
-        format.html { redirect_to @evaluation_period, notice: 'Evaluation period was successfully created.' }
+        format.html { redirect_to phases_path, notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
+        
       else
         format.html { render :new }
         format.json { render json: @evaluation_period.errors, status: :unprocessable_entity }
