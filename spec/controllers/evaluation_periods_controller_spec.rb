@@ -21,15 +21,18 @@ require 'rails_helper'
 RSpec.describe EvaluationPeriodsController, :type => :controller do
 
 
-  let(:valid_attributes){ {:start_evaluation_period => "21/02/2014",
-    :end_evaluation_period => "23/05/2014" , :created_at => "09/10/2014",
-    :updated_at => "10/07/20140"}
-    
-  }
+  let(:valid_attributes) {{
+    :start_date_evaluation => "21/02/2014",
+    :end_date_evaluation => "23/05/2014" , :created_at => "09/10/2014",
+    :updated_at => "10/07/20140"
+  }}
+  
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) {{
+    :start_date_evaluation => "35/02/2014",
+    :end_date_evaluation => "12/15/2014" , :created_at => "40/10/2014",
+    :updated_at => "10/13/20140"
+ }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -83,7 +86,7 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
 
       it "redirects to the created evaluation_period" do
         post :create, {:evaluation_period => valid_attributes}, valid_session
-        expect(response).to redirect_to(EvaluationPeriod.last)
+        expect(response).to redirect_to phases_path
       end
     end
 
