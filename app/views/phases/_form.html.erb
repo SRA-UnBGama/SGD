@@ -22,13 +22,13 @@
 
   <div class="field">
     <%= f.label :start_date_phase %><br>
-    <%= f.text_field :start_date_phase %>
+    <%= f.text_field :start_date_phase, 'data-behaviour' => 'datepicker'%>
   </div>
   <div class="field">
     <%= f.label :end_date_phase %><br>
-    <%= f.text_field :end_date_phase %>
+    <%= f.text_field :end_date_phase,'data-behaviour' => 'datepicker' %>
   </div>
    <div class="actions">
-    <%= f.submit 'Definir Fase de Avaliação X', class:"btn btn-success" %>
+    <%= f.submit 'Definir Fase de Avaliação X', class:"btn-small btn-success" %>
   </div>
 <% end %>
