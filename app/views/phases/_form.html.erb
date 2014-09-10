@@ -1,3 +1,12 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'pt-BR'
+    });
+  })
+</script>
+
 <%= form_for(@phase) do |f| %>
   <% if @phase.errors.any? %>
     <div id="error_explanation">
@@ -13,17 +22,13 @@
 
   <div class="field">
     <%= f.label :start_date_phase %><br>
-    <%= f.text_field :start_date_phase %>
+    <%= f.text_field :start_date_phase, 'data-behaviour' => 'datepicker'%>
   </div>
   <div class="field">
     <%= f.label :end_date_phase %><br>
-    <%= f.text_field :end_date_phase %>
+    <%= f.text_field :end_date_phase,'data-behaviour' => 'datepicker' %>
   </div>
-  <div class="field">
-    <%= f.label :status_phase %><br>
-    <%= f.text_field :status_phase %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+   <div class="actions">
+    <%= f.submit 'Definir Fase de Avaliação X', class:"btn-small btn-success" %>
   </div>
 <% end %>
