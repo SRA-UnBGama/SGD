@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Evaluated user:</strong>
+  <%= @evaluation.evaluated_user %>
+</p>
+
+<p>
+  <strong>Evaluator user:</strong>
+  <%= @evaluation.evaluator_user %>
+</p>
+
+<p>
+  <strong>Evaluated compentencies:</strong>
+  <%= @evaluation.evaluated_compentencies %>
+</p>
+
+<p>
+  <strong>Evaluated goals:</strong>
+  <%= @evaluation.evaluated_goals %>
+</p>
+
+<p>
+  <strong>Evaluated working conditions:</strong>
+  <%= @evaluation.evaluated_working_conditions %>
+</p>
+
+<p>
+  <strong>Evaluation date:</strong>
+  <%= @evaluation.evaluation_date %>
+</p>
+
+<p>
+  <strong>Observations evaluated:</strong>
+  <%= @evaluation.observations_evaluated %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
+<%= link_to 'Back', evaluations_path %>

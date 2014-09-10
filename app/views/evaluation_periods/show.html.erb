@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date evaluation:</strong>
+  <%= @evaluation_period.start_date_evaluation %>
+</p>
+
+<p>
+  <strong>End date evaluation:</strong>
+  <%= @evaluation_period.end_date_evaluation %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_period_path(@evaluation_period) %> |
+<%= link_to 'Back', evaluation_periods_path %>

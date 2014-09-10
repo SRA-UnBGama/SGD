@@ -1,0 +1,1 @@
+json.extract! @evaluation, :id, :evaluated_user, :evaluator_user, :evaluated_compentencies, :evaluated_goals, :evaluated_working_conditions, :evaluation_date, :observations_evaluated, :created_at, :updated_at

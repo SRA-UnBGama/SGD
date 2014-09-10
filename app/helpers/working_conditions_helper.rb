@@ -1,0 +1,2 @@
+module WorkingConditionsHelper
+end

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  evaluated_user: MyString
+  evaluator_user: MyString
+  evaluated_compentencies: MyString
+  evaluated_goals: MyString
+  evaluated_working_conditions: MyString
+  evaluation_date: MyString
+  observations_evaluated: MyString
+
+two:
+  evaluated_user: MyString
+  evaluator_user: MyString
+  evaluated_compentencies: MyString
+  evaluated_goals: MyString
+  evaluated_working_conditions: MyString
+  evaluation_date: MyString
+  observations_evaluated: MyString

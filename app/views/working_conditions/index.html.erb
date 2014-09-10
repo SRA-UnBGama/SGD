@@ -1,0 +1,29 @@
+<h1>Listing working_conditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name working condition</th>
+      <th>Description working condition</th>
+      <th>Value working condition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @working_conditions.each do |working_condition| %>
+      <tr>
+        <td><%= working_condition.name_working_condition %></td>
+        <td><%= working_condition.description_working_condition %></td>
+        <td><%= working_condition.value_working_condition %></td>
+        <td><%= link_to 'Show', working_condition %></td>
+        <td><%= link_to 'Edit', edit_working_condition_path(working_condition) %></td>
+        <td><%= link_to 'Destroy', working_condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Working condition', new_working_condition_path %>
