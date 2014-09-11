@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140903132351) do
+ActiveRecord::Schema.define(version: 20140908202023) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -20,6 +19,11 @@ ActiveRecord::Schema.define(version: 20140903132351) do
     t.string   "value_competence"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "competences_forms", id: false, force: true do |t|
+    t.integer "competence_id"
+    t.integer "form_id"
   end
 
   create_table "evaluation_periods", force: true do |t|
@@ -30,17 +34,29 @@ ActiveRecord::Schema.define(version: 20140903132351) do
   end
 
   create_table "evaluations", force: true do |t|
-
-    t.string   "evaluated_user"
-    t.string   "evaluator_user"
-    t.string   "evaluated_compentencies"
-    t.string   "evaluated_goals"
-    t.string   "evaluated_working_conditions"
-
     t.string   "evaluation_date"
     t.string   "observations_evaluated"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "evaluations_users", id: false, force: true do |t|
+    t.integer "evaluation_id"
+    t.integer "user_id"
+  end
+
+  create_table "forms", force: true do |t|
+    t.datetime "date"
+  end
+
+  create_table "forms_goals", id: false, force: true do |t|
+    t.integer "form_id"
+    t.integer "goal_id"
+  end
+
+  create_table "forms_working_conditions", id: false, force: true do |t|
+    t.integer "form_id"
+    t.integer "working_condition_id"
   end
 
   create_table "goals", force: true do |t|
