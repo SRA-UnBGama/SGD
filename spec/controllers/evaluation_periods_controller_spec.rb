@@ -116,7 +116,6 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
         evaluation_period = EvaluationPeriod.create! valid_attributes
         put :update, {:id => evaluation_period.to_param, :evaluation_period => valid_attributes}, valid_session
         evaluation_period.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested evaluation_period as @evaluation_period" do
