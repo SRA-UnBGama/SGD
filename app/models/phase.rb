@@ -1,7 +1,8 @@
 class Phase < ActiveRecord::Base
-validates_presence_of :start_date_phase, :end_date_phase
+belongs_to :evaluation_period
 
-	 validate :dates_are_valid
+		validates_presence_of :start_date_phase, :end_date_phase
+		 validate :dates_are_valid
 
 
   def dates_are_valid

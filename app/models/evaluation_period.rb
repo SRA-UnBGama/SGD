@@ -1,4 +1,6 @@
 class EvaluationPeriod < ActiveRecord::Base
+	 has_many :phases
+
 	 validates_presence_of :start_date_evaluation , :end_date_evaluation
 
 	 validate :dates_are_valid
