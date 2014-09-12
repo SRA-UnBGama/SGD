@@ -29,9 +29,9 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
   
 
   let(:invalid_attributes) {{
-    :start_date_evaluation => "09/02/2014",
-    :end_date_evaluation => "05/02/2014" , :created_at => "12/10/2014",
-    :updated_at => "10/11/20140"
+    :start_date_evaluation => "13/02/2014",
+    :end_date_evaluation => "12/02/2014" , :created_at => "12/10/2014",
+    :updated_at => "10/11/2014"
  }}
 
   # This should return the minimal set of values that should be in the session
@@ -98,7 +98,7 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
 
       it "re-renders the 'new' template" do
         post :create, {:evaluation_period => invalid_attributes}, valid_session
-        expect(response).to redirect_to evaluation_periods_path
+        expect(response).to render_template("new")
       end
     end
   end
@@ -114,7 +114,7 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
 
       it "updates the requested evaluation_period" do
         evaluation_period = EvaluationPeriod.create! valid_attributes
-        put :update, {:id => evaluation_period.to_param, :evaluation_period => new_attributes}, valid_session
+        put :update, {:id => evaluation_period.to_param, :evaluation_period => valid_attributes}, valid_session
         evaluation_period.reload
         skip("Add assertions for updated state")
       end
