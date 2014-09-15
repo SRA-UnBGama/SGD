@@ -1,12 +1,11 @@
-<h1>Listing phases</h1>
+<h1>Fases de do Período de avaliação</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Start date phase</th>
-      <th>End date phase</th>
-      <th>Status phase</th>
-      <th colspan="3"></th>
+      <th>Data de início</th>
+      <th>Data de fim</th>
+     
     </tr>
   </thead>
 
@@ -16,9 +15,9 @@
         <td><%= phase.start_date_phase %></td>
         <td><%= phase.end_date_phase %></td>
         <td><%= phase.status_phase %></td>
-        <td><%= link_to 'Show', phase %></td>
-        <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
-        <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Visualizar', phase, class: "btn btn-info", :method => :get %></td>
+        <td><%= button_to 'Editar', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>
+        <td><%= button_to 'Excluir', phase,class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Phase', new_phase_path %>
+<%= button_to 'Nova Fase', new_phase_path,class: "btn btn-success", :method => :get %>
