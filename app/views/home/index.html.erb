@@ -1,0 +1,77 @@
+    <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+
+        <!-- Carousel indicators -->
+
+        <ol class="carousel-indicators">
+
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+
+        </ol>   
+
+        <!-- Carousel items -->
+
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <%= image_tag("unb.jpg", :alt => "unb", :class => "completa") %>
+                
+                <div class="carousel-caption">
+
+                  <h3>First slide label</h3>
+
+                  <p>Lorem ipsum dolor sit amet consectetur…</p>
+
+                </div>
+
+            </div>
+
+            <div class="item">
+               <%= image_tag("unb.jpg", :alt => "unb", :class => "completa") %>
+               
+                <div class="carousel-caption">
+
+                <h3>First slide label</h3>
+
+                <p>Aliquam sit amet gravida nibh, facilisis gravida…</p>
+
+                </div>
+
+            </div>
+
+            <div class="item">
+
+             
+                 <%= image_tag("unb.jpg", :alt => "unb", :class => "completa") %>
+                <div class="carousel-caption">
+
+                  <h3>Third slide label</h3>
+
+                  <p>Praesent commodo cursus magna vel…</p>
+                  <span class="glyphicon glyphicon-step-backward"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Carousel nav -->
+
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+
+             <i class="glyphicon glyphicon-chevron-left"></i>
+
+        </a>
+
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+
+            <i class="glyphicon glyphicon-chevron-left"></i>
+
+        </a>
+
+    </div>
+

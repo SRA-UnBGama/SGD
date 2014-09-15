@@ -71,9 +71,12 @@ ActiveRecord::Schema.define(version: 20140908202023) do
     t.string   "start_date_phase"
     t.string   "end_date_phase"
     t.string   "status_phase"
+    t.integer  "evaluation_period_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "phases", ["evaluation_period_id"], name: "index_phases_on_evaluation_period_id"
 
   create_table "users", force: true do |t|
     t.string   "name_user"
