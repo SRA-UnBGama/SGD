@@ -8,16 +8,21 @@
 </head>
 <body>
 <ul class="nav nav-tabs" role="tablist">
-  ...
-  <li class="dropdown">
+ <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Dropdown <span class="caret"></span>
+      Opções <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu">
-      <%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Período de avaliação</i>"), evaluation_periods_path %>
+    	<li>
+    		<%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Período de avaliação</i>"), evaluation_periods_path%>
+    	</li>
+    	<li>
+    		<%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Fases de avaliação</i>"), phases_path %>
+    	</li>
     </ul>
-  </li>
-  ...
+ 
+ </li>
+ 
 </ul>
 <div class="container">
 <%= yield %>

@@ -1,19 +1,38 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-striped">
+<h1>Detalhes da fase</h1>
+  <thead>
+    <tr>
+      <th>Data de início</th>
+      <th>Data de fim</th>
+      <th>Estado</th>
+     
+    </tr>
+  </thead>
 
-<p>
-  <strong>Start date phase:</strong>
-  <%= @phase.start_date_phase %>
-</p>
+  <tbody>
+  	<tr>
+  		<td>
+			<p>
+				<%= @phase.start_date_phase %>
+			</p>
+		</td>
+		<td>
+			<p>
+				<%= @phase.end_date_phase %>
+			</p>
+		</td>
+		<td>
+			<p>
+				<%= @phase.status_phase %>
+			</p>
+		</td>		
+	</tr>
+</tbody>
+</table>
 
-<p>
-  <strong>End date phase:</strong>
-  <%= @phase.end_date_phase %>
-</p>
-
-<p>
-  <strong>Status phase:</strong>
-  <%= @phase.status_phase %>
-</p>
-
-<%= link_to 'Edit', edit_phase_path(@phase) %> |
-<%= link_to 'Back', phases_path %>
+<div class="actions">
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), phases_path  , class:"btn btn-warning"%>
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_phase_path(@phase) , class:"btn btn-primary"%>
+    
+  </div>

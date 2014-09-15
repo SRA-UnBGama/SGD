@@ -21,14 +21,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :start_date_phase %><br>
+    <%= f.label "Data de início" %><br>
     <%= f.text_field :start_date_phase, 'data-behaviour' => 'datepicker'%>
   </div>
   <div class="field">
-    <%= f.label :end_date_phase %><br>
+    <%= f.label "Data de fim" %><br>
     <%= f.text_field :end_date_phase,'data-behaviour' => 'datepicker' %>
   </div>
    <div class="actions">
-    <%= f.submit 'Definir Fase de Avaliação X', class:"btn-small btn-success" %>
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), phases_path , class:"btn btn-warning"%>
+    <%= f.submit 'Definir Fase de Avaliação ', class:"btn btn-success" %>
+
   </div>
 <% end %>
