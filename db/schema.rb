@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908202023) do
+ActiveRecord::Schema.define(version: 20140916183824) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -61,10 +61,11 @@ ActiveRecord::Schema.define(version: 20140908202023) do
 
   create_table "goals", force: true do |t|
     t.string   "name_goal"
-    t.string   "description_goal"
+    t.text     "description_goal", limit: 255
     t.string   "value_goal"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "deadline_goal"
   end
 
   create_table "phases", force: true do |t|
