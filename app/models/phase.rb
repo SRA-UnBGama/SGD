@@ -1,5 +1,6 @@
 class Phase < ActiveRecord::Base
 belongs_to :evaluation_period
+	after_initialize :default_values
 
 		validates_presence_of :start_date_phase, :end_date_phase
 		 validate :dates_are_valid
@@ -18,5 +19,11 @@ belongs_to :evaluation_period
 			
 		end	
   	end
+
+ private 
+ 	def default_values
+ 		self.start_date_phase ||= "01/01/2014"
+ 		self.end_date_phase ||= "02/02/2014"
+ 	end
 
 end

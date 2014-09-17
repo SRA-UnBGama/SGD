@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916183824) do
+ActiveRecord::Schema.define(version: 20140917172253) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -72,12 +72,10 @@ ActiveRecord::Schema.define(version: 20140916183824) do
     t.string   "start_date_phase"
     t.string   "end_date_phase"
     t.string   "status_phase"
-    t.integer  "evaluation_period_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "evaluation_period_id"
   end
-
-  add_index "phases", ["evaluation_period_id"], name: "index_phases_on_evaluation_period_id"
 
   create_table "users", force: true do |t|
     t.string   "name_user"

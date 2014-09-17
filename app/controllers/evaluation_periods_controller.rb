@@ -26,6 +26,9 @@ class EvaluationPeriodsController < ApplicationController
   # POST /evaluation_periods.json
   def create
     @evaluation_period = EvaluationPeriod.new(evaluation_period_params)
+    @phases = create_phases
+    @evaluation_period.phases << @phases
+
 
     respond_to do |format|
       if @evaluation_period.save
@@ -72,5 +75,32 @@ class EvaluationPeriodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_period_params
       params.require(:evaluation_period).permit(:start_date_evaluation, :end_date_evaluation)
+    end
+
+    def evaluation_params_phases 
+      params.require(:phases).permit(:start_date_evaluation , :end_date_evaluation )
+    end
+
+    def initialize_phases (planning, evaluation , development_plan, formalization )
+      @planning = planning
+      @evaluation = evaluation
+      @development_plan = development_plan
+      @formalization = formalization
+      phases = []
+      phases << @planning
+      phases << @evaluation
+      phases << @development_plan
+      phases << @formalization
+      phases
+    
+    end
+
+    def create_phases()
+       planing = Phase.new
+       evaluation = Phase.new
+       development_plan = Phase.new
+       formalization = Phase.new
+       initialize_phases(planing, evaluation, development_plan, formalization)
+
     end
 end
