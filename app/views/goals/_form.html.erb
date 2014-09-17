@@ -1,3 +1,12 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'pt-BR'
+    });
+  })
+</script>
+
 <%= form_for(@goal) do |f| %>
   <% if @goal.errors.any? %>
     <div id="error_explanation" >
@@ -21,7 +30,7 @@
   </div>
   <div class="field" >
     <%= f.label "Prazo" %><br>
-    <%= f.text_field :deadline_goal %>
+    <%= f.text_field :deadline_goal, 'data-behaviour' => 'datepicker'%>
   </div>
   <div class="actions" >
     <%= f.submit %>
