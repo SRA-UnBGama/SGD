@@ -59,7 +59,9 @@ class EvaluationPeriodsController < ApplicationController
   # DELETE /evaluation_periods/1
   # DELETE /evaluation_periods/1.json
   def destroy
+    @evaluation_period.phases.destroy_all
     @evaluation_period.destroy
+
     respond_to do |format|
       format.html { redirect_to evaluation_periods_url, notice: 'Evaluation period was successfully destroyed.' }
       format.json { head :no_content }
