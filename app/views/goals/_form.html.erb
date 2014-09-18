@@ -20,18 +20,21 @@
     </div>
   <% end %>
 
-  <div class="field" >
-    <%= f.label "Título" %><br>
-    <%= f.text_field :name_goal %>
-  </div>
-  <div class="field" >
-    <%= f.label "Texto de Descrição da Meta" %><br>
-    <%= f.text_area :description_goal %>
-  </div>
-  <div class="field" >
-    <%= f.label "Prazo" %><br>
-    <%= f.text_field :deadline_goal, 'data-behaviour' => 'datepicker'%>
-  </div>
+    <form role="form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Título</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insira o título da meta">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Descrição</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Insira a descrição da meta">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Prazo</label>
+        <input type="date" class="form-control" id="exampleInputPassword1" >
+      </div>
+    </form>
+
   <div class=  "action">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path , class:"btn btn-warning"%>
     <%= f.submit 'Nova Meta', class:"btn btn-success" %>

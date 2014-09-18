@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name goal:</strong>
+  <strong > Nome da Meta: </strong >
   <%= @goal.name_goal %>
 </p>
 
 <p>
-  <strong>Description goal:</strong>
+  <strong >Descrição da Meta:</strong >
   <%= @goal.description_goal %>
 </p>
 
 <p>
-  <strong>Value goal:</strong>
-  <%= @goal.value_goal %>
+  <strong>Prazo:</strong>
+  <%= @goal.deadline_goal %>
 </p>
-
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
