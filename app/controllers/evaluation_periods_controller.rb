@@ -121,15 +121,15 @@ class EvaluationPeriodsController < ApplicationController
       phases.each do |phase|
         case position
           when PLANNING
-             phase.update_columns(phase_name: "Planejamento", phase_description: "Definição das metas da equipe e orientação quanto ao funcionamento do sistema, quanto às competências esperadas")
+             phase.update_attributes(:phase_name => "Planejamento", :phase_description => "Definição das metas da equipe e orientação quanto ao funcionamento do sistema, quanto às competências esperadas")
           when MONITORING
-             phase.update_columns(phase_name: "Acompanhamento", phase_description: "Análise e orientação sobre a expressão de competências e o alcance das metas")
+             phase.update_attributes(:phase_name => "Acompanhamento", :phase_description => "Análise e orientação sobre a expressão de competências e o alcance das metas")
 
           when FORMALIZATION
-            phase.update_columns(phase_name: "Formalização", phase_description: "Formalização da avaliação de desempenho e retomada dos registros do ano para embasamento da tomada de decisão")   
+            phase.update_attributes(:phase_name => "Formalização", :phase_description => "Formalização da avaliação de desempenho e retomada dos registros do ano para embasamento da tomada de decisão")   
 
           when DEVELOPMENT_PLAN
-             phase.update_columns(phase_name: "Plano de desenvolvimento", phase_description: "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
+             phase.update_attributes(:phase_name => "Plano de desenvolvimento", :phase_description => "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
           end
            position+=1
       end
@@ -150,16 +150,16 @@ class EvaluationPeriodsController < ApplicationController
 
         case position
           when PLANNING
-             phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
 
           when MONITORING
-             phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
 
           when FORMALIZATION
-            phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+            phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
 
           when DEVELOPMENT_PLAN
-             phase.update_columns(start_date_phase: start_date_period, end_date_phase: end_date_period )
+             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => end_date_period )
           end
            position+=1
            start_date_period+=15.days
