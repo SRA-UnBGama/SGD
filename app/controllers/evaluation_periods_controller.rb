@@ -33,6 +33,7 @@ class EvaluationPeriodsController < ApplicationController
     respond_to do |format|
       if @evaluation_period.save
         define_name_description(@evaluation_period.phases)
+        define_default_period_to_phases(@evaluation_period.phases)
 
         format.html { redirect_to phases_path, notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
@@ -113,29 +114,62 @@ class EvaluationPeriodsController < ApplicationController
     MONITORING = 2
     FORMALIZATION = 3
     DEVELOPMENT_PLAN = 4
-    
 
-    def define_name_description( phases)
-      
 
+    def define_name_description(phases)
       position = PLANNING
 
       phases.each do |phase|
         case position
           when PLANNING
              phase.update_columns(phase_name: "Planejamento", phase_description: "Definição das metas da equipe e orientação quanto ao funcionamento do sistema, quanto às competências esperadas")
-          
           when MONITORING
              phase.update_columns(phase_name: "Acompanhamento", phase_description: "Análise e orientação sobre a expressão de competências e o alcance das metas")
-          
+
           when FORMALIZATION
             phase.update_columns(phase_name: "Formalização", phase_description: "Formalização da avaliação de desempenho e retomada dos registros do ano para embasamento da tomada de decisão")   
-           
+
           when DEVELOPMENT_PLAN
              phase.update_columns(phase_name: "Plano de desenvolvimento", phase_description: "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
-          end          
+          end
            position+=1
       end
 
     end
+
+    def define_default_period_to_phases(phases)
+
+      position = PLANNING
+
+      start_date_period = phases.first.evaluation_period.start_date_evaluation
+      start_date_period_final = phases.first.evaluation_period.start_date_evaluation
+      end_date_period = phases.first.evaluation_period.end_date_evaluation
+
+      start_date_period= Date.strptime(start_date_period, "%d/%m/%Y")
+      start_date_period_final= Date.strptime(start_date_period_final, "%d/%m/%Y")
+      end_date_phase = Date.strptime(end_date_period, "%d/%m/%Y")
+
+      phases.each do |phase|
+
+        start_date_period_final+=14.days
+
+        case position
+          when PLANNING
+             phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+
+          when MONITORING
+             phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+
+          when FORMALIZATION
+            phase.update_columns(start_date_phase: start_date_period, end_date_phase: start_date_period_final)
+
+          when DEVELOPMENT_PLAN
+             phase.update_columns(start_date_phase: start_date_period, end_date_phase: end_date_period )
+          end
+           position+=1
+           start_date_period+=15.days
+           start_date_period_final+=14.days
+      end
+    end
+
 end
