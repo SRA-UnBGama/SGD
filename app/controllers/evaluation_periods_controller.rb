@@ -85,43 +85,55 @@ class EvaluationPeriodsController < ApplicationController
       params.require(:phases).permit(:start_date_evaluation , :end_date_evaluation )
     end
 
-    def initialize_phases (planning, evaluation , development_plan, formalization )
+    def initialize_phases (planning, monitoring , development_plan, formalization )
       @planning = planning
-      @evaluation = evaluation
-      @development_plan = development_plan
+      @monitoring = monitoring
       @formalization = formalization
+      @development_plan = development_plan
+      
       phases = []
       phases << @planning
-      phases << @evaluation
-      phases << @development_plan
+      phases << @monitoring
       phases << @formalization
+      phases << @development_plan
       phases
     
     end
 
     def create_phases()
        planing = Phase.new
-       evaluation = Phase.new
+       monitoring = Phase.new
        development_plan = Phase.new
        formalization = Phase.new
-       initialize_phases(planing, evaluation, development_plan, formalization)
+       initialize_phases(planing, monitoring, formalization, development_plan)
 
     end
 
+    PLANNING = 1
+    MONITORING = 2
+    FORMALIZATION = 3
+    DEVELOPMENT_PLAN = 4
+    
+
     def define_name_description( phases)
-      position = 1
       
+
+      position = PLANNING
+
       phases.each do |phase|
         case position
-          when 1
-             phase.update_columns(phase_name: "Planejamento", phase_description: "Planejamento descrição")
-          when 2
-             phase.update_columns(phase_name: "Acompanhamento", phase_description: " descrição")
-          when 3
-             phase.update_columns(phase_name: "Avaliação", phase_description: "Acompanhamento descrição")    
-          when 4
-            phase.update_columns(phase_name: "formalização", phase_description: "Acompanhamento descrição")   
-           end
+          when PLANNING
+             phase.update_columns(phase_name: "Planejamento", phase_description: "Definição das metas da equipe e orientação quanto ao funcionamento do sistema, quanto às competências esperadas")
+          
+          when MONITORING
+             phase.update_columns(phase_name: "Acompanhamento", phase_description: "Análise e orientação sobre a expressão de competências e o alcance das metas")
+          
+          when FORMALIZATION
+            phase.update_columns(phase_name: "Formalização", phase_description: "Formalização da avaliação de desempenho e retomada dos registros do ano para embasamento da tomada de decisão")   
+           
+          when DEVELOPMENT_PLAN
+             phase.update_columns(phase_name: "Plano de desenvolvimento", phase_description: "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
+          end          
            position+=1
       end
 
