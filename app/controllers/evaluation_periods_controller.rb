@@ -37,7 +37,6 @@ class EvaluationPeriodsController < ApplicationController
 
         format.html { redirect_to phases_path, notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
-        
       else
         format.html { render :new }
         format.json { render json: @evaluation_period.errors, status: :unprocessable_entity }
@@ -144,10 +143,6 @@ class EvaluationPeriodsController < ApplicationController
       start_date_period = phases.first.evaluation_period.start_date_evaluation
       start_date_period_final = phases.first.evaluation_period.start_date_evaluation
       end_date_period = phases.first.evaluation_period.end_date_evaluation
-
-      start_date_period= Date.strptime(start_date_period, "%d/%m/%Y")
-      start_date_period_final= Date.strptime(start_date_period_final, "%d/%m/%Y")
-      end_date_phase = Date.strptime(end_date_period, "%d/%m/%Y")
 
       phases.each do |phase|
 

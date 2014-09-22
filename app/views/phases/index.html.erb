@@ -13,8 +13,8 @@
   <tbody>
     <% @phases.each do |phase| %>
       <tr>
-        <td><%= phase.start_date_phase %></td>
-        <td><%= phase.end_date_phase %></td>
+        <td><%= phase.start_date_phase.strftime("%m/%d/%Y") %></td>
+        <td><%= phase.end_date_phase.strftime("%m/%d/%Y")%></td>
         <td><%= phase.status_phase %></td>
         <td><%= button_to 'Visualizar', phase, class: "btn btn-info", :method => :get %></td>
         <td><%= button_to 'Editar', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>

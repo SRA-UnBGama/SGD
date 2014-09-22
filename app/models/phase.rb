@@ -10,9 +10,6 @@ after_initialize :default_values
   def dates_are_valid
     if self.end_date_phase.present? && self.start_date_phase.present?
 
-		start_date_phase= DateTime.strptime(self.start_date_phase, "%d/%m/%Y")
-		end_date_phase = DateTime.strptime("#{self.end_date_phase} 23:59:59", "%d/%m/%Y %H:%M:%S")
-
 	    if end_date_phase < start_date_phase
 	    	errors.add(:end_date_phase, "A data final deve ser após a data de início do intervalo.")
 	    end
@@ -22,9 +19,6 @@ after_initialize :default_values
   end
 
   def minimum_period_phase
-
-  	start_date_phase= DateTime.strptime(self.start_date_phase, "%d/%m/%Y")
-	end_date_phase = DateTime.strptime("#{self.end_date_phase} 23:59:59", "%d/%m/%Y %H:%M:%S")
 
 	if end_date_phase < (start_date_phase+14.days)
 		errors.add(:end_date_phase, "Período deve ser superior à 15 dias")
