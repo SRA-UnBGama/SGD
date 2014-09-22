@@ -1,7 +1,6 @@
 class Phase < ActiveRecord::Base
 belongs_to :evaluation_period
 after_initialize :default_values
-	attr_accessor :phase_name , :phase_description
 
 		validates_presence_of :start_date_phase, :end_date_phase
 		 validate :dates_are_valid, :minimum_period_phase
