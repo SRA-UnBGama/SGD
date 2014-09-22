@@ -4,7 +4,7 @@ belongs_to :evaluation_period
 	attr_accessor :phase_name , :phase_description
 
 		validates_presence_of :start_date_phase, :end_date_phase
-		 validate :dates_are_valid
+		 validate :dates_are_valid, :minimum_period
 
 
   def dates_are_valid
@@ -16,10 +16,23 @@ belongs_to :evaluation_period
 	    if end_date_phase < start_date_phase
 	    	errors.add(:end_date_phase, "A data final deve ser após a data de início do intervalo.")
 	    end
-		else
-			
-		end	
-  	end
+	else
+			#Nothing to do
+	end	
+  end
+
+  def minimum_period
+
+  	start_date_phase= DateTime.strptime(self.start_date_phase, "%d/%m/%Y")
+	end_date_phase = DateTime.strptime("#{self.end_date_phase} 23:59:59", "%d/%m/%Y %H:%M:%S")
+
+	if end_date_phase < (start_date_phase + 14.days)
+		errors.add(:end_date_phase, "Período deve ser superior à 15 dias")
+	else
+		#Nothing to do
+	end
+
+  end
 
  private 
  	def default_values
