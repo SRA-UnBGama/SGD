@@ -32,6 +32,8 @@ class EvaluationPeriodsController < ApplicationController
 
     respond_to do |format|
       if @evaluation_period.save
+        define_name_description(@evaluation_period.phases)
+
         format.html { redirect_to phases_path, notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
         
@@ -103,6 +105,25 @@ class EvaluationPeriodsController < ApplicationController
        development_plan = Phase.new
        formalization = Phase.new
        initialize_phases(planing, evaluation, development_plan, formalization)
+
+    end
+
+    def define_name_description( phases)
+      position = 1
+      
+      phases.each do |phase|
+        case position
+          when 1
+             phase.update_columns(phase_name: "Planejamento", phase_description: "Planejamento descrição")
+          when 2
+             phase.update_columns(phase_name: "Acompanhamento", phase_description: " descrição")
+          when 3
+             phase.update_columns(phase_name: "Avaliação", phase_description: "Acompanhamento descrição")    
+          when 4
+            phase.update_columns(phase_name: "formalização", phase_description: "Acompanhamento descrição")   
+           end
+           position+=1
+      end
 
     end
 end
