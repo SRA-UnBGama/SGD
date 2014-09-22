@@ -6,10 +6,10 @@ class Goal < ActiveRecord::Base
 	validate :deadline_greater_than_today
 
 	def deadline_greater_than_today
-	  today = Date.today.to_formatted_s(:db)
-	  deadline = self.deadline_goal.to_formatted_s(:db)
+	  today = Date.current
+	  deadline = self.deadline_goal
 
-	  if deadline < today
+	  if deadline != nil && Date.today >= deadline 
 		errors.add(:deadline_goal, "O prazo deve ser após a data de hoje.")
 	  else
 			#Nothing to do
