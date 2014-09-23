@@ -11,8 +11,8 @@
   <tbody >
     <% @evaluation_periods.each do |evaluation_period| %>
       <tr>
-        <td><%= evaluation_period.start_date_evaluation %></td>
-        <td><%= evaluation_period.end_date_evaluation %></td>
+        <td><%= evaluation_period.start_date_evaluation.strftime("%d/%m/%Y") %></td>
+        <td><%= evaluation_period.end_date_evaluation.strftime("%d/%m/%Y") %></td>
         <td><%= button_to 'Visualizar', evaluation_period, class: "btn btn-info", :method => :get %></td>
         <td><%= button_to 'Editar', edit_evaluation_period_path(evaluation_period), class: "btn btn-primary", :method => :get %></td>
         <td><%= button_to 'Excluir', evaluation_period, class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>

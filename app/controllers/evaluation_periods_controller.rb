@@ -129,7 +129,7 @@ class EvaluationPeriodsController < ApplicationController
             phase.update_attributes(:phase_name => "Formalização", :phase_description => "Formalização da avaliação de desempenho e retomada dos registros do ano para embasamento da tomada de decisão")   
 
           when DEVELOPMENT_PLAN
-             phase.update_attributes(:phase_name => "Plano de desenvolvimento", :phase_description => "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
+             phase.update_attributes(:phase_name => "Plano de Desenvolvimento", :phase_description => "Discussão sobre as soluções de aprendizagem mais adequadas à situação do servidor")    
           end
            position+=1
       end
@@ -141,29 +141,24 @@ class EvaluationPeriodsController < ApplicationController
       position = PLANNING
 
       start_date_period = phases.first.evaluation_period.start_date_evaluation
-      start_date_period_final = phases.first.evaluation_period.start_date_evaluation
+      start_date_period_final = phases.first.evaluation_period.end_date_evaluation
       end_date_period = phases.first.evaluation_period.end_date_evaluation
 
       phases.each do |phase|
-
-        start_date_period_final+=14.days
-
         case position
           when PLANNING
-             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
+             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => (start_date_period_final-46.day))
 
           when MONITORING
-             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
+             phase.update_attributes(:start_date_phase => (start_date_period_final-45.day), :end_date_phase => (start_date_period_final-31.day))
 
           when FORMALIZATION
-            phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => start_date_period_final)
+            phase.update_attributes(:start_date_phase => (start_date_period_final-30.day), :end_date_phase => (start_date_period_final-16.day))
 
           when DEVELOPMENT_PLAN
-             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => end_date_period )
+             phase.update_attributes(:start_date_phase => (start_date_period_final-15.day), :end_date_phase => end_date_period )
           end
            position+=1
-           start_date_period+=15.days
-           start_date_period_final+=14.days
       end
     end
 
