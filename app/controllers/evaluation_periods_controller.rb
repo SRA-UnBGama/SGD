@@ -35,7 +35,7 @@ class EvaluationPeriodsController < ApplicationController
         define_name_description(@evaluation_period.phases)
         define_default_period_to_phases(@evaluation_period.phases)
 
-        format.html { redirect_to phases_path, notice: 'Evaluation period was successfully created.' }
+        format.html { redirect_to evaluation_period_path(@evaluation_period), notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
       else
         format.html { render :new }
