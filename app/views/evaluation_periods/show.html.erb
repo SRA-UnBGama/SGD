@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 <table class="table table-striped">
-<h1>Detalhes do período</h1>
+<h1>Período de Avaliação</h1>
+<% period = "#{@evaluation_period.start_date_evaluation.strftime("%d/%m/%y")} à #{@evaluation_period.end_date_evaluation.strftime("%d/%m/%y")}"%>
+<h4><%=  period  %></h4>
   <thead>
     <tr>
       <th>Data de início</th>
       <th>Data de fim</th>
-     
     </tr>
   </thead>
 
