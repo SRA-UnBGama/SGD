@@ -144,7 +144,7 @@ RSpec.describe PhasesController, :type => :controller do
       it "re-renders the 'edit' template" do
         phase = Phase.create! valid_attributes
         put :update, {:id => phase.to_param, :phase => invalid_attributes}, valid_session
-        expect(response).to render_template("show")
+        expect(response).to render_template("edit")
       end
     end
   end
