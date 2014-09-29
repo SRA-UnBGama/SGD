@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :phases
-
+  resources :phases, :only => [:edit, :update]
   resources :evaluation_periods
 
   resources :forms

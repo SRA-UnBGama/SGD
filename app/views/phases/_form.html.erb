@@ -29,7 +29,7 @@
     <%= f.text_field :end_date_phase,'data-behaviour' => 'datepicker' %>
   </div>
    <div class="actions">
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), phases_path , class:"btn btn-warning"%>
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_period_path(@phase.evaluation_period) , class:"btn btn-warning"%>
     <%= f.submit 'Definir Fase de Avaliação ', class:"btn btn-success" %>
 
   </div>
