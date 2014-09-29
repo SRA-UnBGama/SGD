@@ -15,13 +15,12 @@
         <td><%= evaluation_period.end_date_evaluation.strftime("%d/%m/%Y") %></td>
         <td><%= button_to 'Visualizar', evaluation_period, class: "btn btn-info", :method => :get %></td>
         <td><%= button_to 'Editar', edit_evaluation_period_path(evaluation_period), class: "btn btn-primary", :method => :get %></td>
-        <td><%= button_to 'Excluir', evaluation_period, class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= button_to "Definir periodo de avaliação", new_evaluation_period_path, class: "btn btn-success", :method => :get  %>
+<%= button_to "Definir Período de Avaliação", new_evaluation_period_path, class: "btn btn-success", :method => :get  %>
 
 

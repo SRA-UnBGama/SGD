@@ -19,8 +19,7 @@
         <td><%= phase.start_date_phase.strftime("%d/%m/%Y") %></td>
         <td><%= phase.end_date_phase.strftime("%d/%m/%Y")%></td>
         <td><%= phase.status_phase %></td>
-        <td><%= button_to 'Editar', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>
-        <td><%= button_to 'Excluir', phase,class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+        <td><%= button_to 'Editar Fase', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>
       </tr>
     <% end %>
 </tbody>
@@ -28,7 +27,7 @@
 
 <div class="actions">
      <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_periods_path , class:"btn btn-warning"%>
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_evaluation_period_path(@evaluation_period) , class:"btn btn-primary"%>
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar Período</i>"), edit_evaluation_period_path(@evaluation_period) , class:"btn btn-primary"%>
     
   </div>
 		
