@@ -25,15 +25,15 @@ RSpec.describe PhasesController, :type => :controller do
   # adjust the attributes here as well.
    let(:valid_attributes) {{
     :start_date_phase => "21/02/2014",
-    :end_date_phase => "23/05/2014" , :created_at => "09/10/2014",
-    :updated_at => "10/07/20140"
+    :end_date_phase => "23/05/2014" , 
+
   }}
   
 
   let(:invalid_attributes) {{
     :start_date_phase => "13/02/2014",
-    :end_date_phase => "12/02/2014" , :created_at => "12/10/2014",
-    :updated_at => "10/11/2014"
+    :end_date_phase => "12/02/2014" , 
+
  }}
 
   # This should return the minimal set of values that should be in the session
@@ -109,8 +109,8 @@ RSpec.describe PhasesController, :type => :controller do
     describe "with valid params" do
     let(:valid_attributes) {{
     :start_date_phase => "21/02/2014",
-    :end_date_phase => "23/05/2014" , :created_at => "09/10/2014",
-    :updated_at => "10/07/20140"}
+    :end_date_phase => "23/05/2014" , 
+    }
         
     }
 
