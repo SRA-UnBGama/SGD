@@ -1,16 +1,38 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-striped">
+<h1>Detalhes da meta</h1>
+  <thead>
+    <tr>
+      <th>Nome da meta:</th>
+      <th>Descrição da meta:</th>
+      <th>Prazo</th>
+     
+    </tr>
+  </thead>
 
-<p>
-  <strong > Nome da Meta: </strong >
-  <%= @goal.name_goal %>
-</p>
+  <tbody>
+  	<tr>
+  		<td>
+			<p>
+				<%= @goal.name_goal %>
+			</p>
+		</td>
+		<td>
+			<p>
+				<%= @goal.description_goal %>
+			</p>
+		</td>
+		<td>
+			<p>
+				<%= @goal.deadline_goal %>
+			</p>
+		</td>		
+	</tr>
+</tbody>
+</table>
 
-<p>
-  <strong >Descrição da Meta:</strong >
-  <%= @goal.description_goal %>
-</p>
-
-<p>
-  <strong>Prazo:</strong>
-  <%= @goal.deadline_goal %>
-</p>
+<div class="actions">
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path , class:"btn btn-warning"%>
+     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_goal_path(@goal) , class:"btn btn-primary"%>
+    
+  
