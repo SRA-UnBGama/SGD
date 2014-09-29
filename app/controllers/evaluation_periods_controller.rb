@@ -34,6 +34,7 @@ class EvaluationPeriodsController < ApplicationController
       if @evaluation_period.save
         define_name_description(@evaluation_period.phases)
         define_default_period_to_phases(@evaluation_period.phases)
+        define_status_phases(@evaluation_period.phases)
 
         format.html { redirect_to evaluation_period_path(@evaluation_period), notice: 'Evaluation period was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_period }
@@ -159,6 +160,19 @@ class EvaluationPeriodsController < ApplicationController
              phase.update_attributes(:start_date_phase => (start_date_period_final-15.day), :end_date_phase => end_date_period )
           end
            position+=1
+      end
+    end
+
+    def define_status_phases(phases)
+
+      phases.each do |phase|
+        if (Date.today > phase.start_date_phase) && (Date.today > phase.end_date_phase)
+          phase.update_attributes(:status_phase => "Encerrado")
+        elsif (Date.today > phase.start_date_phase) && (Date.today < phase.end_date_phase)
+          phase.update_attributes(:status_phase => "Em Andamento")
+        else
+          phase.update_attributes(:status_phase => "Aguardando")
+        end
       end
     end
 
