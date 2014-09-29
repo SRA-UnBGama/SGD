@@ -69,15 +69,15 @@ ActiveRecord::Schema.define(version: 20140922201940) do
   end
 
   create_table "phases", force: true do |t|
-    t.date     "start_date_phase",     limit: 255
-    t.date     "end_date_phase",       limit: 255
-    t.string   "status_phase"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "evaluation_period_id"
-    t.string   "phase_name"
-    t.text     "phase_description"
+    t.date    "start_date_phase",     limit: 255, default: '2014-04-12'
+    t.date    "end_date_phase",       limit: 255, default: '2014-05-12'
+    t.string  "status_phase"
+    t.integer "evaluation_period_id"
+    t.string  "phase_name"
+    t.text    "phase_description"
   end
+
+  add_index "phases", ["evaluation_period_id"], name: "index_phases_on_evaluation_period_id"
 
   create_table "users", force: true do |t|
     t.string   "name_user"

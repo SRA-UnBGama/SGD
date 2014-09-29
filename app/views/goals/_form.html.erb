@@ -20,8 +20,10 @@
     </div>
   <% end %>
 
-
-      <div class="form-group">
+      <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2" >
+       <div class="form-group">
         <%= f.label "Título" %>
         <%= f.text_field :name_goal, class: "form-control", placeholder: "Insira um título para a meta" %>
       </div>
@@ -33,6 +35,13 @@
         <%= f.label "Prazo" %>
         <%= f.text_field :deadline_goal, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: "Insira um prazo para a meta" %>
       </div> 
+    
+    <div class="span10" align="left" >
+      hue
+    </div>
+  </div>
+</div>
+     
 
   <div class=  "action">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path, class:"btn btn-warning"%>
