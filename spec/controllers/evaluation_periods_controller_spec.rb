@@ -86,7 +86,7 @@ RSpec.describe EvaluationPeriodsController, :type => :controller do
 
       it "redirects to the created evaluation_period" do
         post :create, {:evaluation_period => valid_attributes}, valid_session
-        expect(response).to redirect_to phases_path
+        expect(response).to redirect_to EvaluationPeriod.last
       end
     end
 
