@@ -12,14 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name_user %><br>
+    <%= f.label "Nome" %><br>
     <%= f.text_field :name_user %>
   </div>
   <div class="field">
-    <%= f.label :registry_user %><br>
-    <%= f.text_field :registry_user %>
+    <%= f.label "Matrícula FUB" %><br>
+    <%= f.text_field :fub_registry %>
+  </div>
+  <div class="field">
+    <%= f.label "Matrícula SIAPE" %><br>
+    <%= f.text_field :siape_registry %>
+  </div>
+  <div class="field">
+    <%= f.label "Centro de Custo" %><br>
+    <%= f.text_field :cost_center %>
+  </div>
+  <div class="field">
+    <%= f.label "Data de Admissão" %><br>
+    <%= f.text_field :admission_date %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
+    <%= f.submit 'Cadastrar Usuário', class:"btn btn-success" %>
   </div>
 <% end %>
+
+
