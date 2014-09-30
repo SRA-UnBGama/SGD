@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 5000);
+</script>
+<% flash.each do |type, message| %>
+  <% if not type.eql? :timedout %>
+    <div class="alert %> fade in">
+      <button class="close" data-dismiss="alert">×</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>

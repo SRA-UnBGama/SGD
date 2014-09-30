@@ -23,7 +23,8 @@
    </li>
   </ul>
 
-  <div class="container white">
+ <div class="container white">
+    <%= render partial: "shared/flash_messages", flash: flash %>
     <%= yield %>
   </div>
   </body>
