@@ -1,6 +1,6 @@
 <h1>Lista de Usuários</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nome</th>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'Cadastrar Novo Usuário', new_user_path %>
+<%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Cadastrar Novo Usuário</i>"), users_path , class:"btn btn-primary"%>
