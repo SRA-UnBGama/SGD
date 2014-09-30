@@ -1,38 +1,44 @@
-<p id="notice"><%= notice %></p>
-<table class="table table-striped">
-<h1>Detalhes da meta</h1>
-  <thead>
-    <tr>
-      <th>Nome da meta:</th>
-      <th>Descrição da meta:</th>
-      <th>Prazo</th>
-     
-    </tr>
-  </thead>
 
-  <tbody>
-  	<tr>
-  		<td>
-			<p>
-				<%= @goal.name_goal %>
-			</p>
-		</td>
-		<td>
-			<p>
-				<%= @goal.description_goal %>
-			</p>
-		</td>
-		<td>
-			<p>
-				<%= @goal.deadline_goal %>
-			</p>
-		</td>		
-	</tr>
-</tbody>
-</table>
+<div class="container">
+    <div class="row">
+      <div class="page-header">
+      	<p id="notice"><%= notice %></p>
+        <h1>Detalhes da Meta</h1>
+      </div>
 
-<div class="actions">
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path , class:"btn btn-warning"%>
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_goal_path(@goal) , class:"btn btn-primary"%>
-    
-  
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Nome da meta:</th>
+		      <th>Descrição da meta:</th>
+		      <th>Prazo</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		  	<tr>
+		  		<td>
+					<p>
+						<%= @goal.name_goal %>
+					</p>
+				</td>
+				<td>
+					<p>
+						<%= @goal.description_goal %>
+					</p>
+				</td>
+				<td>
+					<p>
+						<%= @goal.deadline_goal %>
+					</p>
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+
+		<div class="actions">
+		     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path , class:"btn btn-warning"%>
+		     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_goal_path(@goal) , class:"btn btn-primary"%>
+		</div>
+	</div>
+</div>

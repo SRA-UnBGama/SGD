@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
-<table class="table table-striped">
-<h1>Período de Avaliação</h1>
-<% period = "#{@evaluation_period.start_date_evaluation.strftime("%d/%m/%y")} à #{@evaluation_period.end_date_evaluation.strftime("%d/%m/%y")}"%>
-<h4><%=  period  %></h4>
-  <thead>
-    <tr>
-      <th>Fase</th>
-      <th>Data de início</th>
-      <th>Data de fim</th>
-      <th>Estado</th>
-    </tr>
-  </thead>
 
-  <tbody>
-  	<% @evaluation_period.phases.each do |phase| %>
-      <tr>
-        <td><%= phase.phase_name %></td>
-        <td><%= phase.start_date_phase.strftime("%d/%m/%Y") %></td>
-        <td><%= phase.end_date_phase.strftime("%d/%m/%Y")%></td>
-        <td><%= phase.status_phase %></td>
-        <td><%= button_to 'Editar Fase', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>
-      </tr>
-    <% end %>
-</tbody>
-</table>
+<div class="container">
+    <div class="row">
+      <div class="page-header">
+        <p id="notice"><%= notice %></p>
+        <h1>Fases do Período Avaliativo</h1>
 
-<div class="actions">
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_periods_path , class:"btn btn-warning"%>
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar Período</i>"), edit_evaluation_period_path(@evaluation_period) , class:"btn btn-primary"%>
-    
+        <% period = "#{@evaluation_period.start_date_evaluation.strftime("%d/%m/%y")} à #{@evaluation_period.end_date_evaluation.strftime("%d/%m/%y")}"%>
+        <h4><%=  period  %></h4>
+      </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fase</th>
+          <th>Data de início</th>
+          <th>Data de fim</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      	<% @evaluation_period.phases.each do |phase| %>
+          <tr>
+            <td><%= phase.phase_name %></td>
+            <td><%= phase.start_date_phase.strftime("%d/%m/%Y") %></td>
+            <td><%= phase.end_date_phase.strftime("%d/%m/%Y")%></td>
+            <td><%= phase.status_phase %></td>
+            <td><%= button_to 'Editar Fase', edit_phase_path(phase), class: "btn btn-primary", :method => :get %></td>
+          </tr>
+        <% end %>
+    </tbody>
+    </table>
+
+    <div class="actions">
+         <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_periods_path , class:"btn btn-warning"%>
+         <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar Período</i>"), edit_evaluation_period_path(@evaluation_period) , class:"btn btn-primary"%>
+
+      </div>
   </div>
-		
+</div>
