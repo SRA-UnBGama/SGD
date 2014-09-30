@@ -1,14 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name user:</strong>
+  <strong>Nome:</strong>
   <%= @user.name_user %>
 </p>
 
 <p>
-  <strong>Registry user:</strong>
-  <%= @user.registry_user %>
+  <strong>Matrícula FUB:</strong>
+  <%= @user.fub_registry %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <strong>Matrícula SIAPE:</strong>
+  <%= @user.siape_registry %>
+</p>
+
+<p>
+  <strong>Centro de Custo:</strong>
+  <%= @user.cost_center %>
+</p>
+
+<p>
+  <strong>Data de Admissão:</strong>
+  <%= @user.admission_date %>
+</p>
+
+<div class="actions">
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+</div>
