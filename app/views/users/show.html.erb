@@ -1,31 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <p id="notice"><%= notice %></p>
+      <h1>Dados do Usuário</h1>
+    </div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @user.name_user %>
-</p>
+    <p>
+      <strong>Nome:</strong>
+      <%= @user.name_user %>
+    </p>
 
-<p>
-  <strong>Matrícula FUB:</strong>
-  <%= @user.fub_registry %>
-</p>
+    <p>
+      <strong>Matrícula FUB:</strong>
+      <%= @user.fub_registry %>
+    </p>
 
-<p>
-  <strong>Matrícula SIAPE:</strong>
-  <%= @user.siape_registry %>
-</p>
+    <p>
+      <strong>Matrícula SIAPE:</strong>
+      <%= @user.siape_registry %>
+    </p>
 
-<p>
-  <strong>Centro de Custo:</strong>
-  <%= @user.cost_center %>
-</p>
+    <p>
+      <strong>Centro de Custo:</strong>
+      <%= @user.cost_center %>
+    </p>
 
-<p>
-  <strong>Data de Admissão:</strong>
-  <%= @user.admission_date %>
-</p>
+    <p>
+      <strong>Data de Admissão:</strong>
+      <%= @user.admission_date %>
+    </p>
 
-<div class="actions">
-    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
-    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+    <div class="actions">
+        <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
+        <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+    </div>
+  </div>
 </div>

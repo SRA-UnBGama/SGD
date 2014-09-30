@@ -1,7 +1,6 @@
-<%= simple_form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@user.errors.count, "erro") %> encontrado:</h4>
 
       <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -10,6 +9,8 @@
       </ul>
     </div>
   <% end %>
+  
+<%= simple_form_for(@user) do |f| %>
 
     <strong><hi>Nome</hi></strong>
     <%= f.input :name_user, :label => false %>
