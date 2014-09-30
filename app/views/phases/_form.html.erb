@@ -7,10 +7,10 @@
   })
 </script>
 
-<%= form_for(@phase) do |f| %>
+<%= simple_form_for(@phase) do |f| %>
   <% if @phase.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@phase.errors.count, "error") %> prohibited this phase from being saved:</h2>
+      <h4><%= pluralize(@phase.errors.count, "erro encontrado") %> :</h4>
 
       <ul>
       <% @phase.errors.full_messages.each do |message| %>
@@ -20,15 +20,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Data de início" %><br>
-    <%= f.text_field :start_date_phase, 'data-behaviour' => 'datepicker'%>
-  </div>
-  <div class="field">
-    <%= f.label "Data de fim" %><br>
-    <%= f.text_field :end_date_phase,'data-behaviour' => 'datepicker' %>
-  </div>
-   <div class="actions">
+    <%= f.label "Data Inicial: " %><br />
+    <%= f.text_field :start_date_phase, 'data-behaviour' => 'datepicker', :required => true %><br />
+
+    <%= f.label "Data Final: " %><br />
+    <%= f.text_field :end_date_phase, 'data-behaviour' => 'datepicker', :required => true %><br />
+    <br>
+
      <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_period_path(@phase.evaluation_period) , class:"btn btn-warning"%>
     <%= f.submit 'Definir Fase de Avaliação ', class:"btn btn-success" %>
 

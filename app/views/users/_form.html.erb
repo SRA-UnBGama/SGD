@@ -12,20 +12,30 @@
   
 <%= simple_form_for(@user) do |f| %>
 
-    <strong><hi>Nome</hi></strong>
-    <%= f.input :name_user, :label => false %>
+    <div>
+      <%= f.label "Nome: " %>
+      <%= f.input :name_user, :label => false %>
+    </div>
 
-    <strong><hi>Matrícula FUB</hi></strong>
-    <%= f.input :fub_registry, :label => false %>
+    <div>
+      <%= f.label "Matrícula FUB: " %>
+      <%= f.input :fub_registry, :label => false %>
+    </div>
 
-    <strong><hi>Matrícula SIAPE</hi></strong>
-    <%= f.input :siape_registry, :label => false %>
+    <div>
+      <%= f.label "Matrícula SIAPE: " %>
+      <%= f.input :siape_registry, :label => false %>
+    </div>
 
-    <strong><hi>Centro de Custo</hi></strong>
-    <%= f.input :cost_center, :label => false %>
+    <div>
+      <%= f.label "Centro de Custo: " %>
+      <%= f.input :cost_center, :label => false %>
+    </div>
 
-    <strong><hi>Data de Admissão</hi></strong>
-    <%= f.input :admission_date, :label => false %><br>
+    <div>
+      <%= f.label "Data de Admissão: " %>
+      <%= f.input :admission_date, :label => false %>
+    </div><br \>
 
   <div class="actions">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>

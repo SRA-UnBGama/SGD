@@ -7,7 +7,7 @@
   })
 </script>
 
-<%= form_for(@goal) do |f| %>
+<%= simple_form_for(@goal) do |f| %>
   <% if @goal.errors.any? %>
     <div id="error_explanation" >
       <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
@@ -20,9 +20,9 @@
     </div>
   <% end %>
 
-      <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2" >
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2" >
        <div class="form-group">
         <%= f.label "Título" %>
         <%= f.text_field :name_goal, class: "form-control", placeholder: "Insira um título para a meta" %>

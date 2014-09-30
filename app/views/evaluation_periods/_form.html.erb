@@ -7,7 +7,7 @@
   })
 </script>
 
-<%= form_for(@evaluation_period) do |f| %>
+<%= simple_form_for(@evaluation_period) do |f| %>
   <% if @evaluation_period.errors.any? %>
     <div  class="alert-error">
       <h2><%= pluralize(@evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h2>
@@ -21,11 +21,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :início_do_período_avaliativo %><br>
+    <%= f.label "Início do Período Avaliativo: " %><br>
     <%= f.text_field :start_date_evaluation ,'data-behaviour' => 'datepicker'%>
   </div>
   <div class="field">
-    <%= f.label :fim_do_período_avaliativo %><br>
+    <%= f.label "Fim do Período Avaliativo" %><br>
     <%= f.text_field :end_date_evaluation,'data-behaviour' => 'datepicker' %>
   </div>
   <div class=  "action">
