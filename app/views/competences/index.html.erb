@@ -1,6 +1,10 @@
-<h1>Listing competences</h1>
+<div class="container">
+    <div class="row">
+      <div class="page-header">
+      <h1>Listing competences</h1>        
+      </div>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name competence</th>
@@ -26,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Competence', new_competence_path %>
+
+<%= button_to "Nova Meta", new_competence_path, class: "btn btn-success", :method => :get %>
+</div>
+</div>
