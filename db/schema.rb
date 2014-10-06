@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006180427) do
+ActiveRecord::Schema.define(version: 20141006192158) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -92,10 +92,9 @@ ActiveRecord::Schema.define(version: 20141006180427) do
 
   create_table "working_conditions", force: true do |t|
     t.string   "name_working_condition"
-    t.string   "description_working_condition"
-    t.string   "value_working_condition"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_active_condition"
   end
 
 end
