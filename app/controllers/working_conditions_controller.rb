@@ -8,11 +8,6 @@ class WorkingConditionsController < ApplicationController
     @forms = Form.all
   end
 
-  # GET /working_conditions/1
-  # GET /working_conditions/1.json
-  def show
-  end
-
   # GET /working_conditions/new
   def new
     @working_condition = WorkingCondition.new

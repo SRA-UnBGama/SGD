@@ -8,11 +8,6 @@ class CompetencesController < ApplicationController
     @forms = Form.all
   end
 
-  # GET /competences/1
-  # GET /competences/1.json
-  def show
-  end
-
   # GET /competences/new
   def new
     @competence = Competence.new

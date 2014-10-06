@@ -17,8 +17,8 @@
       <% @working_conditions.each do |working_condition| %>
         <tr>
           <td><%= working_condition.name_working_condition %></td>
-          <td><%= link_to 'Editar', edit_working_condition_path(working_condition) %></td>
-          <td><%= link_to 'Inativar', working_condition, method: :delete, data: { confirm: 'Tem certeza que deseja inativar?' } %></td>
+          <td><%= button_to 'Editar', edit_working_condition_path(working_condition), class: "btn btn-primary", :method => :get %></td>
+          <td><%= button_to 'Inativar', working_condition, class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja inativar?' } %></td>
         </tr>
       <% end %>
     </tbody>
