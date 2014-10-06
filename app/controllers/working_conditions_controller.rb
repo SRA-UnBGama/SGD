@@ -29,8 +29,7 @@ class WorkingConditionsController < ApplicationController
 
     respond_to do |format|
       if @working_condition.save
-        format.html { redirect_to @working_condition, notice: 'Working condition was successfully created.' }
-        format.json { render :show, status: :created, location: @working_condition }
+        format.html { redirect_to working_conditions_path, notice: 'Working condition was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @working_condition.errors, status: :unprocessable_entity }
@@ -43,8 +42,7 @@ class WorkingConditionsController < ApplicationController
   def update
     respond_to do |format|
       if @working_condition.update(working_condition_params)
-        format.html { redirect_to @working_condition, notice: 'Working condition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @working_condition }
+        format.html { redirect_to working_conditions_path, notice: 'Working condition was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @working_condition.errors, status: :unprocessable_entity }

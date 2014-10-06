@@ -29,8 +29,7 @@ class CompetencesController < ApplicationController
 
     respond_to do |format|
       if @competence.save
-        format.html { redirect_to @competence, notice: 'Competence was successfully created.' }
-        format.json { render :show, status: :created, location: @competence }
+        format.html { redirect_to competences_path, notice: 'Competence was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @competence.errors, status: :unprocessable_entity }
@@ -43,7 +42,7 @@ class CompetencesController < ApplicationController
   def update
     respond_to do |format|
       if @competence.update(competence_params)
-        format.html { redirect_to @competence, notice: 'Competence was successfully updated.' }
+        format.html { redirect_to competences_path, notice: 'Competence was successfully updated.' }
         format.json { render :show, status: :ok, location: @competence }
       else
         format.html { render :edit }
