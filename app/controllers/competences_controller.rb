@@ -70,6 +70,6 @@ class CompetencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competence_params
-      params.require(:competence).permit(:name_competence, :description_competence, :value_competence, :form_ids => [])
+      params.require(:competence).permit(:name_competence, :type_competence, :form_ids => [])
     end
 end
