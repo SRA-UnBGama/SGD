@@ -28,14 +28,6 @@ RSpec.describe CompetencesController, :type => :controller do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested competence as @competence" do
-      competence = Competence.create! valid_attributes
-      get :show, {:id => competence.to_param}, valid_session
-      expect(assigns(:competence)).to eq(competence)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new competence as @competence" do
       get :new, {}, valid_session
@@ -67,7 +59,7 @@ RSpec.describe CompetencesController, :type => :controller do
 
       it "redirects to the created competence" do
         post :create, {:competence => valid_attributes}, valid_session
-        expect(response).to redirect_to(Competence.last)
+        expect(response).to redirect_to(competences_path)
       end
     end
 
@@ -110,7 +102,7 @@ RSpec.describe CompetencesController, :type => :controller do
       it "redirects to the competence" do
         competence = Competence.create! valid_attributes
         put :update, {:id => competence.to_param, :competence => valid_attributes}, valid_session
-        expect(response).to redirect_to(competence)
+        expect(response).to redirect_to(competences_path)
       end
     end
 
