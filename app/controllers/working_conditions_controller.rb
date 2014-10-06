@@ -70,6 +70,6 @@ class WorkingConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_condition_params
-      params.require(:working_condition).permit(:name_working_condition, :description_working_condition, :value_working_condition, :form_ids => [])
+      params.require(:working_condition).permit(:name_working_condition, :is_active_condition, :form_ids => [])
     end
 end
