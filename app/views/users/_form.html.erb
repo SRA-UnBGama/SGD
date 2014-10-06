@@ -35,7 +35,17 @@
     <div>
       <%= f.label "Data de Admissão: " %>
       <%= f.input :admission_date, :label => false %>
-    </div><br \>
+    </div>
+    <div>
+      <%= f.label "Senha: " %>
+      <%= f.input :password, :label => false %>
+    </div>
+    <div>
+      <%= f.label "Confirmação de Senha: " %>
+      <%= f.input :password_confirmation, :label => false %>
+    </div>
+
+    <br \>
 
   <div class="actions">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>

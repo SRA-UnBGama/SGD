@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930172433) do
+ActiveRecord::Schema.define(version: 20141006180427) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -78,8 +78,17 @@ ActiveRecord::Schema.define(version: 20140930172433) do
 
   add_index "phases", ["evaluation_period_id"], name: "index_phases_on_evaluation_period_id"
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "name_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "job_title"
+    t.string   "cost_center"
+    t.string   "fub_registry"
+    t.string   "siape_registry"
+    t.date     "admission_date"
+    t.string   "password_digest"
+  end
 
   create_table "working_conditions", force: true do |t|
     t.string   "name_working_condition"
