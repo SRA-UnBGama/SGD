@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006192158) do
+ActiveRecord::Schema.define(version: 20141007121830) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
     t.string   "type_competence"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_active_competence"
   end
 
   create_table "competences_forms", id: false, force: true do |t|

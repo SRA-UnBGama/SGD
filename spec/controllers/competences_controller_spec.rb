@@ -122,12 +122,7 @@ RSpec.describe CompetencesController, :type => :controller do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested competence" do
-      competence = Competence.create! valid_attributes
-      expect {
-        delete :destroy, {:id => competence.to_param}, valid_session
-      }.to change(Competence, :count).by(-1)
-    end
+    it "destroys the requested competence"
 
     it "redirects to the competences list" do
       competence = Competence.create! valid_attributes

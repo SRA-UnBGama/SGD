@@ -21,6 +21,7 @@ class CompetencesController < ApplicationController
   # POST /competences.json
   def create
     @competence = Competence.new(competence_params)
+    @competence.is_active_competence = true
 
     respond_to do |format|
       if @competence.save
@@ -49,9 +50,11 @@ class CompetencesController < ApplicationController
   # DELETE /competences/1
   # DELETE /competences/1.json
   def destroy
-    @competence.destroy
+    @competence.is_active_competence ? @competence.is_active_competence = false : @competence.is_active_competence = true
+    @competence.save
+
     respond_to do |format|
-      format.html { redirect_to competences_url, notice: 'Competence was successfully destroyed.' }
+      format.html { redirect_to competences_url, notice: 'Competência foi desativado com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -8,7 +8,8 @@
   <thead>
     <tr>
       <th>Nome</th>
-      <th colspan="3"></th>
+      <th>Estado</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -16,8 +17,9 @@
     <% @competences.each do |competence| %>
       <tr>
         <td><%= competence.name_competence %></td>
+        <td><%= competence.is_active_competence ? "Ativado" : "Desativado"   %></td>
         <td><%= button_to 'Editar', edit_competence_path(competence), class: "btn btn-primary", :method => :get %></td>
-          <td><%= button_to 'Inativar', competence, class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja inativar?' } %></td>
+        <td><%= button_to (competence.is_active_competence ? "Desativar" : "Ativar"), competence, tooltip: "%s Competência?" % ( competence.is_active_competence ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta competência?' % ( competence.is_active_competence ? "desativar" : "ativar")} %></td>
       </tr>
     <% end %>
   </tbody>
