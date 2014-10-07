@@ -82,15 +82,15 @@ RSpec.describe CompetencesController, :type => :controller do
         :name_competence => "Presta atendimento aos cidadãos, 
     sem distinção ou preconceito, com cortesia, precisão e agilidade baseando-se 
     no interesse público e nas normas internas da UnB", :type_competence => "Fundamentais"
-    
+
   }}
-      
+
 
       it "updates the requested competence" do
         competence = Competence.create! valid_attributes
         put :update, {:id => competence.to_param, :competence => new_attributes}, valid_session
         competence.reload
-       
+
       end
 
       it "assigns the requested competence as @competence" do

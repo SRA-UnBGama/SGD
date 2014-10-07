@@ -21,6 +21,7 @@ class WorkingConditionsController < ApplicationController
   # POST /working_conditions.json
   def create
     @working_condition = WorkingCondition.new(working_condition_params)
+    @working_condition.is_active_condition = true
 
     respond_to do |format|
       if @working_condition.save
@@ -48,9 +49,12 @@ class WorkingConditionsController < ApplicationController
   # DELETE /working_conditions/1
   # DELETE /working_conditions/1.json
   def destroy
-    @working_condition.destroy
+    @working_condition.is_active_condition ? @working_condition.is_active_condition = false : @working_condition.is_active_condition = true
+    @working_condition.save
+
+
     respond_to do |format|
-      format.html { redirect_to working_conditions_url, notice: 'Working condition was successfully destroyed.' }
+      format.html { redirect_to working_conditions_url, notice: 'Condição de Trabalho Desativada com Sucesso.' }
       format.json { head :no_content }
     end
   end
