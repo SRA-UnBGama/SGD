@@ -20,15 +20,21 @@ class CompetencesController < ApplicationController
   # POST /competences
   # POST /competences.json
   def create
+    competences_actived = Competence.where(:is_active_competence => true).count
+
     @competence = Competence.new(competence_params)
     @competence.is_active_competence = true
 
     respond_to do |format|
-      if @competence.save
-        format.html { redirect_to competences_path, notice: 'Competence was successfully created.' }
+      if competences_actived < 10
+        if @competence.save
+          format.html { redirect_to competences_path, notice: 'Competence was successfully created.' }
+        else
+          format.html { render :new }
+          format.json { render json: @competence.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @competence.errors, status: :unprocessable_entity }
+        format.html { redirect_to competences_path, notice: "Já existem 10 competências ativas. Desative alguma antes de cadastrar uma nova competência." }
       end
     end
   end
@@ -51,11 +57,17 @@ class CompetencesController < ApplicationController
   # DELETE /competences/1.json
   def destroy
     @competence.is_active_competence ? @competence.is_active_competence = false : @competence.is_active_competence = true
-    @competence.save
 
     respond_to do |format|
-      format.html { redirect_to competences_url, notice: 'Competência foi desativado com sucesso.' }
-      format.json { head :no_content }
+      competences_actived = Competence.where(:is_active_competence => true).count
+      if !(competences_actived >= 10 && (@competence.is_active_competence == true))
+        @competence.save
+        format.html { redirect_to competences_url, notice: 'Competência foi alterada com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to working_conditions_url, notice: 'Competência não alterada. Limite de Competência ativas foi Atingido.' }
+        format.json { head :no_content }
+      end
     end
   end
 
