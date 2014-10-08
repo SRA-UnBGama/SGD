@@ -1,7 +1,6 @@
 class Phase < ActiveRecord::Base
-belongs_to :evaluation_period
-
-		validate :dates_are_valid, :minimum_period_phase
+  belongs_to :evaluation_period
+  validate :dates_are_valid, :minimum_period_phase
 
 
   def dates_are_valid
@@ -13,7 +12,7 @@ belongs_to :evaluation_period
 	    end
 	else
 			#Nothing to do
-	end	
+	end
   end
 
   def minimum_period_phase

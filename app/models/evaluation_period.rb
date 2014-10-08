@@ -7,13 +7,12 @@ class EvaluationPeriod < ActiveRecord::Base
 
   def dates_are_valid
     if self.end_date_evaluation.present? && self.start_date_evaluation.present?
-    	
 	    if end_date_evaluation < start_date_evaluation
 	    	errors.add(:end_date_evaluation, "A data final deve ser após a data de início do intervalo.")
 	    end
 	else
-	#nothing to do		
-	end	
+	#nothing to do
+	end
   end
 
   def minimum_period
@@ -26,5 +25,4 @@ class EvaluationPeriod < ActiveRecord::Base
 		end
 	end
   end
-  	
 end

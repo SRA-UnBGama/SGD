@@ -10,6 +10,7 @@ class EvaluationPeriodsController < ApplicationController
   # GET /evaluation_periods/1
   # GET /evaluation_periods/1.json
   def show
+    define_status_phases(@evaluation_period.phases)
   end
 
   # GET /evaluation_periods/new
@@ -91,14 +92,14 @@ class EvaluationPeriodsController < ApplicationController
       @monitoring = monitoring
       @formalization = formalization
       @development_plan = development_plan
-      
+
       phases = []
       phases << @planning
       phases << @monitoring
       phases << @formalization
       phases << @development_plan
       phases
-    
+
     end
 
     def create_phases()
