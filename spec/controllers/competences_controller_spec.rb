@@ -122,8 +122,6 @@ RSpec.describe CompetencesController, :type => :controller do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested competence"
-
     it "redirects to the competences list" do
       competence = Competence.create! valid_attributes
       delete :destroy, {:id => competence.to_param}, valid_session
