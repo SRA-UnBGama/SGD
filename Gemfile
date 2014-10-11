@@ -30,6 +30,8 @@ gem 'libv8', '~> 3.11.8.12'
 
 gem "less-rails"
 
+gem 'simplecov', :require => false, :group => :test
+
 
 gem 'bootstrap-datepicker-rails'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
