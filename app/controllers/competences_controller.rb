@@ -65,7 +65,7 @@ class CompetencesController < ApplicationController
         format.html { redirect_to competences_url, notice: 'Competência foi alterada com sucesso.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to working_conditions_url, notice: 'Competência não alterada. Limite de Competência ativas foi Atingido.' }
+        format.html { redirect_to competences_url, notice: 'Competência não alterada. Limite de Competência ativas foi Atingido.' }
         format.json { head :no_content }
       end
     end
