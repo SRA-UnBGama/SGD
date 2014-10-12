@@ -30,7 +30,7 @@ class WorkingConditionsController < ApplicationController
     respond_to do |format|
       if workings_conditions_actived < 10
         if @working_condition.save
-         format.html { redirect_to working_conditions_path, notice: 'Working condition was successfully created.' }
+         format.html { redirect_to new_working_condition_path, notice: 'Condição de Trabalho criada com Sucesso.' }
         else
           format.html { render :new }
           format.json { render json: @working_condition.errors, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class WorkingConditionsController < ApplicationController
   def update
     respond_to do |format|
       if @working_condition.update(working_condition_params)
-        format.html { redirect_to working_conditions_path, notice: 'Working condition was successfully updated.' }
+        format.html { redirect_to working_conditions_path, notice: 'Condição de Trabalho atualizada com Sucesso.' }
       else
         format.html { render :edit }
         format.json { render json: @working_condition.errors, status: :unprocessable_entity }

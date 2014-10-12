@@ -2,7 +2,7 @@ class WorkingCondition < ActiveRecord::Base
 	has_and_belongs_to_many :forms
 	validates_presence_of :name_working_condition
 	validates_uniqueness_of :name_working_condition
-	validate :max_number_of_working_condition
+	validate :max_number_of_working_conditions
 
 	def max_number_of_working_conditions
 		max = 10
