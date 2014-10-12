@@ -7,34 +7,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="papel">
-  <ul class="nav nav-tabs" role="tablist">
-   <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        Opções <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" role="menu">
-      	<li>
-      		<%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Período de avaliação</i>"), evaluation_periods_path%>
-      	</li>
-        <li>
-          <%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Metas</i>"), goals_path%>
-        </li>
-        <li>
-          <%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Competências</i>"), competences_path%>
-        </li>
-        <li>
-          <%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Usuários</i>"), users_path%>
-        </li>
-         <li>
-          <%= link_to raw("<i class=\"icon-white icon-arrow-left nolink\">Condições de Trabalho</i>"), working_conditions_path%>
-        </li>
-      </ul>
-   </li>
-  </ul>
+      <%= render 'shared/navbar' %>
 
- <div class="container white">
-    <%= render partial: "shared/flash_messages", flash: flash %>
-    <%= yield %>
-  </div>
-  </body>
+      <div class="container white">
+        <%= render partial: "shared/flash_messages", flash: flash %>
+        <%= yield %>
+      </div>
+  </boxdy>
 </html>
