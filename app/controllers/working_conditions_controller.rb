@@ -1,3 +1,4 @@
+# -*- e
 class WorkingConditionsController < ApplicationController
   before_action :set_working_condition, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +12,7 @@ class WorkingConditionsController < ApplicationController
   # GET /working_conditions/new
   def new
     @working_condition = WorkingCondition.new
+    @working_conditions = WorkingCondition.all
   end
 
   # GET /working_conditions/1/edit
