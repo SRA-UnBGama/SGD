@@ -7,7 +7,7 @@
         <%= form_for(@working_condition) do |f| %>
   <% if @working_condition.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@working_condition.errors.count, "error") %> Não foi possível cadastrar Condição de Trabalho:</h2>
+      <%=  %> Não foi possível cadastrar Condição de Trabalho:
 
       <ul>
       <% @working_condition.errors.full_messages.each do |message| %>
@@ -28,7 +28,7 @@
 <% end %>
       </div>
       <div class="col-md-6">
-        <div class="container" >
+        
   <div class="list-group">
   <a href="#" class="list-group-item active">
     Condições de Trabalho cadastradas
@@ -39,7 +39,7 @@
   <% end %>
  
 </div>
-</div>
+
       </div>
     </div>
   </div>
