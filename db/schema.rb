@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012190751) do
+ActiveRecord::Schema.define(version: 20141013171929) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20141012190751) do
     t.string   "siape_registry"
     t.date     "admission_date"
     t.string   "password_digest"
+    t.boolean  "is_active_user"
   end
 
   create_table "working_conditions", force: true do |t|
