@@ -35,16 +35,13 @@
         <%= f.label "Prazo" %>
         <%= f.text_field :deadline_goal, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: "Insira um prazo para a meta" %>
       </div>
-    <div class="span10" align="right" >
-      <input type="checkbox" name="Declaracao"> Declaro que esta meta está de acordo com a Plano da Universidade de Brasília.
-
-    </div>
+     </div>
   </div>
 </div>
 
 
   <div class=  "action">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path, class:"btn btn-warning"%>
-    <%= f.submit 'Nova Meta', class:"btn btn-success" %>
+    <%= f.submit 'Nova Meta', class:"btn btn-success", data: {confirm: 'Você confirma que a criação desta meta é necessária e está de acordo com as normas da UnB?' % ( new_goal_path)} %>
   </div>
 <% end %>

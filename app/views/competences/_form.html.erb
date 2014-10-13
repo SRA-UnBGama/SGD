@@ -17,6 +17,6 @@
    </div>
    <div class="actions">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), competences_path, class:"btn btn-warning"%>
-    <%= f.submit 'Nova competência', class:"btn btn-success" %>
+    <%= f.submit 'Nova competência', class:"btn btn-success", data: {confirm: 'Você confirma que a criação desta compência é necessária e está de acordo com as normas da UnB?' % ( new_competence_path)} %>
   </div>
 <% end %>
