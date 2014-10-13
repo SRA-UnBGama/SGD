@@ -1,6 +1,6 @@
 <%= form_for(@evaluation) do |f| %>
   <% if @evaluation.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(@evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
 
       <ul>

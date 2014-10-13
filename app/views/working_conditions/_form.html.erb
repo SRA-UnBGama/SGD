@@ -1,49 +1,43 @@
-
 <body>
-  
-  <div style="padding:0 15px;"><!-- offset row negative padding -->
-    <div class="row">
-      <div class="col-md-6">
-        <%= form_for(@working_condition) do |f| %>
-  <% if @working_condition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@working_condition.errors.count, "error") %> Não foi possível cadastrar Condição de Trabalho:</h2>
-
-      <ul>
-      <% @working_condition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "Condição de Trabalho" %><br>
-    <%= f.text_area :name_working_condition, :size => "50x10" %>
-  </div>
-  <div class="actions">
-     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), working_conditions_path , class:"btn btn-warning"%>
-    <%= f.submit 'Cadastrar Condição de Trabalho', class:"btn btn-success" %>
-  </div>
-<% end %>
+   <div style="padding:0 15px;">
+      <!-- offset row negative padding -->
+      <div class="row">
+         <div class="col-md-6">
+            <%= form_for(@working_condition) do |f| %>
+            <% if @working_condition.errors.any? %>
+            <div class="alert alert-danger">
+               <h4><%= pluralize(@working_condition.errors.count, "error") %> Não foi possível cadastrar Condição de Trabalho:</h4>
+               <ul>
+                  <% @working_condition.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+               </ul>
+            </div>
+            <% end %>
+            <div class="field">
+               <%= f.label "Condição de Trabalho" %><br>
+               <%= f.text_area :name_working_condition, :size => "50x10" %>
+            </div>
+            <div class="actions">
+               <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), working_conditions_path , class:"btn btn-warning"%>
+               <%= f.submit 'Cadastrar Condição de Trabalho', class:"btn btn-success" %>
+            </div>
+            <% end %>
+         </div>
+         <div class="col-md-6">
+            <div class="container" >
+               <div class="list-group">
+                  <a href="#" class="list-group-item active">
+                  Condições de Trabalho cadastradas
+                  </a>
+                  <% if @working_conditions != nil %>
+                  <% @working_conditions.each do |working_condition| %>
+                  <a href="#" class="list-group-item"><%= working_condition.name_working_condition %></a>
+                  <% end %>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="col-md-6">
-        <div class="container" >
-  <div class="list-group">
-  <a href="#" class="list-group-item active">
-    Condições de Trabalho cadastradas
-  </a>
- <% @working_conditions.each do |working_condition| %>
-
-  <a href="#" class="list-group-item"><%= working_condition.name_working_condition %></a>
-  <% end %>
- 
-</div>
-</div>
-      </div>
-    </div>
-  </div>
-
+   </div>
+   <% end -%>
 </body>
-
-

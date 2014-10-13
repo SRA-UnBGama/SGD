@@ -9,8 +9,8 @@
 
 <%= simple_form_for(@evaluation_period) do |f| %>
   <% if @evaluation_period.errors.any? %>
-    <div  class="alert-error">
-      <h2><%= pluralize(@evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h2>
+    <div  class="alert alert-danger">
+      <h4><%= pluralize(@evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h4>
 
       <ul>
       <% @evaluation_period.errors.full_messages.each do |message| %>
