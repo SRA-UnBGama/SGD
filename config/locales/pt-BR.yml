@@ -1,3 +1,4 @@
+# encoding: UTF-8
 pt-BR:
   date:
     abbr_day_names:
@@ -204,3 +205,48 @@ pt-BR:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'
     pm: ''
+# Makes the translation of the attributes of the models in the application and the name of the models.
+    activerecord:
+        # Dictionary name for each of the models of the application.
+        models:
+            competence: Competência
+            evaluation: Avaliação
+            evaluation_period: Período de Avaliação
+            form: Formulário
+            goal: Meta
+            phase: Fase
+            user: Usuário
+            working_codition: Condição de Trabalho
+        # Dictionary name for each of the attributes in all models of the application.
+        attributes:
+            competence:
+                name_competence: "Nome da Competência"
+                type_competence: "Tipo da Competência"
+            evaluation:
+                evaluation_date: "Data a Avaliação"
+                observatinos_evaluated: "Observações"
+            evaluation_period:
+                start_date_evaluation: "Data Inicial do Período da Avaliação"
+                end_date_evaluation: "Data Final do Período da Avaliação"
+            form:
+                date: "Data do Preenchimento"
+            goal:
+                name_goal: "Nome da Meta"
+                deadline_goal: "Prazo da Meta"
+                description_goal: "Descrição da Meta"
+                value_goal: "Valor Atribuído à Meta"
+            phase:
+                start_date_phase: "Data Inicial da Fase"
+                end_date_phase: "Data Final da Fase"
+                status_phase: "Status da Fase"
+                phase_name: "Nome da Fase"
+                phase_description: "Descrição da Fase"
+            user:
+                name_user: "Nome"
+                fub_registry: "Matrícula FUB"
+                siape_registry: "Matrícula SIAPE"
+                admission_date: "Data de Adimissão"
+                cost_center: "Centro de Custo"
+            working_codition:
+                name_working_condition: "Nome da Condição de Trabalho"
+                is_active_condition: Está Ativada"
