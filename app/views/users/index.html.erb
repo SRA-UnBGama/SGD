@@ -25,6 +25,7 @@
             <td><%= user.cost_center %></td>
             <td><%= user.admission_date.strftime("%d/%m/%Y") %></td>
             <td><%= button_to 'Editar', edit_user_path(user), class: "btn btn-primary", :method => :get %></td>
+             <td><%= button_to (user.is_active_user ? "Desativar" : "Ativar"), user, tooltip: "%s Usuário?" % ( user.is_active_user ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta usuário?' % ( user.is_active_user ? "desativar" : "ativar")} %></td>
           </tr>
         <% end %>
       </tbody>
