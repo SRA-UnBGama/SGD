@@ -42,16 +42,24 @@
 .nolink{
     text-decoration: none;
 }
-.carousel-inner{
-    width: auto;
-    height: 50%;
+.carousel{
+    margin: 0 auto;
+
 }
-.completa{
-    width: 100%;
-    height: 100%;
+.carousel-inner{
+    margin: 0 auto;
+
+}
+.slide{
+    height: 600px;
+    width: 1000px;
+}
+.item{
+    width: 1000px;
+    height: 600px;
 }
 .nav{
-    background-color: white;
+    background-color: #339CCB;
 }
 .white{
     margin-top: 20px;
@@ -64,4 +72,8 @@
     background-repeat: no-repeat;
     background-size: 100%;
 
+}
+.text-black{
+    color: black;
+    text-shadow: 2px 2px white;
 }
