@@ -1,26 +1,32 @@
-<h1>Solução de Aprendizagem</h1>
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h1>Solução de Aprendizagem</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Descrição</th>
-      <th>Categoria</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table  class="table table-striped">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Categoria</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @learning_solutions.each do |learning_solution| %>
-      <tr>
-        <td><%= learning_solution.description %></td>
-        <td><%= learning_solution.category %></td>
-        <td><%= link_to 'Editar', edit_learning_solution_path(learning_solution) %></td>
-        <td><%= link_to 'Inativar', learning_solution, method: :delete, data: { confirm: 'Tem certeza que deseja %s esta Solução de Aprendizagem?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @learning_solutions.each do |learning_solution| %>
+          <tr>
+            <td><%= learning_solution.description %></td>
+            <td><%= learning_solution.category %></td>
+            <td><%= button_to 'Editar', edit_learning_solution_path(learning_solution), class: "btn btn-primary", :method => :get %></td>
+            <td><%= link_to 'Inativar', learning_solution, method: :delete, data: { confirm: 'Tem certeza que deseja %s esta Solução de Aprendizagem?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'Cadastrar Solução de Aprendizagem', new_learning_solution_path %>
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Cadastrar Solução de Aprendizagem</i>"), new_learning_solution_path , class:"btn btn-primary"%>
+
+  </div>
+</div>
