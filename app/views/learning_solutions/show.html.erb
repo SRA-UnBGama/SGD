@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @learning_solution.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @learning_solution.category %>
+</p>
+
+<%= link_to 'Edit', edit_learning_solution_path(@learning_solution) %> |
+<%= link_to 'Back', learning_solutions_path %>
