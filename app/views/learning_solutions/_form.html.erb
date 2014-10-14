@@ -2,11 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :category %>
+    <%= f.label "Descrição" %>
+    <%= f.input :description, :label => false %>
+
+    <%= f.label "Categoria" %>
+    <%= f.input :category, :label => false %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="actions">
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), learning_solutions_path , class:"btn btn-warning"%>
+    <%= f.submit 'Salvar Solução de Aprendizagem', class:"btn btn-success" %>
   </div>
+
 <% end %>
