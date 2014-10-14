@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014173526) do
+ActiveRecord::Schema.define(version: 20141014184531) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20141014173526) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_active_learning_solution"
   end
 
   create_table "phases", force: true do |t|

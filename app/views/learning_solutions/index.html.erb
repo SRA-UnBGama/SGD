@@ -18,7 +18,7 @@
             <td><%= learning_solution.description %></td>
             <td><%= learning_solution.category %></td>
             <td><%= button_to 'Editar', edit_learning_solution_path(learning_solution), class: "btn btn-primary", :method => :get %></td>
-            <td><%= link_to 'Inativar', learning_solution, method: :delete, data: { confirm: 'Tem certeza que deseja %s esta Solução de Aprendizagem?' } %></td>
+            <td><%= button_to (learning_solution.is_active_learning_solution ? "Desativar" : "Ativar"), learning_solution, tooltip: "%s Solução de Aprendizagem?" % ( learning_solution.is_active_learning_solution ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta Solução de Aprendizagem?' % ( learning_solution.is_active_learning_solution ? "desativar" : "ativar")} %></td>
           </tr>
         <% end %>
       </tbody>
