@@ -25,6 +25,7 @@ class LearningSolutionsController < ApplicationController
   # POST /learning_solutions.json
   def create
     @learning_solution = LearningSolution.new(learning_solution_params)
+    @learning_solution.is_active_learning_solution = true;
 
     respond_to do |format|
       if @learning_solution.save
@@ -54,8 +55,9 @@ class LearningSolutionsController < ApplicationController
   # DELETE /learning_solutions/1
   # DELETE /learning_solutions/1.json
   def destroy
-    @learning_solution.destroy
+    @learning_solution.is_active_learning_solution ? @learning_solution.is_active_learning_solution = false : @learning_solution.is_active_learning_solution = true
     respond_to do |format|
+      @learning_solution.save
       format.html { redirect_to learning_solutions_url, notice: 'Learning solution was successfully destroyed.' }
       format.json { head :no_content }
     end
