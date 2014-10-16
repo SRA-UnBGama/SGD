@@ -29,8 +29,8 @@ class LearningSolutionsController < ApplicationController
 
     respond_to do |format|
       if @learning_solution.save
-        format.html { redirect_to @learning_solution, notice: 'Learning solution was successfully created.' }
-        format.json { render :show, status: :created, location: @learning_solution }
+        format.html { redirect_to learning_solutions_path, notice: 'Learning solution was successfully created.' }
+        format.json { render :index, status: :created, location: @learning_solution }
       else
         format.html { render :new }
         format.json { render json: @learning_solution.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class LearningSolutionsController < ApplicationController
   def update
     respond_to do |format|
       if @learning_solution.update(learning_solution_params)
-        format.html { redirect_to @learning_solution, notice: 'Learning solution was successfully updated.' }
-        format.json { render :show, status: :ok, location: @learning_solution }
+        format.html { redirect_to learning_solutions_path, notice: 'Learning solution was successfully updated.' }
+        format.json { render :index, status: :ok, location: @learning_solution }
       else
         format.html { render :edit }
         format.json { render json: @learning_solution.errors, status: :unprocessable_entity }

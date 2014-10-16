@@ -23,13 +23,13 @@ RSpec.describe LearningSolutionsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # LearningSolution. As you add validations to LearningSolution, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) {{
+    :description => "Fazer curso de excel", :category => "Excel"
+    }}
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) {{
+    :description => "", :category => ""
+    }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -83,7 +83,7 @@ RSpec.describe LearningSolutionsController, :type => :controller do
 
       it "redirects to the created learning_solution" do
         post :create, {:learning_solution => valid_attributes}, valid_session
-        expect(response).to redirect_to(LearningSolution.last)
+        expect(response).to redirect_to(learning_solutions_path)
       end
     end
 
@@ -122,7 +122,7 @@ RSpec.describe LearningSolutionsController, :type => :controller do
       it "redirects to the learning_solution" do
         learning_solution = LearningSolution.create! valid_attributes
         put :update, {:id => learning_solution.to_param, :learning_solution => valid_attributes}, valid_session
-        expect(response).to redirect_to(learning_solution)
+        expect(response).to redirect_to(learning_solutions_path)
       end
     end
 
@@ -146,7 +146,7 @@ RSpec.describe LearningSolutionsController, :type => :controller do
       learning_solution = LearningSolution.create! valid_attributes
       expect {
         delete :destroy, {:id => learning_solution.to_param}, valid_session
-      }.to change(LearningSolution, :count).by(-1)
+      }.to change(LearningSolution, :count).by(0)
     end
 
     it "redirects to the learning_solutions list" do
