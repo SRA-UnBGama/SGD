@@ -1,0 +1,2 @@
+module AutoEvaluationsHelper
+end
