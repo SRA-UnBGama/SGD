@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :auto_evaluations
+
   resources :learning_solutions
 
   resources :phases, :only => [:edit, :update]
