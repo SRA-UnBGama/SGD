@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :auto_evaluations
-
   resources :learning_solutions
 
   resources :phases, :only => [:edit, :update]
