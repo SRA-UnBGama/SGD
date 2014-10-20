@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'therubyracer', '0.11.3'
 
 gem 'libv8', '~> 3.11.8.12'
-
+gem 'devise'
 gem "less-rails"
 
 gem 'simplecov', :require => false, :group => :test
