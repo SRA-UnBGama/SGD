@@ -11,15 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014184531) do
+ActiveRecord::Schema.define(version: 20141020190959) do
+
+  create_table "auto_evaluations", force: true do |t|
+    t.string "grade_evaluation"
+  end
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
     t.string   "type_competence"
+    t.integer  "auto_evaluation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_active_competence"
   end
+
+  add_index "competences", ["auto_evaluation_id"], name: "index_competences_on_auto_evaluation_id"
 
   create_table "competences_forms", id: false, force: true do |t|
     t.integer "competence_id"
@@ -38,12 +45,12 @@ ActiveRecord::Schema.define(version: 20141014184531) do
     t.string   "observations_evaluated"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "form_id"
   end
 
-  create_table "evaluations_users", id: false, force: true do |t|
-    t.integer "evaluation_id"
-    t.integer "user_id"
-  end
+  add_index "evaluations", ["form_id"], name: "index_evaluations_on_form_id"
+  add_index "evaluations", ["user_id"], name: "index_evaluations_on_user_id"
 
   create_table "forms", force: true do |t|
     t.datetime "date"
@@ -98,7 +105,20 @@ ActiveRecord::Schema.define(version: 20141014184531) do
     t.date     "admission_date"
     t.string   "password_digest"
     t.boolean  "is_active_user"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "working_conditions", force: true do |t|
     t.string   "name_working_condition"
