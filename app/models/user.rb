@@ -5,8 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	validates_presence_of :name_user, :fub_registry, :siape_registry, :admission_date, :cost_center
-	has_secure_password
+	
 
 	has_many :evaluations
 	has_many :forms , :through => :evaluations
+
+
+	def email_required?
+  false
+	end
+
+	def email_changed?
+  false
+	end
 end
