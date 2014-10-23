@@ -57,3 +57,28 @@ Competence.create ([{ :name_competence =>"Fornece, ao superior imediato, informa
 	tomada de decisão, considerando os aspectos legais e as
 	estratégias da área.",
 	:type_competence=> "Gerencial",:is_active_competence => true}])
+
+LearningSolution.create([{ :description => "Aprendizagem em serviço da operalização dos sistemas
+	pertinentes à área.",:category => "Presencial"}])
+
+LearningSolution.create([{ :description => "Curso a distância de Ética no Serviço.",:category => "À Distância"}])
+
+LearningSolution.create([{ :description => "Curso a distância de Atendimento ao Cidadão.",:category => "À Distância"}])
+
+LearningSolution.create([{ :description => "Formação Gerencial.",:category => "Presencial"}])
+
+LearningSolution.create([{ :description => "Curso a distância de Legislação Aplicada à Gestão de
+	Pessoas Lei nº 8.112/90.",:category => "À Distância"}])
+
+LearningSolution.create([{ :description => "Curso a distância de Redação Oficial.",:category => "À Distância"}])
+
+LearningSolution.create([{ :description => "Reuniões em que todos tenham oportunidade de participação.",
+	:category => "Presencial"}])
+
+LearningSolution.create([{ :description => "Curso a distância de Informática Básica - Módulo Windows e Word.",
+	:category => "À Distância"}])
+
+LearningSolution.create([{ :description => "Leitura e compreensão do novo acordo ortográfico.",:category => "Presencial"}])
+
+LearningSolution.create([{ :description => "Orientação no trabalho quanto às práticas colaborativas.",
+	:category => "Presencial"}])
