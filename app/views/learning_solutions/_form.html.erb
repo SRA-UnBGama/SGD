@@ -1,13 +1,17 @@
 <%= simple_form_for(@learning_solution) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.label "Descrição" %>
-    <%= f.input :description, :label => false %>
-
-    <%= f.label "Categoria" %>
-    <%= f.input :category, :label => false %>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+    <%= f.input :description, :label => false, :placeholder => "Descrição" %>
   </div>
+
+  <div class="input-group">
+     <span class="input-group-addon"><i class="fa fa-tags"></i></span>
+    <%= f.input :category, :label => false, :placeholder => "Categoria" %>
+  </div>
+
+  <br>
 
     <div class="actions">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), learning_solutions_path , class:"btn btn-warning"%>
