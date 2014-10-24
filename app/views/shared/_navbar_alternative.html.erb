@@ -6,5 +6,10 @@
   <li><a href="<%=working_conditions_path%>" >Condições de Trabalho</a></li>
   <li><a href="<%=users_path%>" >Usuários</a></li>
   <li><a href="<%=learning_solutions_path%>" >Soluções de Aprendizagem</a></li>
+  <% if user_signed_in? %>
+  <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>
+  <%end%>
+  </div>
+
 </ul>
 
