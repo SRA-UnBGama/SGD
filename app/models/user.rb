@@ -10,6 +10,12 @@ class User < ActiveRecord::Base
 	has_many :evaluations
 	has_many :forms , :through => :evaluations
 
+	def email_required?
+        false
+	end
 
+	def email_changed?
+	    false
+	end
 
 end

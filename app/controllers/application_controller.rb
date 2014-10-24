@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:user) { |u| u.permit(:name_user, :fub_registry, :siape_registry, :cost_center, :admission_date, :password, :password_confirmation)}
   	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name_user, :fub_registry, :siape_registry, :cost_center, :admission_date, :password, :password_confirmation)}
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:fub_registry, :password)}
   end
 
 end
