@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe AutoEvaluationController, :type => :controller do
+RSpec.describe AutoEvaluationsController, :type => :controller do
 
 end
