@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :evaluations
 
+  resources :auto_evaluations
+
 
   root 'home#index'
 
