@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
- #dropDown{
+ /*#dropDown{
     text-decoration: none;
     color: #339CCB;
     text-align: center;
     margin-left: 10px;
- }
+ }*/
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
