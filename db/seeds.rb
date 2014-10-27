@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+#Competências
 Competence.create ([{ :name_competence  => "Presta atendimento aos cidadãos,
  	sem distinção ou preconceito, com cortesia,    precisão e agilidade 
  	baseando-se no interesse público e nas normas internas da UnB.", 
@@ -58,6 +60,8 @@ Competence.create ([{ :name_competence =>"Fornece, ao superior imediato, informa
 	estratégias da área.",
 	:type_competence=> "Gerencial",:is_active_competence => true}])
 
+
+#SOluções de aprendizagem
 LearningSolution.create([{ :description => "Aprendizagem em serviço da operalização dos sistemas
 	pertinentes à área.",:category => "Presencial"}])
 
@@ -82,3 +86,13 @@ LearningSolution.create([{ :description => "Leitura e compreensão do novo acord
 
 LearningSolution.create([{ :description => "Orientação no trabalho quanto às práticas colaborativas.",
 	:category => "Presencial"}])
+
+
+#Condições de trabalho
+WorkingCondition.create([{:name_working_condition => "O ambiente é confortável."}])
+WorkingCondition.create([{:name_working_condition => "Há silêncio necessário para a realização do trabalho."}])
+WorkingCondition.create([{:name_working_condition => "O mobiliário existente no local de trabalho é adequado."}])
+WorkingCondition.create([{:name_working_condition => "Os instrumentos de trabalho são suficientes para realizar as atividades."}])
+WorkingCondition.create([{:name_working_condition => "O espaço físico é adequado para realiazar os processos de trabalho."}])
+WorkingCondition.create([{:name_working_condition => "O ambiente de trabalho oferece segurança física às pessoas"}])
+WorkingCondition.create([{:name_working_condition => "O material de consumo é suficiente."}])

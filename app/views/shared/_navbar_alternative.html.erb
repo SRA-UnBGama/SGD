@@ -4,7 +4,12 @@
   <li><a href="<%=competences_path%>" >Competências</a></li>
   <li><a href="<%=goals_path%>" >Metas</a></li>
   <li><a href="<%=working_conditions_path%>" >Condições de Trabalho</a></li>
-  <li><a href="<%=users_path%>" >Usuários</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="<%=users_path%>" >Usuários</a>
+    <ul class="dropdown-menu" role="menu">
+    <a href="<%=auto_evaluations_path%>" id ="dropDown">  Autoavaliação</a> 
+    </ul>
+  </li>
   <li><a href="<%=learning_solutions_path%>" >Soluções de Aprendizagem</a></li>
   <% if user_signed_in? %>
   <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>

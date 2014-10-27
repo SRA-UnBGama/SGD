@@ -1,0 +1,44 @@
+<div>
+<h4>Competências Fundamentais</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nível de Desenvolvimento</th>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @competences_fundamental = @competences.where(:type_competence => "Fundamental")  %>
+          <% @competences_fundamental.each do |competence| %>
+            <tr>
+              <td><%= competence.name_competence %></td>
+              <td> <%= select(:post, :value_auto_evaluation, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+              
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+    <h4>Competências Gerenciais</h4>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nível de Desenvolvimento</th>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @competences_gerencial = @competences.where(:type_competence => "Gerencial")  %>
+          <% @competences_gerencial.each do |competence| %>
+            <tr>
+              <td><%= competence.name_competence %></td>
+              <td> <%= select(:post, :value_auto_evaluation, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+              
+          <% end %>
+        </tbody>
+      </table>
+</div>

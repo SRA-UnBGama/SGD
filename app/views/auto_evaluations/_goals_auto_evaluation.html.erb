@@ -1,0 +1,27 @@
+<div>
+<h4>Metas</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Prazo</th>
+            <th colspan="4"></th>
+            <th>Nível de Desenvolvimento</th>
+
+            
+          </tr>
+        </thead>
+
+        <tbody>
+         <% @goals.each do |goals| %>
+            <tr>
+              <td><%= goals.name_goal %></td>
+              <td><%= goals.description_goal %></td>
+              <td><%= goals.deadline_goal %></td>
+              <td> <%= select(:post, nil, [["Não Colaborou", 1], ["Colaborou Pouco", 2], ["Colaborou Medianamente", 3],["Colaborou Muito", 4],["Colaborou Totalmente",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+              
+          <% end %>
+        </tbody>
+      </table>
+</div>

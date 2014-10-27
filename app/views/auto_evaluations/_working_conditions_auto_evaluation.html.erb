@@ -1,0 +1,21 @@
+<div>
+<h4>Competências Fundamentais</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nível de Desenvolvimento</th>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+         <% @working_conditions.each do |conditions| %>
+            <tr>
+              <td><%= conditions.name_working_condition %></td>
+              <td> <%= select(:post, nil, [["Concordo Plenamente", 1], ["Concordo Parcialmente", 2], ["Indiferente", 3],["Discordo Parcialmente", 4],["Discordo Totalmente",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+              
+          <% end %>
+        </tbody>
+      </table>
+</div>
