@@ -8,7 +8,7 @@ class WorkingCondition < ActiveRecord::Base
 		max = 10
 
 		if(WorkingCondition.where(:is_active_working_condition => true).count >= max && self.is_active_working_condition = false)
-			errors.add( :name_competence,"O número de condições de trabalho deve ser menor que 10.")
+			errors.add( :name,"O número de condições de trabalho deve ser menor que 10.")
 		else
 			#nothing to do!
 		end

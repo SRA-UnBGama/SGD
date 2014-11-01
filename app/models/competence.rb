@@ -1,11 +1,12 @@
-class Competence < ActiveRecord::Base
-	validate :max_number_of_competence
+class Competence < EvaluationItem
+	
+
 
 	def max_number_of_competence
 		max = 10
 
-		if(Competence.where(:is_active_competence => true).count >= max && self.is_active_competence = false)
-			errors.add( :name_competence,"O número de competências deve ser menor que 10.")
+		if(Competence.where(:is_active => true).count >= max && self.is_active = false)
+			errors.add( :name,"O número de competências deve ser menor que 10.")
 		else
 			#nothing to do!
 		end

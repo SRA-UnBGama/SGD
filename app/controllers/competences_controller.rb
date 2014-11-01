@@ -20,10 +20,10 @@ class CompetencesController < ApplicationController
   # POST /competences
   # POST /competences.json
   def create
-    competences_actived = Competence.where(:is_active_competence => true).count
+    competences_actived = Competence.where(:is_active => true).count
 
     @competence = Competence.new(competence_params)
-    @competence.is_active_competence = true
+    @competence.is_active = true
 
     respond_to do |format|
       if competences_actived < 10
@@ -56,11 +56,11 @@ class CompetencesController < ApplicationController
   # DELETE /competences/1
   # DELETE /competences/1.json
   def destroy
-    @competence.is_active_competence ? @competence.is_active_competence = false : @competence.is_active_competence = true
+    @competence.is_active ? @competence.is_active = false : @competence.is_active = true
 
     respond_to do |format|
-      competences_actived = Competence.where(:is_active_competence => true).count
-      if !(competences_actived >= 10 && (@competence.is_active_competence == true))
+      competences_actived = Competence.where(:is_active => true).count
+      if !(competences_actived >= 10 && (@competence.is_active == true))
         @competence.save
         format.html { redirect_to competences_url, notice: 'Competência foi alterada com sucesso.' }
         format.json { head :no_content }
@@ -79,6 +79,6 @@ class CompetencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competence_params
-      params.require(:competence).permit()
+      params.require(:competence).permit(:name, :category, :auto_evaluation_grade, :pairs_evaluation_grade, :leader_evaluation_grade, :is_active)
     end
 end

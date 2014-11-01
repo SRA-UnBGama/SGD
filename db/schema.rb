@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20141101163735) do
     t.date     "admission_date"
     t.string   "password_digest"
     t.boolean  "is_active_user"
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20141101163735) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "working_conditions", force: true do |t|

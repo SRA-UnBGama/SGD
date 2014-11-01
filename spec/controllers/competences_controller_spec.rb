@@ -5,14 +5,14 @@ RSpec.describe CompetencesController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Competence. As you add validations to Competence, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {{ :name_competence => "Presta atendimento aos cidadãos, 
+  let(:valid_attributes) {{ :name => "Presta atendimento aos cidadãos, 
     sem distinção ou preconceito, com cortesia, precisão e agilidade baseando-se 
-    no interesse público e nas normas internas da UnB", :type_competence => "Fundamentais"
+    no interesse público e nas normas internas da UnB", :category => "Fundamentais"
     
   }}
 
   let(:invalid_attributes) {{
-    :name_competence => "", :type_competence => ""
+    :name => "", :category => ""
   }}
 
   # This should return the minimal set of values that should be in the session
@@ -79,9 +79,9 @@ RSpec.describe CompetencesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {{ 
-        :name_competence => "Presta atendimento aos cidadãos, 
+        :name => "Presta atendimento aos cidadãos, 
     sem distinção ou preconceito, com cortesia, precisão e agilidade baseando-se 
-    no interesse público e nas normas internas da UnB", :type_competence => "Fundamentais"
+    no interesse público e nas normas internas da UnB", :category => "Fundamentais"
 
   }}
 

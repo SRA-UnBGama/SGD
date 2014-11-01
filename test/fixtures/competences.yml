@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name_competence: MyString
+  name: MyString
   description_competence: MyString
   value_competence: MyString
 
 two:
-  name_competence: MyString
+  name: MyString
   description_competence: MyString
   value_competence: MyString

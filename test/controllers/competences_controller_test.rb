@@ -18,7 +18,7 @@ class CompetencesControllerTest < ActionController::TestCase
 
   test "should create competence" do
     assert_difference('Competence.count') do
-      post :create, competence: { description_competence: @competence.description_competence, name_competence: @competence.name_competence, value_competence: @competence.value_competence }
+      post :create, competence: { description_competence: @competence.description_competence, name: @competence.name, value_competence: @competence.value_competence }
     end
 
     assert_redirected_to competence_path(assigns(:competence))
@@ -35,7 +35,7 @@ class CompetencesControllerTest < ActionController::TestCase
   end
 
   test "should update competence" do
-    patch :update, id: @competence, competence: { description_competence: @competence.description_competence, name_competence: @competence.name_competence, value_competence: @competence.value_competence }
+    patch :update, id: @competence, competence: { description_competence: @competence.description_competence, name: @competence.name, value_competence: @competence.value_competence }
     assert_redirected_to competence_path(assigns(:competence))
   end
 

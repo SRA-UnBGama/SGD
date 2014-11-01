@@ -220,8 +220,8 @@ pt-BR:
         # Dictionary name for each of the attributes in all models of the application.
         attributes:
             competence:
-                name_competence: "Nome da Competência"
-                type_competence: "Tipo da Competência"
+                name: "Nome da Competência"
+                category: "Tipo da Competência"
             evaluation:
                 evaluation_date: "Data a Avaliação"
                 observatinos_evaluated: "Observações"
