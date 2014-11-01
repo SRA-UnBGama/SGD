@@ -36,37 +36,6 @@ RSpec.describe EvaluationItemsController, :type => :controller do
   # EvaluationItemsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all evaluation_items as @evaluation_items" do
-      evaluation_item = EvaluationItem.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:evaluation_items)).to eq([evaluation_item])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested evaluation_item as @evaluation_item" do
-      evaluation_item = EvaluationItem.create! valid_attributes
-      get :show, {:id => evaluation_item.to_param}, valid_session
-      expect(assigns(:evaluation_item)).to eq(evaluation_item)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new evaluation_item as @evaluation_item" do
-      get :new, {}, valid_session
-      expect(assigns(:evaluation_item)).to be_a_new(EvaluationItem)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested evaluation_item as @evaluation_item" do
-      evaluation_item = EvaluationItem.create! valid_attributes
-      get :edit, {:id => evaluation_item.to_param}, valid_session
-      expect(assigns(:evaluation_item)).to eq(evaluation_item)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new EvaluationItem" do
@@ -97,62 +66,6 @@ RSpec.describe EvaluationItemsController, :type => :controller do
         post :create, {:evaluation_item => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested evaluation_item" do
-        evaluation_item = EvaluationItem.create! valid_attributes
-        put :update, {:id => evaluation_item.to_param, :evaluation_item => new_attributes}, valid_session
-        evaluation_item.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested evaluation_item as @evaluation_item" do
-        evaluation_item = EvaluationItem.create! valid_attributes
-        put :update, {:id => evaluation_item.to_param, :evaluation_item => valid_attributes}, valid_session
-        expect(assigns(:evaluation_item)).to eq(evaluation_item)
-      end
-
-      it "redirects to the evaluation_item" do
-        evaluation_item = EvaluationItem.create! valid_attributes
-        put :update, {:id => evaluation_item.to_param, :evaluation_item => valid_attributes}, valid_session
-        expect(response).to redirect_to(evaluation_item)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the evaluation_item as @evaluation_item" do
-        evaluation_item = EvaluationItem.create! valid_attributes
-        put :update, {:id => evaluation_item.to_param, :evaluation_item => invalid_attributes}, valid_session
-        expect(assigns(:evaluation_item)).to eq(evaluation_item)
-      end
-
-      it "re-renders the 'edit' template" do
-        evaluation_item = EvaluationItem.create! valid_attributes
-        put :update, {:id => evaluation_item.to_param, :evaluation_item => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested evaluation_item" do
-      evaluation_item = EvaluationItem.create! valid_attributes
-      expect {
-        delete :destroy, {:id => evaluation_item.to_param}, valid_session
-      }.to change(EvaluationItem, :count).by(-1)
-    end
-
-    it "redirects to the evaluation_items list" do
-      evaluation_item = EvaluationItem.create! valid_attributes
-      delete :destroy, {:id => evaluation_item.to_param}, valid_session
-      expect(response).to redirect_to(evaluation_items_url)
     end
   end
 
