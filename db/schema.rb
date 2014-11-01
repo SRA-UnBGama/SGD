@@ -11,23 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028132947) do
+ActiveRecord::Schema.define(version: 20141101163735) do
 
   create_table "competences", force: true do |t|
-    t.string   "name_competence"
-    t.string   "type_competence"
-    t.integer  "auto_evaluation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_active_competence"
-    t.integer  "value_auto_evaluation"
-  end
-
-  add_index "competences", ["auto_evaluation_id"], name: "index_competences_on_auto_evaluation_id"
-
-  create_table "competences_forms", id: false, force: true do |t|
-    t.integer "competence_id"
-    t.integer "form_id"
   end
 
   create_table "evaluation_items", force: true do |t|
