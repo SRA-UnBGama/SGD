@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name_goal: MyString
-  description_goal: MyString
+  name: MyString
+  description: MyString
   value_goal: MyString
 
 two:
-  name_goal: MyString
-  description_goal: MyString
+  name: MyString
+  description: MyString
   value_goal: MyString

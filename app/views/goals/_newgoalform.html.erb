@@ -1,12 +1,12 @@
 <div class="form-group">
         <%= f.label "Título" %>
-        <%= f.text_field :name_goal, class: "form-control", placeholder: "Insira um título para a meta" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Insira um título para a meta" %>
       </div>
       <div class="form-group">
         <%= f.label "Descrição" %>
-        <%= f.text_area :description_goal, class: "form-control", placeholder: "Insira uma breve descrição para a meta" %>
+        <%= f.text_area :description, class: "form-control", placeholder: "Insira uma breve descrição para a meta" %>
       </div>
       <div class="form-group">
         <%= f.label "Prazo" %>
-        <%= f.text_field :deadline_goal, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: "Insira um prazo para a meta" %>
+        <%= f.text_field :deadline, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: "Insira um prazo para a meta" %>
 </div>

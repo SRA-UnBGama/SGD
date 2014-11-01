@@ -231,9 +231,9 @@ pt-BR:
             form:
                 date: "Data do Preenchimento"
             goal:
-                name_goal: "Nome da Meta"
-                deadline_goal: "Prazo da Meta"
-                description_goal: "Descrição da Meta"
+                name: "Nome da Meta"
+                deadline: "Prazo da Meta"
+                description: "Descrição da Meta"
                 value_goal: "Valor Atribuído à Meta"
             phase:
                 start_date_phase: "Data Inicial da Fase"

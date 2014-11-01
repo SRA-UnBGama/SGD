@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101163735) do
+ActiveRecord::Schema.define(version: 20141101191449) do
 
   create_table "competences", force: true do |t|
     t.datetime "created_at"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141101163735) do
     t.boolean  "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "evaluation_periods", force: true do |t|
@@ -65,12 +66,8 @@ ActiveRecord::Schema.define(version: 20141101163735) do
   end
 
   create_table "goals", force: true do |t|
-    t.string   "name_goal"
-    t.text     "description_goal", limit: 255
-    t.string   "value_goal"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "deadline_goal"
   end
 
   create_table "learning_solutions", force: true do |t|

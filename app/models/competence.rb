@@ -1,5 +1,5 @@
 class Competence < EvaluationItem
-	
+	validates_presence_of :name, :category
 
 
 	def max_number_of_competence

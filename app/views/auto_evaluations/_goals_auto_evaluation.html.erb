@@ -16,9 +16,9 @@
         <tbody>
          <% @goals.each do |goals| %>
             <tr>
-              <td><%= goals.name_goal %></td>
-              <td><%= goals.description_goal %></td>
-              <td><%= goals.deadline_goal %></td>
+              <td><%= goals.name %></td>
+              <td><%= goals.description %></td>
+              <td><%= goals.deadline %></td>
               <td> <%= select(:post, nil, [["Não Colaborou", 1], ["Colaborou Pouco", 2], ["Colaborou Medianamente", 3],["Colaborou Muito", 4],["Colaborou Totalmente",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
               
           <% end %>

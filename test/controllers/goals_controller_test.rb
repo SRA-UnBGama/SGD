@@ -18,7 +18,7 @@ class GoalsControllerTest < ActionController::TestCase
 
   test "should create goal" do
     assert_difference('Goal.count') do
-      post :create, goal: { description_goal: @goal.description_goal, name_goal: @goal.name_goal, value_goal: @goal.value_goal }
+      post :create, goal: { description: @goal.description, name: @goal.name, value_goal: @goal.value_goal }
     end
 
     assert_redirected_to goal_path(assigns(:goal))
@@ -35,7 +35,7 @@ class GoalsControllerTest < ActionController::TestCase
   end
 
   test "should update goal" do
-    patch :update, id: @goal, goal: { description_goal: @goal.description_goal, name_goal: @goal.name_goal, value_goal: @goal.value_goal }
+    patch :update, id: @goal, goal: { description: @goal.description, name: @goal.name, value_goal: @goal.value_goal }
     assert_redirected_to goal_path(assigns(:goal))
   end
 

@@ -17,9 +17,9 @@
       <tbody>
         <% @goals.each do |goal| %>
           <tr>
-            <td><%= goal.name_goal %></td>
-            <td><%= goal.description_goal %></td>
-            <td><%= goal.deadline_goal %></td>
+            <td><%= goal.name %></td>
+            <td><%= goal.description %></td>
+            <td><%= goal.deadline %></td>
             <td><%= button_to 'Visualizar', goal, class: "btn btn-info", :method => :get %></td>  
             <td><%= button_to 'Editar', edit_goal_path(goal), class: "btn btn-primary", :method => :get %></td>
             <td><%= button_to 'Excluir', goal, class: "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
