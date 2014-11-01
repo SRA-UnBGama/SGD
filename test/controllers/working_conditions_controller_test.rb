@@ -18,7 +18,7 @@ class WorkingConditionsControllerTest < ActionController::TestCase
 
   test "should create working_condition" do
     assert_difference('WorkingCondition.count') do
-      post :create, working_condition: { description_working_condition: @working_condition.description_working_condition, name_working_condition: @working_condition.name_working_condition, value_working_condition: @working_condition.value_working_condition }
+      post :create, working_condition: { description_working_condition: @working_condition.description_working_condition, name: @working_condition.name, value_working_condition: @working_condition.value_working_condition }
     end
 
     assert_redirected_to working_condition_path(assigns(:working_condition))
@@ -35,7 +35,7 @@ class WorkingConditionsControllerTest < ActionController::TestCase
   end
 
   test "should update working_condition" do
-    patch :update, id: @working_condition, working_condition: { description_working_condition: @working_condition.description_working_condition, name_working_condition: @working_condition.name_working_condition, value_working_condition: @working_condition.value_working_condition }
+    patch :update, id: @working_condition, working_condition: { description_working_condition: @working_condition.description_working_condition, name: @working_condition.name, value_working_condition: @working_condition.value_working_condition }
     assert_redirected_to working_condition_path(assigns(:working_condition))
   end
 

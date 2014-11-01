@@ -16,7 +16,7 @@
             <% end %>
             <div class="field">
                <%= f.label "Condição de Trabalho" %><br>
-               <%= f.text_area :name_working_condition, :size => "50x10" %>
+               <%= f.text_area :name, :size => "50x10" %>
             </div>
             <div class="actions">
                <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), working_conditions_path , class:"btn btn-warning"%>
@@ -32,7 +32,7 @@
                   </a>
                   <% if @working_conditions != nil %>
                   <% @working_conditions.each do |working_condition| %>
-                  <a href="#" class="list-group-item"><%= working_condition.name_working_condition %></a>
+                  <a href="#" class="list-group-item"><%= working_condition.name %></a>
                   <% end %>
                </div>
             </div>

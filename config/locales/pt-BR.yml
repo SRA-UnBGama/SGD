@@ -248,5 +248,5 @@ pt-BR:
                 admission_date: "Data de Adimissão"
                 cost_center: "Centro de Custo"
             working_codition:
-                name_working_condition: "Nome da Condição de Trabalho"
-                is_active_condition: Está Ativada"
+                name: "Nome da Condição de Trabalho"
+                is_active: Está Ativada"

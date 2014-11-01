@@ -23,9 +23,9 @@ class WorkingConditionsController < ApplicationController
   # POST /working_conditions.json
   def create
 
-    workings_conditions_actived = WorkingCondition.where(:is_active_condition => true).count
+    workings_conditions_actived = WorkingCondition.where(:is_active => true).count
     @working_condition = WorkingCondition.new(working_condition_params)
-    @working_condition.is_active_condition = true
+    @working_condition.is_active = true
 
     respond_to do |format|
       if workings_conditions_actived < 10
@@ -57,11 +57,11 @@ class WorkingConditionsController < ApplicationController
   # DELETE /working_conditions/1
   # DELETE /working_conditions/1.json
   def destroy
-    @working_condition.is_active_condition ? @working_condition.is_active_condition = false : @working_condition.is_active_condition = true
+    @working_condition.is_active ? @working_condition.is_active = false : @working_condition.is_active = true
 
     respond_to do |format|
-      workings_conditions_actived = WorkingCondition.where(:is_active_condition => true).count
-      if !(workings_conditions_actived >= 10 && (@working_condition.is_active_condition == true))
+      workings_conditions_actived = WorkingCondition.where(:is_active => true).count
+      if !(workings_conditions_actived >= 10 && (@working_condition.is_active == true))
         @working_condition.save
         format.html { redirect_to working_conditions_url, notice: 'Condição de Trabalho alterada com sucesso.' }
         format.json { head :no_content }
@@ -80,6 +80,6 @@ class WorkingConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def working_condition_params
-      params.require(:working_condition).permit(:name_working_condition, :is_active_condition, :form_ids => [])
+      params.require(:working_condition).permit(:name, :is_active)
     end
 end

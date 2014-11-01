@@ -1,13 +1,13 @@
-class WorkingCondition < ActiveRecord::Base
-	has_and_belongs_to_many :forms
-	validates_presence_of :name_working_condition
-	validates_uniqueness_of :name_working_condition
+class WorkingCondition < EvaluationItem
+	
+	validates_presence_of :name
+	validates_uniqueness_of :name
 	validate :max_number_of_working_conditions
 
 	def max_number_of_working_conditions
 		max = 10
 
-		if(WorkingCondition.where(:is_active_working_condition => true).count >= max && self.is_active_working_condition = false)
+		if(WorkingCondition.where(:is_active => true).count >= max && self.is_active = false)
 			errors.add( :name,"O número de condições de trabalho deve ser menor que 10.")
 		else
 			#nothing to do!

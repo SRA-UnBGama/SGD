@@ -16,10 +16,10 @@
     <tbody>
       <% @working_conditions.each do |working_condition| %>
         <tr>
-          <td><%= working_condition.name_working_condition %></td>
-          <td><%= working_condition.is_active_condition ? "Ativado" : "Desativado"   %></td>
+          <td><%= working_condition.name %></td>
+          <td><%= working_condition.is_active ? "Ativado" : "Desativado"   %></td>
           <td><%= button_to 'Editar', edit_working_condition_path(working_condition), class: "btn btn-primary", :method => :get %></td>
-          <td><%= button_to (working_condition.is_active_condition ? "Desativar" : "Ativar"), working_condition, tooltip: "%s Condição de Trabalho?" % ( working_condition.is_active_condition ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta condição de trabalho?' % (working_condition.is_active_condition  ? "desativar" : "ativar")} %></td>
+          <td><%= button_to (working_condition.is_active ? "Desativar" : "Ativar"), working_condition, tooltip: "%s Condição de Trabalho?" % ( working_condition.is_active ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta condição de trabalho?' % (working_condition.is_active  ? "desativar" : "ativar")} %></td>
         </tr>
       <% end %>
     </tbody>

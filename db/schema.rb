@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101191449) do
+ActiveRecord::Schema.define(version: 20141101194218) do
 
   create_table "competences", force: true do |t|
     t.datetime "created_at"
@@ -116,11 +116,8 @@ ActiveRecord::Schema.define(version: 20141101191449) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "working_conditions", force: true do |t|
-    t.string   "name_working_condition"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_active_condition"
-    t.boolean  "is_active_working_condition"
   end
 
 end

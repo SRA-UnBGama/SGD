@@ -89,10 +89,10 @@ LearningSolution.create([{ :description => "Orientação no trabalho quanto às 
 
 
 #Condições de trabalho
-WorkingCondition.create([{:name_working_condition => "O ambiente é confortável."}])
-WorkingCondition.create([{:name_working_condition => "Há silêncio necessário para a realização do trabalho."}])
-WorkingCondition.create([{:name_working_condition => "O mobiliário existente no local de trabalho é adequado."}])
-WorkingCondition.create([{:name_working_condition => "Os instrumentos de trabalho são suficientes para realizar as atividades."}])
-WorkingCondition.create([{:name_working_condition => "O espaço físico é adequado para realiazar os processos de trabalho."}])
-WorkingCondition.create([{:name_working_condition => "O ambiente de trabalho oferece segurança física às pessoas"}])
-WorkingCondition.create([{:name_working_condition => "O material de consumo é suficiente."}])
+WorkingCondition.create([{:name => "O ambiente é confortável."}])
+WorkingCondition.create([{:name => "Há silêncio necessário para a realização do trabalho."}])
+WorkingCondition.create([{:name => "O mobiliário existente no local de trabalho é adequado."}])
+WorkingCondition.create([{:name => "Os instrumentos de trabalho são suficientes para realizar as atividades."}])
+WorkingCondition.create([{:name => "O espaço físico é adequado para realiazar os processos de trabalho."}])
+WorkingCondition.create([{:name => "O ambiente de trabalho oferece segurança física às pessoas"}])
+WorkingCondition.create([{:name => "O material de consumo é suficiente."}])
