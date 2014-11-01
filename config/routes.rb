@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :evaluation_items
+
   devise_for :users
   resources :learning_solutions
 

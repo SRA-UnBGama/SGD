@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020190959) do
+ActiveRecord::Schema.define(version: 20141028132947) do
 
   create_table "competences", force: true do |t|
     t.string   "name_competence"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20141020190959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_active_competence"
+    t.integer  "value_auto_evaluation"
   end
 
   add_index "competences", ["auto_evaluation_id"], name: "index_competences_on_auto_evaluation_id"
@@ -27,6 +28,19 @@ ActiveRecord::Schema.define(version: 20141020190959) do
   create_table "competences_forms", id: false, force: true do |t|
     t.integer "competence_id"
     t.integer "form_id"
+  end
+
+  create_table "evaluation_items", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.datetime "deadline"
+    t.integer  "auto_evaluation_grade"
+    t.integer  "pairs_evaluation_grade"
+    t.integer  "leader_evaluation_grade"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "evaluation_periods", force: true do |t|
