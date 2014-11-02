@@ -5,7 +5,6 @@ class CompetencesController < ApplicationController
   # GET /competences.json
   def index
     @competences = Competence.all
-    @forms = Form.all
   end
 
   # GET /competences/new

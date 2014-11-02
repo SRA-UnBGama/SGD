@@ -6,7 +6,6 @@ class WorkingConditionsController < ApplicationController
   # GET /working_conditions.json
   def index
     @working_conditions = WorkingCondition.all
-    @forms = Form.all
   end
 
   # GET /working_conditions/new
