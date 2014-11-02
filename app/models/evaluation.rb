@@ -1,4 +1,4 @@
 class Evaluation < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :form
+	has_many :evaluation_items
 end
