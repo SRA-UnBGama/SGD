@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Leader:</strong>
-  <%= @team.leader %>
-</p>
-
-<p>
-  <strong>Members:</strong>
-  <%= @team.members %>
-</p>
-
-<p>
-  <strong>Workplace:</strong>
-  <%= @team.workplace %>
-</p>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h1>Lista de Membros</h1>
+      <p id="notice"><%= notice %></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Membros</th>
+            <th>Local de trabalho</th>
+            <th>Chefia</th>
+          </tr>
+        </thead>
+      <tbody>
+          <tr>
+            <td><%= @team.members %></td>
+            <td><%= @team.workplace %></td>
+            <td><%= @team.leader %></td>
+          </tr>
+      </tbody>
+      </table>
+      <div class="actions">
+        <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"),teams_path , class:"btn btn-warning"%>
+      </div>
+    </div>
+  </div>
+</div>
