@@ -1,44 +1,43 @@
 <div>
-<h4>Competências Fundamentais</h4>
-      <table class="table table-striped">
-        <thead>
-          <tr>
+   <h4>Competências Fundamentais</h4>
+   <table class="table table-striped">
+      <thead>
+         <tr>
             <th>Nome</th>
             <th>Nível de Desenvolvimento</th>
-            
-          </tr>
-        </thead>
-
-        <tbody>
-        <% @competences_fundamental = @competences.where(:category => "Fundamental")  %>
-          <% @competences_fundamental.each do |competence| %>
-            <tr>
-              <td><%= competence.name %></td>
-              <td> <%= select(:post, :value_auto_evaluation, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
-              
-          <% end %>
-        </tbody>
-      </table>
-
-      <br>
-    <h4>Competências Gerenciais</h4>
-    <table class="table table-striped">
-        <thead>
-          <tr>
+         </tr>
+      </thead>
+      <tbody>
+         <% @competences_fundamental = @competences.where(:category => "Fundamental")  %>
+         <% @competences_fundamental.each do |competence| %>
+         <tr>
+            <td><%= competence.name %></td>
+            <td> <%= select(:post, :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+            <% end %>
+            </tr>
+      </tbody>
+   </table>
+   <h4>Competências Gerenciais</h4>
+   <table class="table table-striped">
+      <thead>
+         <tr>
             <th>Nome</th>
             <th>Nível de Desenvolvimento</th>
-            
-          </tr>
-        </thead>
-
-        <tbody>
-        <% @competences_gerencial = @competences.where(:category => "Gerencial")  %>
-          <% @competences_gerencial.each do |competence| %>
-            <tr>
-              <td><%= competence.name %></td>
-              <td> <%= select(:post, :value_auto_evaluation, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
-              
-          <% end %>
-        </tbody>
-      </table>
+         </tr>
+      </thead>
+      <tbody>
+         <% @competences_gerencial = @competences.where(:category => "Gerencial")  %>
+         <% @competences_gerencial.each do |competence| %>
+         <tr>
+            <td><%= competence.name %></td>
+            <td> <%= select(:post, :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+            <% end %>
+            </tr>
+      </tbody>
+      
+   </table>
+   <div>
+        <%= competence.submit 'Nova Meta', class:"btn btn-success", data: {confirm: 'Você confirma que a criação desta meta é necessária e está de acordo com as normas da UnB?' % ( new_evalautaion_items_path)} %>
+      </div>
 </div>
+

@@ -1,60 +1,29 @@
 <div class="container">
-    <div class="row">
-    
-      <div class="page-header">
-      <h1>Autoavaliação</h1>        
+   <div class="btn-group btn-group-justified">
+      <div class="btn-group">
+         <button onclick="firstRender()" type="button" class="btn btn-primary">Competências</button>
       </div>
-      <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#competences_auto_evaluation">
-          Competências
-        </a>
-      </h3>
-    </div>
-    <div id="competences_auto_evaluation" class="" style="display:none">
+      <div class="btn-group">
+         <button onclick="secondRender()"type="button" class="btn btn-primary">Metas</button>
+      </div>
+      <div class="btn-group">
+         <button onclick="thirdRender()"type="button" class="btn btn-primary">Condições de trabalho</button>
+      </div>
+   </div>
+   <div id="competences_auto_evaluation" class="" style="display:block">
       <div class="panel-body">
-        <%= render 'competences_auto_evaluation'%>
+         <%= render 'competences_auto_evaluation'%>
       </div>
-    </div>
-  </div>
-   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#working_conditions_auto_evaluation">
-          Condições de Trabalho
-        </a>
-      </h4>
-    </div>
-    <div id="working_conditions_auto_evaluation" class="" style="display:none">
+   </div>
+   <div id="working_conditions_auto_evaluation" class="" style="display:none">
       <div class="panel-body">
-        <%= render 'working_conditions_auto_evaluation'%>
+         <%= render 'working_conditions_auto_evaluation'%>
       </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#goals_auto_evaluation">
-          Metas
-        </a>
-      </h4>
-    </div>
-    <div id="goals_auto_evaluation" class="" style="display:none">
+   </div>
+   <div id="goals_auto_evaluation" class="" style="display:none">
       <div class="panel-body">
-       <%= render 'goals_auto_evaluation'%>
+         <%= render 'goals_auto_evaluation'%>
       </div>
-      </div>
-    </div>
-  </div>
-        <button onclick="firstRender()">
-        click
-      </button>
-      <button onclick="secondRender()">
-        click
-      </button>
-      <button onclick="thirdRender()">
-        click
-      </button>
+   </div>
 </div>
+
