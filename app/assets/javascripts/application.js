@@ -16,3 +16,20 @@
 //= require turbolinks
 //= require bootstrap-datepicker
 //= require_tree .
+
+function firstRender(){
+	document.getElementById("working_conditions_auto_evaluation").style.display = "none";
+	document.getElementById("goals_auto_evaluation").style.display = "none";
+	document.getElementById("competences_auto_evaluation").style.display = "block";
+}
+
+function secondRender(){
+	document.getElementById("working_conditions_auto_evaluation").style.display = "none";
+	document.getElementById("goals_auto_evaluation").style.display = "block";
+	document.getElementById("competences_auto_evaluation").style.display = "none";
+}
+function thirdRender(){
+	document.getElementById("working_conditions_auto_evaluation").style.display = "block";
+	document.getElementById("goals_auto_evaluation").style.display = "none";
+	document.getElementById("competences_auto_evaluation").style.display = "none";
+}

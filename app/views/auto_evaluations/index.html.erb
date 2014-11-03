@@ -8,26 +8,26 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <a data-toggle="collapse" data-parent="#accordion" href="#competences_auto_evaluation">
           Competências
         </a>
       </h3>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse">
+    <div id="competences_auto_evaluation" class="" style="display:none">
       <div class="panel-body">
-        <%= render 'auto_evaluations'%>
+        <%= render 'competences_auto_evaluation'%>
       </div>
     </div>
   </div>
    <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a data-toggle="collapse" data-parent="#accordion" href="#working_conditions_auto_evaluation">
           Condições de Trabalho
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
+    <div id="working_conditions_auto_evaluation" class="" style="display:none">
       <div class="panel-body">
         <%= render 'working_conditions_auto_evaluation'%>
       </div>
@@ -36,17 +36,25 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a data-toggle="collapse" data-parent="#accordion" href="#goals_auto_evaluation">
           Metas
         </a>
       </h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse">
+    <div id="goals_auto_evaluation" class="" style="display:none">
       <div class="panel-body">
        <%= render 'goals_auto_evaluation'%>
       </div>
       </div>
     </div>
   </div>
-      
+        <button onclick="firstRender()">
+        click
+      </button>
+      <button onclick="secondRender()">
+        click
+      </button>
+      <button onclick="thirdRender()">
+        click
+      </button>
 </div>
