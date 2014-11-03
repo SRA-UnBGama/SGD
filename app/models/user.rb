@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :evaluations
 	
 
-	
+	def email_required?
+  		false
+	end
+
+	def email_changed?
+  		false
+	end
+
+
 
 end
