@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103112459) do
+ActiveRecord::Schema.define(version: 20141103133432) do
 
   create_table "competences", force: true do |t|
     t.datetime "created_at"
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(version: 20141103112459) do
   end
 
   add_index "phases", ["evaluation_period_id"], name: "index_phases_on_evaluation_period_id"
+
+  create_table "teams", force: true do |t|
+    t.string   "leader"
+    t.string   "members"
+    t.string   "workplace"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name_user"

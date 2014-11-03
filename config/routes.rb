@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :teams
+
   resources :evaluation_items
 
   devise_for :users
