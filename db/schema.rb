@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102162813) do
+ActiveRecord::Schema.define(version: 20141103112459) do
 
   create_table "competences", force: true do |t|
     t.datetime "created_at"
@@ -63,7 +63,10 @@ ActiveRecord::Schema.define(version: 20141102162813) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_active_learning_solution"
+    t.integer  "evaluation_id"
   end
+
+  add_index "learning_solutions", ["evaluation_id"], name: "index_learning_solutions_on_evaluation_id"
 
   create_table "phases", force: true do |t|
     t.date    "start_date_phase",     limit: 255, default: '2014-04-12'

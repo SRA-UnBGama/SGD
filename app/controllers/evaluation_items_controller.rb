@@ -13,6 +13,8 @@ class EvaluationItemsController < ApplicationController
     end
 
     def evaluation_item_params
-      params.require(:evaluation_item).permit(:name, :description, :category, :deadline, :auto_evaluation_grade, :pairs_evaluation_grade, :leader_evaluation_grade, :is_active)
+      params.require(:evaluation_item).permit(:name, :description, :category, :deadline, 
+        :auto_evaluation_grade, :pairs_evaluation_grade, :leader_evaluation_grade, :is_active,
+        :evaluations_ids => [])
     end
 end

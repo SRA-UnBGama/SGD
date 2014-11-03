@@ -71,6 +71,6 @@ class LearningSolutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def learning_solution_params
-      params.require(:learning_solution).permit(:description, :category)
+      params.require(:learning_solution).permit(:description, :category, :evaluation_ids => [])
     end
 end

@@ -1,4 +1,5 @@
 class LearningSolution < ActiveRecord::Base
+	belongs_to :evaluation
+
 	validates_presence_of :description, :category
-	#validates_uniqueness_of :description
 end
