@@ -19,7 +19,6 @@ RSpec.describe "teams/index", :type => :view do
   it "renders a list of teams" do
     render
     assert_select "tr>td", :text => "Leader".to_s, :count => 2
-    assert_select "tr>td", :text => "Members".to_s, :count => 2
     assert_select "tr>td", :text => "Workplace".to_s, :count => 2
   end
 end
