@@ -10,6 +10,7 @@
         </thead>
 
         <tbody>
+         <% @working_conditions = @evaluation.evaluation_items.where(:type => "WorkingCondition") %>
          <% @working_conditions.each do |conditions| %>
             <tr>
               <td><%= conditions.name %></td>

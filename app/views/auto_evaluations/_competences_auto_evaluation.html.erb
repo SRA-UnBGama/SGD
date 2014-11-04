@@ -8,12 +8,16 @@
          </tr>
       </thead>
       <tbody>
-         <% @competences_fundamental = @competences.where(:category => "Fundamental")  %>
+
          <% @competences_fundamental.each do |competence| %>
+         <%= simple_form_for(competence) do |f| %>
          <tr>
             <td><%= competence.name %></td>
-            <td> <%= select(:post, :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+          <td> <%= f.input :auto_evaluation_grade, collection: [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]]%></td>
+          <%= f.submit "Macaco" %>
             <% end %>
+            <% end %>
+
             </tr>
       </tbody>
    </table>
@@ -26,7 +30,7 @@
          </tr>
       </thead>
       <tbody>
-         <% @competences_gerencial = @competences.where(:category => "Gerencial")  %>
+
          <% @competences_gerencial.each do |competence| %>
          <tr>
             <td><%= competence.name %></td>
@@ -34,10 +38,11 @@
             <% end %>
             </tr>
       </tbody>
-      
+
    </table>
+
    <div>
-        <%= competence.submit 'Nova Meta', class:"btn btn-success", data: {confirm: 'Você confirma que a criação desta meta é necessária e está de acordo com as normas da UnB?' % ( new_evalautaion_items_path)} %>
-      </div>
+
+   </div>
 </div>
 
