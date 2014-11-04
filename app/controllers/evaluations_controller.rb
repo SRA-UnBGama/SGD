@@ -29,6 +29,7 @@ class EvaluationsController < ApplicationController
 
     respond_to do |format|
       if @evaluation.save
+
         format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation }
       else
