@@ -43,7 +43,15 @@ class TeamsController < ApplicationController
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
+  end
 
+  def initialize_teams
+    teams = []
+    users = User.all
+
+    teams = mount_teams( users, teams )
+
+    teams
   end
 
   def destroy
@@ -61,5 +69,27 @@ class TeamsController < ApplicationController
 
     def team_params
       params.require(:team).permit(:leader, :members, :workplace,:user_ids => [])
+    end
+
+    def mount_teams( users, teams )
+      while( !users.empty? )
+        workplace = users.at( 0 ).cost_center
+
+        team = Team.create( :workplace => workplace )
+        team.initialize_team
+
+        teams << team
+        users = select_users_without_team( users, workplace )
+      end
+
+      teams
+    end
+
+    def select_users_without_team( users, workplace )
+      users = users.select do |user|
+        user.cost_center != workplace
+      end
+
+      users
     end
 end

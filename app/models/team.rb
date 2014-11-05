@@ -3,13 +3,12 @@ class Team < ActiveRecord::Base
   
   def search_by_workplace()
     place = self.workplace
-    User.where("cost_center = ? ",place)
+    members = User.where("cost_center = ? ", place)
+
+    members
   end
 
   def initialize_team
     self.users = search_by_workplace
   end
-
-
-
 end
