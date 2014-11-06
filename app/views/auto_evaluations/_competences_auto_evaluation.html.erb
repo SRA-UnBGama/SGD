@@ -1,4 +1,6 @@
+<%= simple_form_for(@evaluation) do |f| %>
 <div>
+
    <h4>Competências Fundamentais</h4>
    <table class="table table-striped">
       <thead>
@@ -10,16 +12,17 @@
       <tbody>
 
          
-         <%= simple_form_for(@evaluation) do |f| %>
+        
          <%= f.fields_for :evaluation_items, @competences_fundamental do |ff| %>
          <tr>
             <td><%= ff.object.name %></td>
           <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]]%></td>
           
-            <% end %>
+            
             
 
             </tr>
+            <% end %>
       </tbody>
    </table>
    <h4>Competências Gerenciais</h4>
@@ -36,16 +39,17 @@
          <tr>
             <td><%= ff.object.name %></td>
             <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]] %></td>
-            <% end %>
+            
             </tr>
+            <% end %>
       </tbody>
 
    </table>
- <%= f.submit "Submeter avaliação" %>
+ 
 </div>
    <div>
 
    </div>
             
-
+<%= f.submit "Submeter avaliação" %>
 <% end %>
