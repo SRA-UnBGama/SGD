@@ -44,7 +44,7 @@ class EvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluation.update(evaluation_params)
-        format.html { redirect_to @evaluation, notice: 'Evaluation was successfully updated.' }
+        format.html { redirect_to @evaluation, notice: 'Avaliação efetuada com sucesso.' }
         format.json { render :show, status: :ok, location: @evaluation }
       else
         format.html { render :edit }
@@ -71,6 +71,8 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:evaluation_date, :observations_evaluated, :user_ids => [])
+      params.require(:evaluation).permit( :evaluation_date, :observations_evaluated, :user_ids => [],:evaluation_items_attributes => [:id, :name, :description, :category, :deadline, 
+        :auto_evaluation_grade, :pairs_evaluation_grade, :leader_evaluation_grade, :is_active,
+        :evaluations_ids => []])
     end
 end

@@ -9,14 +9,15 @@
       </thead>
       <tbody>
 
-         <% @competences_fundamental.each do |competence| %>
-         <%= simple_form_for(competence) do |f| %>
+         
+         <%= simple_form_for(@evaluation) do |f| %>
+         <%= f.fields_for :evaluation_items, @competences_fundamental do |ff| %>
          <tr>
-            <td><%= competence.name %></td>
-          <td> <%= f.input :auto_evaluation_grade, collection: [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]]%></td>
-          <%= f.submit "Macaco" %>
+            <td><%= ff.object.name %></td>
+          <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]]%></td>
+          
             <% end %>
-            <% end %>
+            
 
             </tr>
       </tbody>
@@ -31,18 +32,20 @@
       </thead>
       <tbody>
 
-         <% @competences_gerencial.each do |competence| %>
+         <%= f.fields_for :evaluation_items, @competences_gerencial do |ff| %>
          <tr>
-            <td><%= competence.name %></td>
-            <td> <%= select(:post, :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' })  %></td>
+            <td><%= ff.object.name %></td>
+            <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]] %></td>
             <% end %>
             </tr>
       </tbody>
 
    </table>
-
+ <%= f.submit "Submeter avaliação" %>
+</div>
    <div>
 
    </div>
-</div>
+            
 
+<% end %>

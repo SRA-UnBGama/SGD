@@ -18,7 +18,7 @@ def index
 
 	def update
 	respond_to do |format|
-      if @competence.update(competence_params)
+      if @competence.update(params[:id])
         format.html { redirect_to auto_evaluation_path, notice: 'Competence was successfully updated.' }
       else
         format.html { render :edit }
