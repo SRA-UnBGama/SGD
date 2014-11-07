@@ -2,6 +2,10 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
+    @teams = []
+
+    verify_exist_teams
+    
     @teams = Team.all
   end
 
@@ -45,15 +49,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  def initialize_teams
-    teams = []
-    users = User.all
-
-    teams = mount_teams( users, teams )
-
-    teams
-  end
-
   def destroy
     @team.destroy
     respond_to do |format|
@@ -71,18 +66,21 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:leader, :members, :workplace,:user_ids => [])
     end
 
-    def mount_teams( users, teams )
+    def initialize_teams
+      users = User.all
+
+      mount_teams( users )
+    end
+
+    def mount_teams( users )
       while( !users.empty? )
         workplace = users.at( 0 ).cost_center
 
         team = Team.create( :workplace => workplace )
         team.initialize_team
 
-        teams << team
         users = select_users_without_team( users, workplace )
       end
-
-      teams
     end
 
     def select_users_without_team( users, workplace )
@@ -91,5 +89,13 @@ class TeamsController < ApplicationController
       end
 
       users
+    end
+
+    def verify_exist_teams
+      if Team.all.empty?
+        initialize_teams
+      else
+        # Nothing To Do
+      end
     end
 end
