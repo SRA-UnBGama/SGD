@@ -5,7 +5,8 @@ class TeamsController < ApplicationController
     @teams = []
 
     verify_exist_teams
-    
+    verify_new_users
+
     @teams = Team.all
   end
 
@@ -97,5 +98,41 @@ class TeamsController < ApplicationController
       else
         # Nothing To Do
       end
+    end
+
+    def verify_new_users
+      actual_users = User.all
+
+      qtd_allocated_users = select_users_with_team.size
+      qtd_users = actual_users.size
+
+      if !qtd_allocated_users.equal? qtd_users
+        destroy_teams
+
+        initialize_teams
+      else
+        # Nothing To Do
+      end
+    end
+
+    def select_users_with_team
+      allocated_users = []
+      teams = Team.all
+
+      teams.each do |team|
+        members = team.users
+
+        members.each do |member|
+          allocated_users << member
+          
+        end
+      end
+
+      allocated_users
+    end
+
+    def destroy_teams
+      Team.all.destroy_all
+      
     end
 end
