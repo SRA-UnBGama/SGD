@@ -12,6 +12,10 @@ class Team < ActiveRecord::Base
     members
   end
 
+  def show_status
+    self.is_confirm ? "Confirmado" : "Não Confirmado"
+  end
+
   def list_name_members
   	members = []
   	members = self.users

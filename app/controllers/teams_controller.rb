@@ -16,7 +16,6 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-
   end
 
   def edit
@@ -66,6 +65,7 @@ class TeamsController < ApplicationController
     team = Team.find( params[:team_id] )
 
     team.is_confirm = CONFIRMED
+    team.save
 
     redirect_to teams_index
   end

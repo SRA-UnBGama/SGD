@@ -9,6 +9,7 @@
         <tr>
           <th>Local de Trabalho</th>
           <th>Chefia</th>
+          <th>Status</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -18,6 +19,7 @@
           <tr>
             <td><%= team.workplace %></td>
             <td><%= team.leader %></td>
+            <td><%= team.show_status %></td>
             <td><%= button_to 'Visualizar', team, class: "btn btn-info",:method =>:get  %></td>
           </tr>
         <% end %>
