@@ -1,16 +1,16 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><a href="<%=root_path%>" ><i class="fa fa-home"></i> SGD</a></li>
-  <li><a href="<%=evaluation_periods_path%>" >Período Avaliativo</a></li>
-  <li><a href="<%=competences_path%>" >Competências</a></li>
-  <li><a href="<%=goals_path%>" >Metas</a></li>
-  <li><a href="<%=working_conditions_path%>" >Condições de Trabalho</a></li>
-  <li><a href="<%=users_path%>" >Usuários</a></li>
-  <li><a href="<%=auto_evaluations_path%>" id ="dropDown">  Autoavaliação</a></li> 
-  <li><a href="<%=learning_solutions_path%>" >Soluções de Aprendizagem</a></li>
+<ul class="nav nav-tabs navbar-fixed-top" role="tablist">
+  <li><a href="<%=root_path%>" class="colorwhite"><i class="fa fa-home "></i> SGD</a></li>
+  <li><a href="<%=evaluation_periods_path%>"class="colorwhite" >Período Avaliativo</a></li>
+  <li><a href="<%=competences_path%>" class="colorwhite">Competências</a></li>
+  <li><a href="<%=goals_path%>" class="colorwhite">Metas</a></li>
+  <li><a href="<%=working_conditions_path%>" class="colorwhite">Condições de Trabalho</a></li>
+  <li><a href="<%=users_path%>" class="colorwhite">Usuários</a></li>
+  <li><a href="<%=auto_evaluations_path%>" id ="dropDown"class="colorwhite">  Autoavaliação</a></li> 
+  <li><a href="<%=learning_solutions_path%>" class="colorwhite">Soluções de Aprendizagem</a></li>
+  
   <% if user_signed_in? %>
-  <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>
+    <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>
   <%end%>
-  </div>
 
 </ul>
 

@@ -12,14 +12,9 @@
  *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
- */
- /*#dropDown{
-    text-decoration: none;
-    color: #339CCB;
-    text-align: center;
-    margin-left: 10px;
- }*/
+ /*/
 .margin-bottom-20 {margin-bottom: 20px;}
+.margin-top-20 {margin-top: 20px;}
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -66,7 +61,10 @@
     height: 600px;
 }
 .nav{
-    background-color: #339CCB;
+    background-color: #003366;
+}
+.colorwhite{
+    color: white;
 }
 .white{
     margin-top: 20px;
