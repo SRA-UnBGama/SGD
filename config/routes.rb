@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :auto_evaluations
 
   post "/teams/confirm_team", to: "teams#confirm_team"
+  post "/teams/not_confirm_team", to: "teams#not_confirm_team"
 
   root 'home#index'
 

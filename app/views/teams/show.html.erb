@@ -17,11 +17,24 @@
             <td><%= @team.workplace %></td>
             <td><%= @team.leader %></td>
           </tr>
+   
       </tbody>
       </table>
-      <div class="actions">
-        <%= button_to "Confirmar Equipe", { :controller => :teams, :action => :confirm_team, :team_id => @team.id }, class: "btn btn-info" %>
-        <br><br>
+      <table>      
+      <tr>
+        <td>
+          <div><%= button_to "Confirmar Equipe", { :controller => :teams, :action => :confirm_team, :team_id => @team.id }, class: "btn btn-primary" %>
+          </div>
+        </td>
+        <td><!-- ESPAÇO-->&nbsp&nbsp&nbsp&nbsp</td>
+        <td>
+          <div><%= button_to  "Não Confirmar Equipe", { :controller => :teams, :action => :not_confirm_team, :team_id => @team.id }, class: "btn btn-large btn-danger", data: { confirm: "Procure o CPD e regularize a situação" } %>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+        </table>
+      <div class="margin-top-20">
         <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"),teams_path , class:"btn btn-warning"%>
       </div>
     </div>
