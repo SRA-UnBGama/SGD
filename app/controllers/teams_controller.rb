@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-
+    @team = Team.find( params[:id] )
   end
 
   def new
@@ -58,13 +58,48 @@ class TeamsController < ApplicationController
     end
   end
 
+  CONFIRMED = true
+  NOT_CONFIRMED = false
+
+  def confirm_team
+    teams_index = Team#index
+    team = Team.find( params[:team_id] )
+
+    team.is_confirm = CONFIRMED
+
+    redirect_to teams_index
+  end
+
   private
     def set_team
       @team = Team.find(params[:id])
     end
 
     def team_params
-      params.require(:team).permit(:leader, :members, :workplace,:user_ids => [])
+      params.require(:team).permit(:leader, :members, :workplace, :is_confirm, :user_ids => [])
+    end
+
+    def verify_exist_teams
+      if Team.all.empty?
+        initialize_teams
+      else
+        # Nothing To Do
+      end
+    end
+
+    def verify_new_users
+      actual_users = User.all
+
+      qtd_allocated_users = select_users_with_team.size
+      qtd_users = actual_users.size
+
+      if !qtd_allocated_users.equal? qtd_users
+        destroy_teams
+
+        initialize_teams
+      else
+        # Nothing To Do
+      end
     end
 
     def initialize_teams
@@ -92,29 +127,6 @@ class TeamsController < ApplicationController
       users
     end
 
-    def verify_exist_teams
-      if Team.all.empty?
-        initialize_teams
-      else
-        # Nothing To Do
-      end
-    end
-
-    def verify_new_users
-      actual_users = User.all
-
-      qtd_allocated_users = select_users_with_team.size
-      qtd_users = actual_users.size
-
-      if !qtd_allocated_users.equal? qtd_users
-        destroy_teams
-
-        initialize_teams
-      else
-        # Nothing To Do
-      end
-    end
-
     def select_users_with_team
       allocated_users = []
       teams = Team.all
@@ -124,7 +136,6 @@ class TeamsController < ApplicationController
 
         members.each do |member|
           allocated_users << member
-          
         end
       end
 
@@ -132,7 +143,6 @@ class TeamsController < ApplicationController
     end
 
     def destroy_teams
-      Team.all.destroy_all
-      
+      Team.all.destroy_all   
     end
 end
