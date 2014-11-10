@@ -1,13 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
-#Competências
+# COMPETÊNCIA
 Competence.create ([{ :name  => "Presta atendimento aos cidadãos,
  	sem distinção ou preconceito, com cortesia,    precisão e agilidade 
  	baseando-se no interesse público e nas normas internas da UnB.", 
@@ -61,7 +52,7 @@ Competence.create ([{ :name =>"Fornece, ao superior imediato, informações rele
 	:category=> "Gerencial",:is_active => true}])
 
 
-#SOluções de aprendizagem
+# SOLUÇÕES DE APRENDIZAGEM
 LearningSolution.create([{ :description => "Aprendizagem em serviço da operalização dos sistemas
 	pertinentes à área.",:category => "Presencial"}])
 
@@ -88,7 +79,7 @@ LearningSolution.create([{ :description => "Orientação no trabalho quanto às 
 	:category => "Presencial"}])
 
 
-#Condições de trabalho
+# CONDIÇÕES DE TRABALHO
 WorkingCondition.create([{:name => "O ambiente é confortável."}])
 WorkingCondition.create([{:name => "Há silêncio necessário para a realização do trabalho."}])
 WorkingCondition.create([{:name => "O mobiliário existente no local de trabalho é adequado."}])
@@ -96,3 +87,49 @@ WorkingCondition.create([{:name => "Os instrumentos de trabalho são suficientes
 WorkingCondition.create([{:name => "O espaço físico é adequado para realiazar os processos de trabalho."}])
 WorkingCondition.create([{:name => "O ambiente de trabalho oferece segurança física às pessoas"}])
 WorkingCondition.create([{:name => "O material de consumo é suficiente."}])
+
+# USUÁRIOS
+#
+# Apenas a nível de DESENVOLVIMENTO
+# TODO: Excluir assim que o LDAP estiver disponível
+User.create( :name_user => "THAIANE", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "LAPPIS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "TOMAZ", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "LAPPIS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "MAXWELL", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "LAPPIS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "JOAO", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "LAPPIS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+User.create( :name_user => "MARSICANO", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FGA", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "MILENE", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FGA", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "HILMER", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FGA", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+User.create( :name_user => "LILIAN", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FCE", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "CARMEN", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FCE", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "CASSANDRA", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FCE", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+User.create( :name_user => "TAYGUARA", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FT", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "RUDI", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FT", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "MARIANA", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "FT", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+User.create( :name_user => "FABRICIO", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "IB", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "KAREM", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "IB", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+User.create( :name_user => "KARINE", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "CQTS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "VICTOR", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "CQTS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+User.create( :name_user => "LARISSA", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "CQTS", 
+	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
