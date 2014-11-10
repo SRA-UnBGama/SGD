@@ -44,7 +44,7 @@ class EvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluation.update(evaluation_params)
-        format.html { redirect_to @evaluation, notice: 'Avaliação efetuada com sucesso.' }
+        format.html { redirect_to auto_evaluations_path, notice: 'Avaliação efetuada com sucesso.' }
         format.json { render :show, status: :ok, location: @evaluation }
       else
         format.html { render :edit }

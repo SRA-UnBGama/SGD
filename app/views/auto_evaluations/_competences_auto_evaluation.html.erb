@@ -16,7 +16,7 @@
          <%= f.fields_for :evaluation_items, @competences_fundamental do |ff| %>
          <tr>
             <td><%= ff.object.name %></td>
-          <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]]%></td>
+            <td><%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' }%></td>
           
             
             
@@ -38,7 +38,7 @@
          <%= f.fields_for :evaluation_items, @competences_gerencial do |ff| %>
          <tr>
             <td><%= ff.object.name %></td>
-            <td> <%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]] %></td>
+            <td><%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' } %></td>
             
             </tr>
             <% end %>
@@ -51,5 +51,6 @@
 
    </div>
             
+<button onclick="secondRender()"type="button" class="btn btn-primary">Avaliar Metas</button>
 <%= f.submit "Submeter avaliação" %>
 <% end %>

@@ -1,29 +1,104 @@
 <div class="container">
-   <div class="btn-group btn-group-justified">
-      <div class="btn-group">
-         <button onclick="firstRender()" type="button" class="btn btn-primary">Competências</button>
-      </div>
-      <div class="btn-group">
-         <button onclick="secondRender()"type="button" class="btn btn-primary">Metas</button>
-      </div>
-      <div class="btn-group">
-         <button onclick="thirdRender()"type="button" class="btn btn-primary">Condições de trabalho</button>
-      </div>
+<div class="btn-group btn-group-justified">
+   <div class="btn-group">
+      <button onclick="firstRender()" type="button" class="btn btn-primary">Competências</button>
    </div>
-   <div id="competences_auto_evaluation" class="" style="display:block">
-      <div class="panel-body">
-         <%= render 'competences_auto_evaluation'%>
-      </div>
+   <div class="btn-group">
+      <button onclick="secondRender()"type="button" class="btn btn-primary">Metas</button>
    </div>
-   <div id="working_conditions_auto_evaluation" class="" style="display:none">
-      <div class="panel-body">
-         <%= render 'working_conditions_auto_evaluation'%>
-      </div>
-   </div>
-   <div id="goals_auto_evaluation" class="" style="display:none">
-      <div class="panel-body">
-         <%= render 'goals_auto_evaluation'%>
-      </div>
+   <div class="btn-group">
+      <button onclick="thirdRender()"type="button" class="btn btn-primary">Condições de trabalho</button>
    </div>
 </div>
-
+<div id="competences_auto_evaluation" class="" style="display:block">
+   <%= simple_form_for(@evaluation) do |f| %>
+   <div>
+      <h4>Competências Fundamentais</h4>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Nível de Desenvolvimento</th>
+            </tr>
+         </thead>
+         <tbody>
+            <%= f.fields_for :evaluation_items, @competences_fundamental do |ff| %>
+            <tr>
+               <td><%= ff.object.name %></td>
+               <td><%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' }%></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+      <h4>Competências Gerenciais</h4>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Nível de Desenvolvimento</th>
+            </tr>
+         </thead>
+         <tbody>
+            <%= f.fields_for :evaluation_items, @competences_gerencial do |ff| %>
+            <tr>
+               <td><%= ff.object.name %></td>
+               <td><%= ff.select :auto_evaluation_grade, [["Não desenvolvida", 1], ["Pouco Desenvolvida", 2], ["Medianamente Desenvolvida", 3],["Muito Desenvolvida", 4],["Totalmente Desenvolvida",5]],{},{ :class => 'btn btn-primary dropdown-toggle' } %></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+   </div>
+   <div>
+   </div>
+   <button onclick="secondRender()"type="button" class="btn btn-success pull-right margin-bottom-20">Avaliar Metas</button>
+</div>
+<div id="goals_auto_evaluation" class="" style="display:none">
+   <div>
+      <h4>Metas</h4>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Descrição</th>
+               <th>Prazo</th>
+               <th>Nível de Desenvolvimento</th>
+            </tr>
+         </thead>
+         <tbody>
+            <%= f.fields_for :evaluation_items, @goals do |ff| %>
+            <tr>
+               <td><%= ff.object.name %></td>
+               <td><%= ff.object.description %></td>
+               <td><%= ff.object.deadline %></td>
+               <td> <%= ff.select :auto_evaluation_grade, [["Não Colaborou", 1], ["Colaborou Pouco", 2], ["Colaborou Medianamente", 3],["Colaborou Muito", 4],["Colaborou Totalmente",5]],{},{ :class => 'btn btn-primary dropdown-toggle' }  %></td>
+               <% end %>
+         </tbody>
+      </table>
+   </div>
+   <button onclick="firstRender()" type="button" class="btn btn-warning">Voltar para Competências</button>
+   <button onclick="thirdRender()"type="button" class="btn btn-success pull-right">Avaliar condições de trabalho</button>
+</div>
+<div id="working_conditions_auto_evaluation" class="" style="display:none">
+   <div>
+      <h4>Condições de trabalho</h4>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Nível de Desenvolvimento</th>
+            </tr>
+         </thead>
+         <tbody>
+            <%= f.fields_for :evaluation_items, @workingCondition do |ff| %>
+            <tr>
+               <td><%= ff.object.name %></td>
+               <td><%= ff.select :auto_evaluation_grade, [["Concordo Plenamente", 1], ["Concordo Parcialmente", 2], ["Indiferente", 3],["Discordo Parcialmente", 4],["Discordo Totalmente",5]],{},{ :class => 'btn btn-primary dropdown-toggle' }  %></td>
+               <% end %>
+         </tbody>
+      </table>
+      <button onclick="secondRender()"type="button" class="btn btn-warning pull-left">Voltar para Avaliar Metas</button>
+      <%= f.submit "Submeter avaliação",:class => 'btn btn-lg btn-success pull-right'  %>
+      <% end %>
+   </div>
+</div>
+</div>
