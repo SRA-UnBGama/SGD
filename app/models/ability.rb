@@ -28,14 +28,18 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+   
+   user ||= User.new # guest user (not logged in)
+    if user.has_role? :admin
+      can :manage, :all
+    elsif user.has_role? :moderator
+      can :read, :all
+      can :manage, Goal
+      can [:not_confirm_team, :confirm_team], Team
+    elsif  user.has_role? :external_user
+      can :read, User
+    end
 
-    user ||= User.new  # guest user (not logged in)
-        if user.has_hole? :admin
-            can :manage, :all
-        else
-            can :read, :all
-        end
-    
 
   end
 end

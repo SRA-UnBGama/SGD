@@ -1,4 +1,5 @@
 class Team < ActiveRecord::Base
+  resourcify
   has_many :users
 
   def initialize_team

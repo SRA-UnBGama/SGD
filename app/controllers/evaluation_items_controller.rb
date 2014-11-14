@@ -1,6 +1,7 @@
 class EvaluationItemsController < ApplicationController
   before_action :set_evaluation_item, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   def create
     @evaluation_item = EvaluationItem.new(evaluation_item_params)
     @evaluation_item.save

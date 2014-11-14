@@ -1,6 +1,7 @@
 class LearningSolutionsController < ApplicationController
   before_action :set_learning_solution, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   # GET /learning_solutions
   # GET /learning_solutions.json
   def index

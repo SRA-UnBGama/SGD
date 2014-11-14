@@ -1,5 +1,5 @@
 class Goal < EvaluationItem
-	
+	resourcify
 	validates_presence_of :name, :deadline, :description
 
 	validate :deadline_greater_than_today

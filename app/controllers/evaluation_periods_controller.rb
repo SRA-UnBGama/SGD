@@ -1,6 +1,7 @@
 class EvaluationPeriodsController < ApplicationController
   before_action :set_evaluation_period, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   # GET /evaluation_periods
   # GET /evaluation_periods.json
   def index

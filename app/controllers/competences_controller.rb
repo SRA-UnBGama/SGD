@@ -1,6 +1,7 @@
 class CompetencesController < ApplicationController
   before_action :set_competence, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   # GET /competences
   # GET /competences.json
   def index

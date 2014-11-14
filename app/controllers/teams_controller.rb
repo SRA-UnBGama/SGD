@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   def index
     @teams = []
 

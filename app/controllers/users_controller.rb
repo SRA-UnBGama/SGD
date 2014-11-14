@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  # GET /users
+ 
+  load_and_authorize_resource
+  check_authorization
+ # GET /users
   # GET /users.json
   def index
     @users = User.order(:name_user)
@@ -27,11 +30,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.is_active_user = true
-
+    @user.add_role :external_user
+    @user.external_user = true
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :index, status: :created, location: @user }
+
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

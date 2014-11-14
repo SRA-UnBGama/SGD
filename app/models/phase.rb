@@ -1,4 +1,5 @@
 class Phase < ActiveRecord::Base
+  resourcify
   belongs_to :evaluation_period
   validate :dates_are_valid, :minimum_period_phase
 

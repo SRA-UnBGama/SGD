@@ -1,7 +1,8 @@
 # -*- e
 class WorkingConditionsController < ApplicationController
   before_action :set_working_condition, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  check_authorization
   # GET /working_conditions
   # GET /working_conditions.json
   def index

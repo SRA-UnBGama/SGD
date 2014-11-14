@@ -1,4 +1,5 @@
 class EvaluationPeriod < ActiveRecord::Base
+	 resourcify
 	 has_many :phases
 
 	 validates_presence_of :start_date_evaluation , :end_date_evaluation

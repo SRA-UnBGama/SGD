@@ -1,5 +1,5 @@
 class WorkingCondition < EvaluationItem
-	
+	resourcify
 	validates_presence_of :name
 	validates_uniqueness_of :name
 	validate :max_number_of_working_conditions

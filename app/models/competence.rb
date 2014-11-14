@@ -1,4 +1,5 @@
 class Competence < EvaluationItem
+	resourcify
 	validates_presence_of :name, :category
 
 
