@@ -1,14 +1,16 @@
 require 'rails_helper'
-
+require 'spec_helper'
 RSpec.describe CompetencesController, :type => :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Competence. As you add validations to Competence, be sure to
   # adjust the attributes here as well.
+
+  login_admin
   let(:valid_attributes) {{ :name => "Presta atendimento aos cidadãos, 
     sem distinção ou preconceito, com cortesia, precisão e agilidade baseando-se 
     no interesse público e nas normas internas da UnB", :category => "Fundamentais"
-    
+
   }}
 
   let(:invalid_attributes) {{

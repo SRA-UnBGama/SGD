@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe EvaluationPeriodsController, :type => :controller do
-
+  login_admin
 
   let(:valid_attributes) {{
     :start_date_evaluation => "21/02/2014",

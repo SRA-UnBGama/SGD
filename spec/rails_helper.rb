@@ -41,4 +41,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend ControllerMacros, :type => :controller
+    config.include Devise::TestHelpers, :place => :controller
+    config.extend ControllerMacros, :place => :controller
+  end
 end
