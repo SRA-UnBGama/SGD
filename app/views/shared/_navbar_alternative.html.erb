@@ -1,16 +1,24 @@
 <ul class="nav nav-tabs navbar-fixed-top" role="tablist">
   <li><a href="<%=root_path%>" class="colorwhite"><i class="fa fa-home "></i> SGD</a></li>
-  <li><a href="<%=evaluation_periods_path%>"class="colorwhite" >Período Avaliativo</a></li>
-  <li><a href="<%=competences_path%>" class="colorwhite">Competências</a></li>
-  <li><a href="<%=goals_path%>" class="colorwhite">Metas</a></li>
-  <li><a href="<%=working_conditions_path%>" class="colorwhite">Condições de Trabalho</a></li>
-  <li><a href="<%=users_path%>" class="colorwhite">Usuários</a></li>
-  <li><a href="<%=teams_path%>" class="colorwhite">Equipes</a></li>
-  <li><a href="<%=learning_solutions_path%>" class="colorwhite">Soluções de Aprendizagem</a></li>
-  
-  <% if user_signed_in?  %>
-    <li><a href="<%=auto_evaluations_path%>" id ="dropDown"class="colorwhite">  Autoavaliação</a></li> 
-    <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>
+  <% if !user_signed_in?%>
+    <li><a href="<%=users_path%>" class="colorwhite">Usuários</a></li>
+  <% end %>
+  <% if current_user%>
+    <%if current_user.has_role? :admin %>
+      <li><a href="<%=evaluation_periods_path%>"class="colorwhite" >Período Avaliativo</a></li>
+      <li><a href="<%=competences_path%>" class="colorwhite">Competências</a></li>
+      <li><a href="<%=goals_path%>" class="colorwhite">Metas</a></li>
+      <li><a href="<%=working_conditions_path%>" class="colorwhite">Condições de Trabalho</a></li>
+      <li><a href="<%=teams_path%>" class="colorwhite">Equipes</a></li>
+      <li><a href="<%=learning_solutions_path%>" class="colorwhite">Soluções de Aprendizagem</a></li>
+    <% elsif current_user.has_role? :moderator%>
+      <li><a href="<%=goals_path%>" class="colorwhite">Metas</a></li>
+      <li><a href="<%=teams_path%>" class="colorwhite">Equipes</a></li>
+    <%end%>
+      <% if user_signed_in?  %>
+      <li><a href="<%=auto_evaluations_path%>" id ="dropDown"class="colorwhite">  Autoavaliação</a></li> 
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn   btn-danger pull-right' %></a>
+    <%end%>
   <%end%>
 
 </ul>
