@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :evaluations
 	 belongs_to :team
 
+	def self.search(search)
+		if search
+			where('name_user LIKE ?', "%#{search}%")
+		else
+			all
+		end
+	end
+
 	def email_required?
   		false
 	end

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
  # GET /users
   # GET /users.json
   def index
-    @users = User.order(:name_user).paginate(:per_page => 5, :page => params[:page])
+    @users = User.search(params[:search]).order(:name_user).paginate(:per_page => 5, :page => params[:page])
     @evaluations = Evaluation.all
   end
 

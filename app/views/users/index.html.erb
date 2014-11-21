@@ -3,7 +3,13 @@
     <div class="page-header">
       <h1>Lista de Usuários</h1>
     </div>
+    <%= form_tag users_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Buscar", :name => nil , class: "btn btn-primary"%>
+    <% end %>
 
+    <br>
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -17,7 +23,7 @@
       </thead>
 
       <tbody>
-        <% @users.each do |user| %>
+        <% for user in @users %>
           <tr>
             <td><%= user.name_user %></td>
             <td><%= user.fub_registry %></td>
@@ -31,7 +37,6 @@
       </tbody>
     </table>
     <%= will_paginate @users %>
-
     <br>
 
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Cadastrar Novo Usuário</i>"), new_user_path , class:"btn btn-primary"%>
