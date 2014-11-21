@@ -34,6 +34,10 @@ gem "less-rails"
 
 gem 'simplecov', :require => false, :group => :test
 
+# Use to search and paginate
+gem 'will_paginate', '~> 3.0.7'
+gem 'jquery-rails'
+
 gem 'cancancan'
 gem "rolify"
 gem 'factory_girl_rails'
