@@ -49,7 +49,6 @@ class EvaluationPeriod < ActiveRecord::Base
 	       phases = initialize_phases(planing, monitoring, formalization, development_plan)
 
 	       define_name_description( phases )
-#	       define_default_period_to_phases( phases )
 
 	       phases
 		end
@@ -70,21 +69,6 @@ class EvaluationPeriod < ActiveRecord::Base
 
 			phases
 		end
-
-#		def initialize_phases (planning, monitoring , development_plan, formalization )
-#	      @planning = planning
-#	      @monitoring = monitoring
-#	      @formalization = formalization
-#	      @development_plan = development_plan
-#
-#	      phases = []
-#	      phases << @planning
-#	      phases << @monitoring
-#	      phases << @formalization
-#	      phases << @development_plan
-#
-#	      phases
-#	    end
 
 	    PLANNING = 1
 	    MONITORING = 2
@@ -120,36 +104,4 @@ class EvaluationPeriod < ActiveRecord::Base
 				position+=1
 			end
 		end
-
-# TODO: Fixing it
-#
-#		def define_default_period_to_phases(phases)
-#
-#			position = PLANNING
-#
-#			start_date_period = phases.first.evaluation_period.start_date_evaluation
-#			end_date_period = phases.first.evaluation_period.end_date_evaluation
-#
-#			phases.each do |phase|
-#				case position
-#					when PLANNING
-#						phase.start_date_phase = start_date_period
-#						phase.end_date_phase = (end_date_period-46.day)
-#
-#					when MONITORING
-#						phase.start_date_phase = (end_date_period-45.day)
-#						phase.end_date_phase = (end_date_period-31.day)
-#
-#					when FORMALIZATION
-#						phase.start_date_phase = (end_date_period-30.day)
-#						phase.end_date_phase = (end_date_period-16.day)
-#
-#					when DEVELOPMENT_PLAN
-#						phase.start_date_phase = (end_date_period-15.day)
-#						phase.end_date_phase = end_date_period
-#				end
-#
-#				position+=1
-#			end
-#		end
 end
