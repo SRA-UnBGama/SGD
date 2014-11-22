@@ -3,7 +3,7 @@ class EvaluationPeriod < ActiveRecord::Base
 	has_many :phases
 
 	validates_presence_of :start_date_evaluation, :end_date_evaluation
-	validate :dates_are_valid, :minimum_period
+	validate :dates_are_valid, :minimum_period, :not_overlap_evaluation_period
 
 	def initialize( *params )super( *params )
 		self.phases << create_phases
@@ -33,6 +33,28 @@ class EvaluationPeriod < ActiveRecord::Base
 				# Nothing to do
 			end
 		end
+  	end
+
+  	def not_overlap_evaluation_period
+		evaluation_periods = EvaluationPeriod.all
+
+		begin_evaluation = self.start_date_evaluation
+
+		if !evaluation_periods.nil?
+			evaluation_periods.each do |evaluation_period|
+				begin_current_evaluation = evaluation_period.start_date_evaluation
+				end_current_evaluation = evaluation_period.end_date_evaluation
+
+	  			unless begin_evaluation.between?( begin_evaluation, end_current_evaluation )
+	  				# Nothing To Do
+	  			else
+	  				errors.add( :start_date_evaluation, "O novo Período de avaliação não deve sobrepor 
+	  					um Período de avaliação já existente." )
+	  			end
+	  		end
+	  	else
+	  		# Nothing To Do
+	  	end
   	end
 
   	private
