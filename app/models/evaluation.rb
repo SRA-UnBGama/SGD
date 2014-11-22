@@ -12,7 +12,7 @@ class Evaluation < ActiveRecord::Base
 	end
 
 	private
-		def initialize_evaluation_items()      
+		def initialize_evaluation_items()
 	      evaluation_items = EvaluationItem.all
 
 	      id_evaluation = Evaluation.count
