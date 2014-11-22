@@ -31,11 +31,11 @@ class EvaluationPeriodsController < ApplicationController
     @phases = create_phases
     @evaluation_period.phases << @phases
 
+    define_default_period_to_phases(@evaluation_period.phases)
 
     respond_to do |format|
       if @evaluation_period.save
         define_name_description(@evaluation_period.phases)
-        define_default_period_to_phases(@evaluation_period.phases)
         define_status_phases(@evaluation_period.phases)
 
         format.html { redirect_to evaluation_period_path(@evaluation_period), notice: 'Evaluation period was successfully created.' }
@@ -144,22 +144,26 @@ class EvaluationPeriodsController < ApplicationController
       position = PLANNING
 
       start_date_period = phases.first.evaluation_period.start_date_evaluation
-      start_date_period_final = phases.first.evaluation_period.end_date_evaluation
       end_date_period = phases.first.evaluation_period.end_date_evaluation
 
       phases.each do |phase|
         case position
           when PLANNING
-             phase.update_attributes(:start_date_phase => start_date_period, :end_date_phase => (start_date_period_final-46.day))
+            phase.start_date_phase = start_date_period
+            phase.end_date_phase = (end_date_period-46.day)
 
           when MONITORING
-             phase.update_attributes(:start_date_phase => (start_date_period_final-45.day), :end_date_phase => (start_date_period_final-31.day))
+            phase.start_date_phase = (end_date_period-45.day)
+            phase.end_date_phase = (end_date_period-31.day)
 
           when FORMALIZATION
-            phase.update_attributes(:start_date_phase => (start_date_period_final-30.day), :end_date_phase => (start_date_period_final-16.day))
+            phase.start_date_phase = (end_date_period-30.day)
+            phase.end_date_phase = (end_date_period-16.day)
 
           when DEVELOPMENT_PLAN
-             phase.update_attributes(:start_date_phase => (start_date_period_final-15.day), :end_date_phase => end_date_period )
+            phase.start_date_phase = (end_date_period-15.day)
+            phase.end_date_phase = end_date_period
+
           end
            position+=1
       end
