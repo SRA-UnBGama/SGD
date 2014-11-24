@@ -11,9 +11,13 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :evaluations
 	 belongs_to :team
 
-	def self.search(search)
-		if search
-			where('name_user LIKE ?', "%#{search}%")
+	def self.search(search, search_option)
+		if search and search_option
+			if search_option == "name"
+				where('name_user LIKE ?', "%#{search}%")
+			elsif search_option == "fub_registry"
+				where('fub_registry LIKE ?', "%#{search}%")
+			end
 		else
 			all
 		end
