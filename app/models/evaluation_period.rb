@@ -14,22 +14,53 @@ class EvaluationPeriod < ActiveRecord::Base
 
 		if !periods.nil?
 			periods.each do |period|
-				logger.info "ENTROU NO IF"
 				period.define_status_phases
 			end
+		else
+			# Nothing To Do
 		end
  	end
 
+ 	def EvaluationPeriod.verify_status_evaluation_period
+ 		periods =EvaluationPeriod.all
+
+ 		if !periods.nil?
+ 			periods.each do |period|
+ 				period.define_status_evaluation_period
+ 			end
+ 		else
+ 			# Nothing To Do
+ 		end
+ 	end
+
  	def define_status_phases
-      self.phases.each do |phase|
-        if (Date.today > phase.start_date_phase) && (Date.today > phase.end_date_phase)
-          phase.update_attributes(:status_phase => "Encerrado")
-        elsif (Date.today > phase.start_date_phase) && (Date.today < phase.end_date_phase)
-          phase.update_attributes(:status_phase => "Em Andamento")
-        else
-          phase.update_attributes(:status_phase => "Aguardando")
-        end
-      end
+ 		today = Date.today
+ 		start_phase = phase.start_date_phase
+ 		end_phase = phase.end_date_phase
+
+		self.phases.each do |phase|
+	        if (today > start_phase) && (today > end_phase)
+				phase.update_attributes(:status_phase => "Encerrado")
+			elsif (today > start_phase) && (today < end_phase)
+				phase.update_attributes(:status_phase => "Em Andamento")
+	        else
+				phase.update_attributes(:status_phase => "Aguardando")
+			end
+      	end
+    end
+
+    def define_status_evaluation_period
+    	today = Date.today
+    	start_period = self.start_date_evaluation
+    	end_period = self.end_date_evaluation
+
+    	if( ( today > start_period ) and ( today > end_period ) )
+    		self.update_attributes( :status_evaluation_period => "Encerrado" )
+    	elsif( ( start_period < today ) and ( today < end_period ) )
+    		self.update_attributes( :status_evaluation_period => "Em Andamento" )
+    	else
+    		# Nothing To Do
+    	end
     end
 
   ########## VALIDATIONS ##########
@@ -51,7 +82,7 @@ class EvaluationPeriod < ActiveRecord::Base
 
 			if end_date_evaluation < (start_date_evaluation + 59.days)
 
-				errors.add(:end_date_evaluation, "Período deve ser superior à 60 dias")
+				errors.add(:end_date_evaluation, "Período deve ser superior a 60 dias")
 			else
 				# Nothing to do
 			end
