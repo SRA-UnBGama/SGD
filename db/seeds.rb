@@ -87,7 +87,10 @@ WorkingCondition.create([{:name => "Os instrumentos de trabalho são suficientes
 WorkingCondition.create([{:name => "O espaço físico é adequado para realiazar os processos de trabalho."}])
 WorkingCondition.create([{:name => "O ambiente de trabalho oferece segurança física às pessoas"}])
 WorkingCondition.create([{:name => "O material de consumo é suficiente."}])
-
+#Role
+['external_user', 'moderator', 'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
 # USUÁRIOS
 #
 # Apenas a nível de DESENVOLVIMENTO

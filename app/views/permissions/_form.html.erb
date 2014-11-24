@@ -1,0 +1,51 @@
+<div class="container">
+<%= simple_form_for(:user, :html => {:class => 'form-vertical' }) do |f| %>
+<div class="places-form">
+<div class="field">
+   <div class="accordion" id="accordion2">
+      <div class="accordion-group">
+         <div class="accordion-heading">
+            <h4 class="accordion-title">
+               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+               Perfiol de acesso
+               </a>
+            </h4>
+         </div>
+         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+               <div class="controls">
+                  <% Role.all.each do |role| %>
+                  <%= hidden_field_tag "user[role_ids][]"%>
+                  <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+                  <% if role.name == "admin"%><br />
+                    <%= role.name %>
+                  <ul>
+                    <li>Todas as permissões de gerente</li>
+                    <li>Deletar dados</li>
+                    <li>Alterar permissões</li>
+                  </ul>
+                  <% elsif role.name == "external_user"%><br />
+                    <%= role.name %>
+                  <ul>
+                    <li>Usuário comum</li>
+                  </ul>
+                  <% elsif role.name == "moderator"%><br />
+                    <%= role.name %>
+                  <ul>
+                    <li>Criar metas</li>
+                    <li>Confirmar equipe</li>
+                  </ul>
+                  <% end %>
+                  <% end %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <%= link_to raw("<i class=\"icon-white icon-arrow-left\"> Voltar </i>"),
+      permissions_path ,
+      class: "btn  btn-warning"%>
+   <%= f.submit "Alterar", :class => 'btn-success btn', :id => 'alterar-permissoes'%>
+</div>
+<% end%>
+</div>
