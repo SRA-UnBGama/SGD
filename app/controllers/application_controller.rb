@@ -12,8 +12,26 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.default_message = "Não autorizado a fazer esta ação"
   end
 
-
   before_filter  :configure_permitted_parameters, if: :devise_controller?
+
+  def permission_about_phase(phase_name)
+      periods_in_progress = EvaluationPeriod.where(:status_evaluation_period => "Em Andamento")
+
+      result = false
+
+      if periods_in_progress.count == 1
+        phase = periods_in_progress.first.phases.find_by_phase_name(phase_name)
+
+        if phase.status_phase = "Em Andamento"
+          result = true
+        else
+          # Nothing To Do
+        end
+      else
+       # Nothing To Do
+      end
+      result
+  end
 
   protected
 

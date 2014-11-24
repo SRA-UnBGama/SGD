@@ -6,10 +6,20 @@
     }, 5000);
 </script>
 <% flash.each do |type, message| %>
-  <% if not type.eql? :timedout %>
-    <div class="margin-top-20 alert alert-success %> fade in">
-      <button class="close" data-dismiss="alert">×</button>
-      <%= message %>
-    </div>
-  <% end %>
+    <% if type == "error" %>
+      <div class="margin-top-20 alert alert-danger %> fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= message %>
+      </div>
+    <%elsif type == "alert"%>
+        <div class="margin-top-20 alert alert-warning %> fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
+        </div> 
+    <%else%>
+        <div class="margin-top-20 alert alert-success %> fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
+        </div> 
+    <% end %>
 <% end %>

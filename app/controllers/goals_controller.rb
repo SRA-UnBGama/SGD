@@ -16,7 +16,13 @@ class GoalsController < ApplicationController
 
   # GET /goals/new
   def new
-    @goal = Goal.new
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning
+      @goal = Goal.new
+    else
+      flash[:error] = "Funcionalidade indisponível para a fase de Planejamento"
+      redirect_to goals_path
+    end
   end
 
   # GET /goals/1/edit
