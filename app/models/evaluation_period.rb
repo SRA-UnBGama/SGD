@@ -9,6 +9,29 @@ class EvaluationPeriod < ActiveRecord::Base
 		self.phases << create_phases
  	end
 
+ 	def EvaluationPeriod.verify_status_phases
+ 		periods = EvaluationPeriod.all
+
+		if !periods.nil?
+			periods.each do |period|
+				logger.info "ENTROU NO IF"
+				period.define_status_phases
+			end
+		end
+ 	end
+
+ 	def define_status_phases
+      self.phases.each do |phase|
+        if (Date.today > phase.start_date_phase) && (Date.today > phase.end_date_phase)
+          phase.update_attributes(:status_phase => "Encerrado")
+        elsif (Date.today > phase.start_date_phase) && (Date.today < phase.end_date_phase)
+          phase.update_attributes(:status_phase => "Em Andamento")
+        else
+          phase.update_attributes(:status_phase => "Aguardando")
+        end
+      end
+    end
+
   ########## VALIDATIONS ##########
 	def dates_are_valid
 		if self.end_date_evaluation.present? && self.start_date_evaluation.present?

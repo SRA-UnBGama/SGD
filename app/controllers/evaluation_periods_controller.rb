@@ -11,7 +11,7 @@ class EvaluationPeriodsController < ApplicationController
   # GET /evaluation_periods/1
   # GET /evaluation_periods/1.json
   def show
-    define_status_phases(@evaluation_period.phases)
+   # define_status_phases(@evaluation_period.phases)
   end
 
   # GET /evaluation_periods/new
