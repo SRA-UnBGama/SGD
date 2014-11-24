@@ -9,6 +9,7 @@
       <tr>
         <th>Data de início</th>
         <th>Data de fim</th>
+        <th>Estado</th>
 
       </tr>
       </thead>
@@ -17,6 +18,7 @@
           <tr>
             <td><%= evaluation_period.start_date_evaluation.strftime("%d/%m/%Y") %></td>
             <td><%= evaluation_period.end_date_evaluation.strftime("%d/%m/%Y") %></td>
+            <td><%= evaluation_period.status_evaluation_period %></td>
             <td><%= button_to 'Visualizar', evaluation_period, class: "btn btn-info", :method => :get %></td>
             <td><%= button_to 'Editar', edit_evaluation_period_path(evaluation_period), class: "btn btn-primary", :method => :get %></td>
           </tr>
