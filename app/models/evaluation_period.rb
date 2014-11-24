@@ -22,7 +22,7 @@ class EvaluationPeriod < ActiveRecord::Base
  	end
 
  	def EvaluationPeriod.verify_status_evaluation_period
- 		periods =EvaluationPeriod.all
+ 		periods = EvaluationPeriod.all
 
  		if !periods.nil?
  			periods.each do |period|
@@ -35,10 +35,11 @@ class EvaluationPeriod < ActiveRecord::Base
 
  	def define_status_phases
  		today = Date.today
- 		start_phase = phase.start_date_phase
- 		end_phase = phase.end_date_phase
 
 		self.phases.each do |phase|
+			start_phase = phase.start_date_phase
+ 			end_phase = phase.end_date_phase
+
 	        if (today > start_phase) && (today > end_phase)
 				phase.update_attributes(:status_phase => "Encerrado")
 			elsif (today > start_phase) && (today < end_phase)
@@ -54,17 +55,19 @@ class EvaluationPeriod < ActiveRecord::Base
     	start_period = self.start_date_evaluation
     	end_period = self.end_date_evaluation
 
+
     	if( ( today > start_period ) and ( today > end_period ) )
-    		self.update_attributes( :status_evaluation_period => "Encerrado" )
+    		self.update_attributes(:status_evaluation_period=>"Encerrado")
     	elsif( ( start_period < today ) and ( today < end_period ) )
-    		self.update_attributes( :status_evaluation_period => "Em Andamento" )
+    		self.update_attributes(:status_evaluation_period=>"Em Andamento")
     	else
-    		# Nothing To Do
+    		self.update_attributes(:status_evaluation_period=>"Aguardando")
     	end
     end
 
   ########## VALIDATIONS ##########
 	def dates_are_valid
+
 		if self.end_date_evaluation.present? && self.start_date_evaluation.present?
 			if end_date_evaluation < start_date_evaluation
 				errors.add(:end_date_evaluation, "A data final deve ser após a data de início do 
@@ -81,7 +84,6 @@ class EvaluationPeriod < ActiveRecord::Base
 		if self.end_date_evaluation.present? && self.start_date_evaluation.present?
 
 			if end_date_evaluation < (start_date_evaluation + 59.days)
-
 				errors.add(:end_date_evaluation, "Período deve ser superior a 60 dias")
 			else
 				# Nothing to do
@@ -99,7 +101,8 @@ class EvaluationPeriod < ActiveRecord::Base
 				begin_current_evaluation = evaluation_period.start_date_evaluation
 				end_current_evaluation = evaluation_period.end_date_evaluation
 
-	  			unless begin_evaluation.between?( begin_evaluation, end_current_evaluation )
+	  			unless begin_evaluation.between?( begin_current_evaluation, end_current_evaluation ) and
+	  				self.id != evaluation_period.id
 	  				# Nothing To Do
 	  			else
 	  				errors.add( :start_date_evaluation, "O novo Período de avaliação não deve sobrepor 

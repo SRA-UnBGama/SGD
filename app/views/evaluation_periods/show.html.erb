@@ -5,7 +5,7 @@
         <p id="notice"><%= notice %></p>
         <h1>Fases do Período Avaliativo</h1>
 
-        <% period = "#{@evaluation_period.start_date_evaluation.strftime("%d/%m/%y")} à #{@evaluation_period.end_date_evaluation.strftime("%d/%m/%y")}"%>
+        <% period = "#{@evaluation_period.start_date_evaluation.strftime("%d/%m/%y")} à #{@evaluation_period.end_date_evaluation.strftime("%d/%m/%y")} - #{@evaluation_period.status_evaluation_period}"%>
         <h4><%=  period  %></h4>
       </div>
 

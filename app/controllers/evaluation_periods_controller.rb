@@ -11,7 +11,6 @@ class EvaluationPeriodsController < ApplicationController
   # GET /evaluation_periods/1
   # GET /evaluation_periods/1.json
   def show
-   # define_status_phases(@evaluation_period.phases)
   end
 
   # GET /evaluation_periods/new
@@ -22,6 +21,7 @@ class EvaluationPeriodsController < ApplicationController
 
   # GET /evaluation_periods/1/edit
   def edit
+    EvaluationPeriod.verify_status_evaluation_period
   end
 
   # POST /evaluation_periods
@@ -31,6 +31,8 @@ class EvaluationPeriodsController < ApplicationController
     @phases = @evaluation_period.phases
 
     define_default_period_to_phases(@phases)
+    @evaluation_period.define_status_phases
+    @evaluation_period.define_status_evaluation_period
 
     respond_to do |format|
       if @evaluation_period.save
@@ -78,7 +80,7 @@ class EvaluationPeriodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_period_params
-      params.require(:evaluation_period).permit(:start_date_evaluation, :end_date_evaluation)
+      params.require(:evaluation_period).permit(:start_date_evaluation, :end_date_evaluation, :status_evaluation_period)
     end
 
     PLANNING = 1
@@ -115,18 +117,4 @@ class EvaluationPeriodsController < ApplicationController
         position += 1
       end
     end
-
-    def define_status_phases(phases)
-
-      phases.each do |phase|
-        if (Date.today > phase.start_date_phase) && (Date.today > phase.end_date_phase)
-          phase.update_attributes(:status_phase => "Encerrado")
-        elsif (Date.today > phase.start_date_phase) && (Date.today < phase.end_date_phase)
-          phase.update_attributes(:status_phase => "Em Andamento")
-        else
-          phase.update_attributes(:status_phase => "Aguardando")
-        end
-      end
-    end
-
 end
