@@ -94,15 +94,20 @@ class EvaluationPeriod < ActiveRecord::Base
   	def not_overlap_evaluation_period
 		evaluation_periods = EvaluationPeriod.all
 
-		begin_evaluation = self.start_date_evaluation
+		begin_period = self.start_date_evaluation
+		end_period = self.end_date_evaluation
 
 		if !evaluation_periods.nil?
 			evaluation_periods.each do |evaluation_period|
-				begin_current_evaluation = evaluation_period.start_date_evaluation
-				end_current_evaluation = evaluation_period.end_date_evaluation
+				begin_current_period = evaluation_period.start_date_evaluation
+				end_current_period = evaluation_period.end_date_evaluation
 
-	  			unless begin_evaluation.between?( begin_current_evaluation, end_current_evaluation ) and
-	  				self.id != evaluation_period.id
+				if self.id == evaluation_period.id
+	  				# Nothing To Do
+
+	  			elsif !((begin_current_period.between?(begin_period, end_period)) or
+	  			 (end_current_period.between?(begin_period, end_period)) or
+	  			 ((begin_current_period <= begin_period) and (end_current_period >= end_period)))
 	  				# Nothing To Do
 	  			else
 	  				errors.add( :start_date_evaluation, "O novo Período de avaliação não deve sobrepor 
