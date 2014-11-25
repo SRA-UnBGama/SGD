@@ -29,6 +29,11 @@
     </div>
 
     <div>
+      <%= f.label "Ocupação: " %>
+      <%= f.input :job_title, :label => false %>
+    </div>
+
+    <div>
       <%= f.label "Lotação: " %>
       <%= f.input :cost_center, :label => false %>
     </div>
@@ -37,6 +42,12 @@
       <%= f.label "Data de Admissão: " %>
       <%= f.input :admission_date, :label => false %>
     </div>
+
+    <div>
+      <%= f.label "E-mail: " %>
+      <%= f.input :email, :label => false %>
+    </div>
+
     <div>
       <%= f.label "Senha: " %>
       <%= f.input :password, :label => false %>

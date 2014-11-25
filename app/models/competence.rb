@@ -1,6 +1,6 @@
 class Competence < EvaluationItem
 	resourcify
-	validates_presence_of :name, :category
+	validates_presence_of :name
 
 
 	def max_number_of_competence
