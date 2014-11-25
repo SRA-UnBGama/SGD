@@ -10,11 +10,24 @@ class CompetencesController < ApplicationController
 
   # GET /competences/new
   def new
-    @competence = Competence.new
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning 
+      @competence = Competence.new
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to competences_path
+    end
   end
 
   # GET /competences/1/edit
   def edit
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning
+      # Nothing To Do
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to competences_path
+    end
   end
 
   # POST /competences
@@ -28,7 +41,7 @@ class CompetencesController < ApplicationController
     respond_to do |format|
       if competences_actived < 10
         if @competence.save
-          format.html { redirect_to competences_path, notice: 'Competence was successfully created.' }
+          format.html { redirect_to competences_path, notice: 'Competência criada com sucesso.' }
         else
           format.html { render :new }
           format.json { render json: @competence.errors, status: :unprocessable_entity }
@@ -44,7 +57,7 @@ class CompetencesController < ApplicationController
   def update
     respond_to do |format|
       if @competence.update(competence_params)
-        format.html { redirect_to competences_path, notice: 'Competence was successfully updated.' }
+        format.html { redirect_to competences_path, notice: 'Competência atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @competence }
       else
         format.html { render :edit }
@@ -56,18 +69,24 @@ class CompetencesController < ApplicationController
   # DELETE /competences/1
   # DELETE /competences/1.json
   def destroy
-    @competence.is_active ? @competence.is_active = false : @competence.is_active = true
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning 
+      @competence.is_active ? @competence.is_active = false : @competence.is_active = true
 
-    respond_to do |format|
-      competences_actived = Competence.where(:is_active => true).count
-      if !(competences_actived >= 10 && (@competence.is_active == true))
-        @competence.save
-        format.html { redirect_to competences_url, notice: 'Competência foi alterada com sucesso.' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to competences_url, notice: 'Competência não alterada. Limite de Competência ativas foi Atingido.' }
-        format.json { head :no_content }
+      respond_to do |format|
+        competences_actived = Competence.where(:is_active => true).count
+        if !(competences_actived >= 10 && (@competence.is_active == true))
+          @competence.save
+          format.html { redirect_to competences_url, notice: 'Competência foi alterada com sucesso.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to competences_url, notice: 'Competência não alterada. Limite de Competência ativas foi Atingido.' }
+          format.json { head :no_content }
+        end
       end
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to competences_path
     end
   end
 

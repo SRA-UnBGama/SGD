@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.default_message = "Não autorizado a fazer esta ação"
+    redirect_to root_url, :alert => exception.default_message = "Não autorizado a fazer esta ação."
   end
 
   before_filter  :configure_permitted_parameters, if: :devise_controller?

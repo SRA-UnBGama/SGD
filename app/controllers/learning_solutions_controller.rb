@@ -15,11 +15,24 @@ class LearningSolutionsController < ApplicationController
 
   # GET /learning_solutions/new
   def new
-    @learning_solution = LearningSolution.new
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning 
+      @learning_solution = LearningSolution.new
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to learning_solutions_path
+    end
   end
 
   # GET /learning_solutions/1/edit
   def edit
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning
+      # Nothing To Do
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to learning_solutions_path
+    end
   end
 
   # POST /learning_solutions
@@ -30,7 +43,7 @@ class LearningSolutionsController < ApplicationController
 
     respond_to do |format|
       if @learning_solution.save
-        format.html { redirect_to learning_solutions_path, notice: 'Learning solution was successfully created.' }
+        format.html { redirect_to learning_solutions_path, notice: 'Solução de aprendizado criada com sucesso.' }
         format.json { render :index, status: :created, location: @learning_solution }
       else
         format.html { render :new }
@@ -44,7 +57,7 @@ class LearningSolutionsController < ApplicationController
   def update
     respond_to do |format|
       if @learning_solution.update(learning_solution_params)
-        format.html { redirect_to learning_solutions_path, notice: 'Learning solution was successfully updated.' }
+        format.html { redirect_to learning_solutions_path, notice: 'Solução de aprendizado atualizada com sucesso.' }
         format.json { render :index, status: :ok, location: @learning_solution }
       else
         format.html { render :edit }
@@ -56,11 +69,17 @@ class LearningSolutionsController < ApplicationController
   # DELETE /learning_solutions/1
   # DELETE /learning_solutions/1.json
   def destroy
-    @learning_solution.is_active_learning_solution ? @learning_solution.is_active_learning_solution = false : @learning_solution.is_active_learning_solution = true
-    respond_to do |format|
-      @learning_solution.save
-      format.html { redirect_to learning_solutions_url, notice: 'Learning solution was successfully destroyed.' }
-      format.json { head :no_content }
+    phase_is_planning = permission_about_phase("Planejamento")
+    if phase_is_planning
+      @learning_solution.is_active_learning_solution ? @learning_solution.is_active_learning_solution = false : @learning_solution.is_active_learning_solution = true
+      respond_to do |format|
+        @learning_solution.save
+        format.html { redirect_to learning_solutions_url, notice: 'Solução de aprendizado excluida com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Funcionalidade disponível apenas para a fase de Planejamento"
+      redirect_to learning_solutions_path
     end
   end
 

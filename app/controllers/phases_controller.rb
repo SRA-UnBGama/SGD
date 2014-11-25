@@ -17,7 +17,7 @@ class PhasesController < ApplicationController
   def update
     respond_to do |format|
       if @phase.update(phase_params)
-        format.html { redirect_to @phase.evaluation_period, notice: 'Phase was successfully updated.' }
+        format.html { redirect_to @phase.evaluation_period, notice: 'Fase atualizada com sucesso.' }
         #format.json { render :show, status: :ok, location: @phase }
       else
         format.html { render :edit }
