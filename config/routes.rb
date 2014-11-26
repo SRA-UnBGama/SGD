@@ -21,9 +21,14 @@ Rails.application.routes.draw do
 
   resources :auto_evaluations
 
+  resources :permissions
+
   post "/teams/confirm_team", to: "teams#confirm_team"
   post "/teams/not_confirm_team", to: "teams#not_confirm_team"
 
+  post "users/activate_admin",to: "users#activate_admin"
+  post '/permissions/:id/edit', to: 'permissions#update'
+  get '/permissions/:id', to: 'permissions#index'
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

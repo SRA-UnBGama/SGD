@@ -28,12 +28,14 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    @role = Role.new
     @user = User.new(user_params)
     @user.is_active_user = true
-    @user.add_role :external_user
-    @user.external_user = true
+    @user.add_role "admin"
+    
     respond_to do |format|
       if @user.save
+        
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :index, status: :created, location: @user }
 
@@ -68,7 +70,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name_user, :fub_registry, :siape_registry, :cost_center, 
-        :admission_date, :password, :password_confirmation, :evaluation_ids => [])
+      params.require(:user).permit(:name_user, :fub_registry, :siape_registry, :cost_center,
+        :admission_date, :password, :password_confirmation,:role_ids,:user_id, :evaluation_ids => [])
     end
 end
