@@ -154,10 +154,20 @@ class EvaluationPeriod < ActiveRecord::Base
 			phases
 		end
 
-	    PLANNING = 1
-	    MONITORING = 2
-	    FORMALIZATION = 3
-	    DEVELOPMENT_PLAN = 4
+		def EvaluationPeriod.get_current_phase()
+			period_in_progress = EvaluationPeriod.where(:status_evaluation_period => "Em Andamento")
+			if period_in_progress.count == 1
+				phase = Phase.find_by_status_phase("Em Andamento")
+			else
+				phase = nil
+			end
+			return phase
+		end
+
+		PLANNING = 1
+	  MONITORING = 2
+	  FORMALIZATION = 3
+	  DEVELOPMENT_PLAN = 4
 
 		def define_name_description(phases)
 			position = PLANNING

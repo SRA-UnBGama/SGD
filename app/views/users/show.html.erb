@@ -3,42 +3,67 @@
     <div class="row">
       <div class="page-header">
       	<p id="notice"><%= notice %></p>
-        <h1>Página do Usuário</h1>
+        <h1>Perfil do Usuário</h1>
       </div>
 
-		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th>Nome:</th>
-		      <th>Ocupação:</th>
-		      <th>E-mail:</th>
-		    </tr>
-		  </thead>
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <b>Fase Atual</b>
+            <li class="list-group-item list-group-item-info">
+              <%= EvaluationPeriod.get_current_phase.phase_name%>
+            </li>
+          </div>
 
-		  <tbody>
-		  	<tr>
-		  		<td>
-					<p>
-						<%= @user.name_user %>
-					</p>
-				</td>
-				<td>
-					<p>
-						<%= @user.job_title %>
-					</p>
-				</td>
-				<td>
-					<p>
-						<%= @user.email %>
-					</p>
-				</td>
-			</tr>
-		  </tbody>
-		</table>
+          <table class="table ">
+            <thead>
+            <tr>
+              <th>Nome</th>
+              <th><%= @user.name_user%></th>
+            </tr>
 
-		<div class="actions">
-		     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
-		     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
-		</div>
+            <tr>
+              <th>Matricula FUB</th>
+              <th><%= @user.fub_registry%></th>
+            </tr>
+
+            <tr>
+              <th>Matricula SIAPE</th>
+              <th><%= @user.siape_registry%></th>
+            </tr>
+
+            <tr>
+              <th>Data de Admissão</th>
+              <th><%= @user.admission_date%></th>
+            </tr>
+
+            <tr>
+              <th>Lotação</th>
+              <th><%= @user.cost_center%></th>
+            </tr>
+
+            <tr>
+              <th>Email</th>
+              <th><%= @user.email%></th>
+            </tr>
+
+            </thead>
+          </table>
+
+          <div class="actions">
+            <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
+            <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <b>Avaliação</b>
+          </div>
+        </div>
+      </div>
 	</div>
 </div>
