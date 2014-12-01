@@ -35,7 +35,7 @@
 
             <tr>
               <th>Data de Admissão</th>
-              <th><%= @user.admission_date%></th>
+              <th><%= @user.admission_date.strftime("%d/%m/%Y") %></th>
             </tr>
 
             <tr>
