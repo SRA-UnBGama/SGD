@@ -87,7 +87,8 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:leader, :members, :workplace, :is_confirm, :user_ids => [])
+      params.require(:team).permit(:leader, :members, :workplace, :is_confirm, :user_ids => [],
+        :child_teams_ids => [])
     end
 
     def verify_exist_teams
