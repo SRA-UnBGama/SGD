@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112105850) do
+ActiveRecord::Schema.define(version: 20141124133219) do
 
   create_table "competences", force: true do |t|
     t.datetime "created_at"
@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(version: 20141112105850) do
   add_index "evaluation_items", ["evaluation_id"], name: "index_evaluation_items_on_evaluation_id"
 
   create_table "evaluation_periods", force: true do |t|
-    t.date     "start_date_evaluation", limit: 255
-    t.date     "end_date_evaluation",   limit: 255
+    t.date     "start_date_evaluation",    limit: 255
+    t.date     "end_date_evaluation",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status_evaluation_period"
   end
 
   create_table "evaluations", force: true do |t|
