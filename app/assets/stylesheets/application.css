@@ -14,6 +14,20 @@
  *= require_self
  /*/
 .btn-group{ display: inline-block;}
+.navbar .nav > li > a, .navbar .nav > li > a,
+.navbar .nav > li.current-menu-item > a, 
+.navbar .nav > li.current-menu-ancestor > a {
+
+color:white;
+
+}
+.navbar .nav > li > a:hover, .navbar .nav > li > a 
+.navbar .nav > li.current-menu-item > a,:hover
+.navbar .nav > li.current-menu-ancestor > a:hover{ 
+color:          white;
+text-shadow:    black;
+font-size: 18px;
+}
 .margin-bottom-20 {margin-bottom: 20px;}
 .margin-top-20 {margin-top: 20px;}
 .margin-left-20 {margin-left: 20px;}
@@ -63,9 +77,14 @@
     width: 1000px;
     height: 600px;
 }
-.nav{
-    background-color: #003366;
+#example-navbar-collapse{
+    color: white;
 }
+.navbar-default{
+    background-color: #003366;
+
+}
+
 .colorwhite{
     color: white;
 }

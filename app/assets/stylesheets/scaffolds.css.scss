@@ -4,7 +4,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-}
+ }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -52,8 +52,9 @@ div {
     background-color: #c00;
     color: #fff;
   }
-  ul li {
+  ul li a {
     font-size: 12px;
     list-style: square;
+    color: white;
   }
 }
