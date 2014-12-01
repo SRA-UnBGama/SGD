@@ -154,14 +154,15 @@ class EvaluationPeriod < ActiveRecord::Base
 			phases
 		end
 
-		def EvaluationPeriod.get_current_phase()
+		def EvaluationPeriod.get_current_name_phase()
 			period_in_progress = EvaluationPeriod.where(:status_evaluation_period => "Em Andamento")
 			if period_in_progress.count == 1
-				phase = Phase.find_by_status_phase("Em Andamento")
+				phase = Phase.find_by_status_phase("Em Andamento").phase_name
 			else
-				phase = nil
+				phase = "Não há fase em andamento no momento."
 			end
-			return phase
+
+			phase
 		end
 
 		PLANNING = 1
