@@ -2,6 +2,9 @@ class Team < ActiveRecord::Base
   resourcify
   has_many :users
 
+  belongs_to :master_team, :class_name => "Team"
+  has_many :child_teams, :class_name => "Team", :foreign_key => "child_teams_id"
+
   def initialize_team
     self.users = search_by_workplace
   end
