@@ -9,7 +9,6 @@ class Phase < ActiveRecord::Base
 
 	    if end_date_phase < start_date_phase
 	    	errors.add(:end_date_phase, "A data final deve ser após a data de início do intervalo.")
-	    	logger.debug "erro na date"
 	    end
 	else
 			# Nothing To Do
@@ -21,7 +20,6 @@ class Phase < ActiveRecord::Base
   	if self.end_date_phase.present? && self.start_date_phase.present?
 		if end_date_phase < (start_date_phase+14.days)
 			errors.add(:end_date_phase, "Período deve ser superior à 15 dias")
-			logger.debug "erro na minimum"
 		else
 			# Nothing To Do
 		end

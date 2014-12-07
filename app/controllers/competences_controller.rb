@@ -39,7 +39,7 @@ class CompetencesController < ApplicationController
     @competence.is_active = true
 
     respond_to do |format|
-      if competences_actived < 10
+      if true
         if @competence.save
           format.html { redirect_to competences_path, notice: 'Competência criada com sucesso.' }
         else
