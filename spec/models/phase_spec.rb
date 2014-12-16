@@ -75,6 +75,8 @@ RSpec.describe Phase, :type => :model do
 			period.phases << development_plan_phase
 
 			planning_phase.evaluation_period = period
+
+			period.save
 		end
 
 		it "planning phases is overlap" do

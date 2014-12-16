@@ -65,9 +65,6 @@ class EvaluationPeriod < ActiveRecord::Base
     	end
     end
 
-    EMPTY = true
-    NOT_EMPTY = false
-
   ########## VALIDATIONS ##########
 	def dates_are_valid
 
