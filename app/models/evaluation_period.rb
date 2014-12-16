@@ -65,11 +65,15 @@ class EvaluationPeriod < ActiveRecord::Base
     	end
     end
 
+    EMPTY = true
+    NOT_EMPTY = false
+
   ########## VALIDATIONS ##########
 	def dates_are_valid
 
 		if self.end_date_evaluation.present? && self.start_date_evaluation.present?
 			if end_date_evaluation < start_date_evaluation
+
 				errors.add(:end_date_evaluation, "A data final deve ser após a data de início do 
 					intervalo.")
 			else
@@ -81,9 +85,11 @@ class EvaluationPeriod < ActiveRecord::Base
 	end
 
 	def minimum_period
+
 		if self.end_date_evaluation.present? && self.start_date_evaluation.present?
 
 			if end_date_evaluation < (start_date_evaluation + 59.days)
+
 				errors.add(:end_date_evaluation, "Período deve ser superior a 60 dias")
 			else
 				# Nothing to do
@@ -97,14 +103,14 @@ class EvaluationPeriod < ActiveRecord::Base
 		begin_period = self.start_date_evaluation
 		end_period = self.end_date_evaluation
 
-		if !evaluation_periods.nil?
+		if !evaluation_periods.empty?
+
 			evaluation_periods.each do |evaluation_period|
 				begin_current_period = evaluation_period.start_date_evaluation
 				end_current_period = evaluation_period.end_date_evaluation
 
 				if self.id == evaluation_period.id
 	  				# Nothing To Do
-
 	  			elsif !((begin_current_period.between?(begin_period, end_period)) or
 	  			 (end_current_period.between?(begin_period, end_period)) or
 	  			 ((begin_current_period <= begin_period) and (end_current_period >= end_period)))

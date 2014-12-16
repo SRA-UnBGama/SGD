@@ -51,60 +51,65 @@ class Phase < ActiveRecord::Base
 
   	def not_overlap_phases
 
-	  	if !self.evaluation_period.nil?
-		  	phases = self.evaluation_period.phases
-		  	name_phase = self.phase_name
+  		if !self.evaluation_period.nil?
 
-		  	if name_phase == "Planejamento"
-		  		position = PLANNING
-		  	elsif name_phase == "Acompanhamento"
-		  		position = MONITORING
-			elsif name_phase == "Formalização"
-		  		position = FORMALIZATION
-		  	elsif name_phase == "Plano de Desenvolvimento"
-		  		position = DEVELOPMENT_PLAN
-		  	else
-		  		# Nothing To Do
-		  	end
+		  	if self.evaluation_period.persisted?
+			  	phases = self.evaluation_period.phases
+			  	name_phase = self.phase_name
 
-		  	case position
-			  	when PLANNING
-			  		if self.end_date_phase <= phases.second.start_date_phase
-			  			# Nothing To Do
-			  		else
-			  			errors.add(:end_date_phase, 
-			  				"O período da fase de Planejamento não deve sobrepor o período da fase de Acompanhamento.")
-			  		end
-
-			  	when MONITORING
-			  		if( self.start_date_phase >= phases.first.end_date_phase and
-			  			self.end_date_phase <= phases.third.start_date_phase )
-
-			  			# Nothing To Do
-			  		else
-			  			errors.add(:end_date_phase, 
-			  				"O período da fase de Acompanhamento não deve sobrepor o período da fase de Planejamento ou de Formalização.")
-			  		end
-
-				when FORMALIZATION
-					if( self.start_date_phase >= phases.second.end_date_phase and
-			  			self.end_date_phase <= phases.fourth.start_date_phase )
-
-			  			# Nothing To Do
-			  		else
-			  			errors.add(:end_date_phase,
-			  				"O período da fase de Formalização não deve sobrepor o período da fase de Acompanhamento ou de Plano de Desenvolvimento.")
-			  		end
-				when DEVELOPMENT_PLAN
-					if( self.start_date_phase >= phases.third.end_date_phase )
-
-			  			# Nothing To Do
-			  		else
-			  			errors.add(:end_date_phase,
-			  				"O período da fase de Plano de Desenvolvimento não deve sobrepor o período da fase de Formalização.")
-			  		end
+			  	if name_phase == "Planejamento"
+			  		position = PLANNING
+			  	elsif name_phase == "Acompanhamento"
+			  		position = MONITORING
+				elsif name_phase == "Formalização"
+			  		position = FORMALIZATION
+			  	elsif name_phase == "Plano de Desenvolvimento"
+			  		position = DEVELOPMENT_PLAN
 			  	else
-			  		#Nothing to do
+			  		# Nothing To Do
+			  	end
+
+			  	case position
+				  	when PLANNING
+				  		if self.end_date_phase <= phases.second.start_date_phase
+				  			# Nothing To Do
+				  		else
+				  			errors.add(:end_date_phase, 
+				  				"O período da fase de Planejamento não deve sobrepor o período da fase de Acompanhamento.")
+				  		end
+
+				  	when MONITORING
+				  		if( self.start_date_phase >= phases.first.end_date_phase and
+				  			self.end_date_phase <= phases.third.start_date_phase )
+
+				  			# Nothing To Do
+				  		else
+				  			errors.add(:end_date_phase, 
+				  				"O período da fase de Acompanhamento não deve sobrepor o período da fase de Planejamento ou de Formalização.")
+				  		end
+
+					when FORMALIZATION
+						if( self.start_date_phase >= phases.second.end_date_phase and
+				  			self.end_date_phase <= phases.fourth.start_date_phase )
+
+				  			# Nothing To Do
+				  		else
+				  			errors.add(:end_date_phase,
+				  				"O período da fase de Formalização não deve sobrepor o período da fase de Acompanhamento ou de Plano de Desenvolvimento.")
+				  		end
+					when DEVELOPMENT_PLAN
+						if( self.start_date_phase >= phases.third.end_date_phase )
+
+				  			# Nothing To Do
+				  		else
+				  			errors.add(:end_date_phase,
+				  				"O período da fase de Plano de Desenvolvimento não deve sobrepor o período da fase de Formalização.")
+				  		end
+				  	else
+				  		#Nothing to do
+				end
+			else
+				# Nothing To Do
 			end
 		else
 			# Nothing To Do
