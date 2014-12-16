@@ -94,4 +94,66 @@ RSpec.describe TeamsController, :type => :controller do
             end
         end
     end
+
+    describe "PUT #update" do
+        before do
+            Team.destroy_all
+        end
+
+        context "with valid params" do
+            let(:new_attributes) {
+                {
+                    :workplace => "PLACE_2"
+                }
+            }
+
+            it "updates the requested team" do
+                team.save
+
+                put :update, { :id => team.to_param, :team => new_attributes }, valid_session
+                team.reload
+
+                expect( assigns(:team ) ).to eq( team )
+            end
+
+            it "assigns the requested team as @team" do
+                team.save
+
+                put :update, { :id => team.to_param, :team => valid_attributes }, valid_session
+
+                expect( assigns( :team ) ).to eq( team )
+            end
+
+            it "redirects to the team" do
+                team.save
+
+                put :update, { :id => team.to_param, :team => valid_attributes }, valid_session
+
+                expect( response ).to redirect_to( team )
+            end
+        end
+    end
+
+    describe "DELETE #destroy" do
+        before do
+            Team.destroy_all
+        end
+
+        it "destroys the requested team" do
+            team.save
+
+            expect {
+                delete :destroy, { :id => team.to_param }, valid_session
+
+            }.to change( Team, :count ).by( -1 )
+        end
+
+        it "redirects to the teams list" do
+            team.save
+
+            delete :destroy, { :id => team.to_param }, valid_session
+
+            expect( response ).to redirect_to( teams_url )
+        end
+    end
 end
