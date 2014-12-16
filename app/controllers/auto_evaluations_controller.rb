@@ -17,12 +17,23 @@ def index
 
 
 	def update
-	respond_to do |format|
-      if @evaluation.update(params[:id])
+    @evaluation = set_auto_evaluation
+
+    respond_to do |format|
+      if @evaluation.update( auto_evaluation_params )
         format.html { redirect_to auto_evaluations_path, notice: 'Competence was successfully updated.' }
       else
         format.html { render home_path }
       end
     end
-	end	
+	end
+
+  private
+    def set_auto_evaluation
+      @evaluation = Evaluation.find(params[:id])
+    end
+
+    def auto_evaluation_params
+      params.require( :evaluation ).permit()
+    end
 end
