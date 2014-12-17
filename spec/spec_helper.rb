@@ -19,11 +19,14 @@
 require 'factory_girl_rails'
 
 RSpec.configure do |config|
+
     require 'simplecov'
-    SimpleCov.start
+    SimpleCov.start do
 
+      add_group 'Controllers', 'app/controllers'
+      add_group 'Models', 'app/models'
+      add_group 'Helpers', 'app/helpers'
 
-
-
+    end
 
 end
