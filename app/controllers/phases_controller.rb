@@ -2,11 +2,12 @@ class PhasesController < ApplicationController
   before_action :set_phase, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   check_authorization
-  # GET /phases
-  # GET /phases.json
-  def index
-    @phases = Phase.all
-  end
+
+  # TODO: ascertain the real need for this method.
+  #
+  # def index
+  #   @phases = Phase.all
+  # end
 
 
   # GET /phases/1/edit
