@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'net-ssh', '2.7.0'
+gem 'capistrano', '2.9.0'
 gem 'whenever', :require => false
 
 gem 'rails-i18n'
