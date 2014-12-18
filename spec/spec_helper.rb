@@ -17,12 +17,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_girl_rails'
+require 'capybara/rspec'
+require 'capybara/rails'
 
 RSpec.configure do |config|
     require 'simplecov'
     SimpleCov.start
-
-
 
 
 

@@ -4,13 +4,13 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
    <div>
-      <%= f.label "Matrícula FUB: " %>
-      <%= f.input :fub_registry, :label => false %>
+      <%= f.label :fub_registry, "Matrícula FUB: " %>
+      <%= f.text_field :fub_registry %>
     </div>
 
     <div>
-      <%= f.label "Senha: " %>
-      <%= f.input :password, :label => false %>
+      <%= f.label :password, "Senha: " %>
+      <%= f.text_field :password %>
     </div>
   </div>
   </br>
