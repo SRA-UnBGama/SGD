@@ -1,4 +1,4 @@
-<div class="container margin-top-20">
+<div class="container margin-top-20" xmlns="http://www.w3.org/1999/html">
 <% if @user.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(@user.errors.count, "erro") %> encontrado:</h4>
@@ -14,28 +14,33 @@
 <%= simple_form_for(@user) do |f| %>
 
     <div>
-      <%= f.label "Nome: " %>
-      <%= f.input :name_user, :label => false %>
+      <%= f.label :name_user, "Nome: " %>
+      </br>
+      <%= f.text_field :name_user %>
     </div>
 
     <div>
-      <%= f.label "Matrícula FUB: " %>
-      <%= f.input :fub_registry, :label => false %>
+      <%= f.label :fub_registry, "Matrícula FUB: " %>
+      <br>
+      <%= f.text_field :fub_registry%>
     </div>
 
     <div>
-      <%= f.label "Matrícula SIAPE: " %>
-      <%= f.input :siape_registry, :label => false %>
+      <%= f.label :siape_registry, "Matrícula SIAPE: " %>
+      <br>
+      <%= f.text_field :siape_registry%>
     </div>
 
     <div>
-      <%= f.label "Ocupação: " %>
-      <%= f.input :job_title, :label => false %>
+      <%= f.label :job_title, "Ocupação: " %>
+      <br>
+      <%= f.text_field :job_title %>
     </div>
 
     <div>
-      <%= f.label "Lotação: " %>
-      <%= f.input :cost_center, :label => false %>
+      <%= f.label :cost_center, "Lotação: " %>
+      <br>
+      <%= f.text_field :cost_center%>
     </div>
 
     <div>
@@ -44,17 +49,20 @@
     </div>
 
     <div>
-      <%= f.label "E-mail: " %>
-      <%= f.input :email, :label => false %>
+      <%= f.label :email, "E-mail: " %>
+      <br>
+      <%= f.text_field :email %>
     </div>
 
     <div>
-      <%= f.label "Senha: " %>
-      <%= f.input :password, :label => false %>
+      <%= f.label :password, "Senha: " %>
+      <br>
+      <%= f.text_field :password %>
     </div>
     <div>
-      <%= f.label "Confirmação de Senha: " %>
-      <%= f.input :password_confirmation, :label => false %>
+      <%= f.label :password_confirmation, "Confirmação de Senha: " %>
+      <br>
+      <%= f.text_field :password_confirmation %>
     </div>
 
     <br \>

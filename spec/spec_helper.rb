@@ -17,6 +17,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_girl_rails'
+require 'capybara/rspec'
+require 'capybara/rails'
 
 RSpec.configure do |config|
 
@@ -28,5 +30,4 @@ RSpec.configure do |config|
       add_group 'Helpers', 'app/helpers'
 
     end
-
 end
