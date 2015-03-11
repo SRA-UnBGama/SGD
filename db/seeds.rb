@@ -78,7 +78,6 @@ LearningSolution.create([{ :description => "Leitura e compreensão do novo acord
 LearningSolution.create([{ :description => "Orientação no trabalho quanto às práticas colaborativas.",
 	:category => "Presencial"}])
 
-
 # CONDIÇÕES DE TRABALHO
 WorkingCondition.create([{:name => "O ambiente é confortável."}])
 WorkingCondition.create([{:name => "Há silêncio necessário para a realização do trabalho."}])
@@ -87,10 +86,12 @@ WorkingCondition.create([{:name => "Os instrumentos de trabalho são suficientes
 WorkingCondition.create([{:name => "O espaço físico é adequado para realiazar os processos de trabalho."}])
 WorkingCondition.create([{:name => "O ambiente de trabalho oferece segurança física às pessoas"}])
 WorkingCondition.create([{:name => "O material de consumo é suficiente."}])
+
 #Role
 ['external_user', 'moderator', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
+
 # USUÁRIOS
 #
 # Apenas a nível de DESENVOLVIMENTO
@@ -136,3 +137,10 @@ User.create( :name_user => "VICTOR", :fub_registry => "123", :siape_registry => 
 	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
 User.create( :name_user => "LARISSA", :fub_registry => "123", :siape_registry => "123", :cost_center =>  "CQTS", 
 	:admission_date => "2015-03-10", :password => "123456", :password_confirmation => "123456", :is_active_user => true )
+
+# Admin User
+User.create( :name_user => "admin", :fub_registry => "654321", :siape_registry => "654321", :cost_center => "ADM",
+	:admission_date => "2015-03-10", :password => "admin123", :password_confirmation => "admin123", :is_active_user => true )
+
+admin = User.last
+admin.add_role :admin
