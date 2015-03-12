@@ -24,22 +24,22 @@
     <div class="row-fluid">
       <div class="span2" >
        <div class="form-group">
-        <%= f.label "Título" %>
+        <%= f.label "Título" %><br>
         <%= f.text_field :name, class: "form-control", placeholder: "Insira um título para a meta" %>
-      </div>
+      </div><br><br>
       <div class="form-group">
         <%= f.label "Descrição" %>
-        <%= f.text_area :description, class: "form-control", placeholder: "Insira uma breve descrição para a meta" %>
+        <%= f.text_area :description, :rows => "4",class: "form-control", placeholder: "Insira uma breve descrição para a meta" %>
       </div>
       <div class="form-group">
-        <%= f.label "Prazo" %>
+        <%= f.label "Prazo" %><br>
         <%= f.text_field :deadline, 'data-behaviour' => 'datepicker', class: "form-control", placeholder: "Insira um prazo para a meta" %>
       </div>
      </div>
   </div>
 </div>
 
-
+<br>
   <div class=  "action">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), goals_path, class:"btn btn-warning"%>
     <%= f.submit 'Nova Meta', class:"btn btn-success", data: {confirm: 'Você confirma que a criação desta meta é necessária e está de acordo com as normas da UnB?' % ( new_goal_path)} %>

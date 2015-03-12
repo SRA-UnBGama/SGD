@@ -104,3 +104,14 @@ font-size: 18px;
     color: black;
     text-shadow: 2px 2px white;
 }
+.simple_form input[type='submit'] {
+width:250px ;
+height:35px;
+margin-right: 2px;
+margin-left: 2px;
+}
+.simple_form input{
+  float: left;
+  height: 40px;
+  width:500px;
+}
