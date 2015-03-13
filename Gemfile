@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'net-ssh', '2.7.0'
 gem 'capistrano', '2.9.0'
 gem 'whenever', :require => false
-
+gem  'capybara'
 gem 'rails-i18n'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
