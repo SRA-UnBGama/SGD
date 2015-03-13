@@ -43,17 +43,14 @@
               <th><%= @user.cost_center%></th>
             </tr>
 
-            <tr>
-              <th>Email</th>
-              <th><%= @user.email%></th>
-            </tr>
-
             </thead>
           </table>
 
           <div class="actions">
-            <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
-            <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+            <div class="panel-body">
+              <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), url_for(:back) , class:"btn btn-warning"%>
+              <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Editar</i>"), edit_user_path(@user) , class:"btn btn-primary"%>
+            </div>
           </div>
         </div>
       </div>
