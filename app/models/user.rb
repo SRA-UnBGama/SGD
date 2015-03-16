@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	validates_presence_of :name_user, :fub_registry, :siape_registry, :admission_date, :cost_center
-
+	validates_uniqueness_of :name_user, :fub_registry, :siape_registry
 
 	has_and_belongs_to_many :evaluations
 	 belongs_to :team
