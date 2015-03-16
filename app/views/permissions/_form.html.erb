@@ -7,35 +7,38 @@
          <div class="accordion-heading">
             <h4 class="accordion-title">
                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-               Perfiol de acesso
+               Perfil de acesso
                </a>
             </h4>
          </div>
          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                <div class="controls">
+
                   <% Role.all.each do |role| %>
-                  <%= hidden_field_tag "user[role_ids][]"%>
-                  <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+                  
                   <% if role.name == "admin"%><br />
-                    <%= role.name %>
+                    Administrador
                   <ul>
                     <li>Todas as permissões de gerente</li>
                     <li>Deletar dados</li>
                     <li>Alterar permissões</li>
                   </ul>
                   <% elsif role.name == "external_user"%><br />
-                    <%= role.name %>
+                    Servidor
+
                   <ul>
                     <li>Usuário comum</li>
                   </ul>
                   <% elsif role.name == "moderator"%><br />
-                    <%= role.name %>
+                     Servidor com cargo de chefia
                   <ul>
                     <li>Criar metas</li>
                     <li>Confirmar equipe</li>
                   </ul>
                   <% end %>
+                  <%= hidden_field_tag "user[role_ids][]"%>
+                  <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
                   <% end %>
                </div>
             </div>
