@@ -12,66 +12,39 @@
   <% end %>
 
 <%= simple_form_for(@user) do |f| %>
-
-    <div>
+<div class="login-card">
       <%= f.label :name_user, "Nome: " %>
-      </br>
       <%= f.text_field :name_user %>
-    </div>
 
-    <div>
       <%= f.label :fub_registry, "Matrícula FUB: " %>
-      <br>
       <%= f.text_field :fub_registry%>
-    </div>
 
-    <div>
       <%= f.label :siape_registry, "Matrícula SIAPE: " %>
-      <br>
       <%= f.text_field :siape_registry%>
-    </div>
 
-    <div>
       <%= f.label :job_title, "Ocupação: " %>
-      <br>
       <%= f.text_field :job_title %>
-    </div>
 
-    <div>
       <%= f.label :cost_center, "Lotação: " %>
-      <br>
       <%= f.text_field :cost_center%>
-    </div>
 
-    <div>
       <%= f.label "Data de Admissão: " %>
       <%= f.input :admission_date, :label => false %>
-    </div>
 
-    <div>
       <%= f.label :email, "E-mail: " %>
-      <br>
       <%= f.text_field :email %>
-    </div>
 
-    <div>
       <%= f.label :password, "Senha: " %>
-      <br>
       <%= f.text_field :password %>
-    </div>
-    <div>
-      <%= f.label :password_confirmation, "Confirmação de Senha: " %>
-      <br>
-      <%= f.text_field :password_confirmation %>
-    </div>
 
-    <br \>
+      <%= f.label :password_confirmation, "Confirmação de Senha: " %>
+      <%= f.password_field :password_confirmation %>
 
   <div class="actions">
-    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
     <%= f.submit 'Salvar Usuário', class:"btn btn-success" %>
+    <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), users_path , class:"btn btn-warning"%>
   </div>
-
+</div>
 <% end %>
 
 

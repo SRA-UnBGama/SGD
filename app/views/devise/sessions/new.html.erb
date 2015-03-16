@@ -1,21 +1,15 @@
-<h2>Logar</h2>
 
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-   <div>
+  <div class="login-card">
+  <h1>Entrar</h1>
       <%= f.label :fub_registry, "Matrícula FUB: " %>
-      <%= f.text_field :fub_registry %>
-    </div>
+      <%= f.text_field :fub_registry,class: "form-control" %>
 
-    <div>
       <%= f.label :password, "Senha: " %>
-      <%= f.text_field :password %>
-    </div>
-  </div>
+      <%= f.password_field :password ,class: "form-control"%>
   </br>
-  <div class="form-actions">
-   	  <%= f.submit 'Logar', class:"btn btn-success" %>
-      <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Cadastrar Novo Usuário</i>"), new_user_registration_path , class:"btn btn-primary"%>
+     	  <%= f.submit 'Logar', class:"btn btn-success" %>
+        <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Cadastrar Novo Usuário</i>"), new_user_registration_path , class:"btn btn-primary form-control"%>
  </div>
-<% end %> 
+<% end %>
