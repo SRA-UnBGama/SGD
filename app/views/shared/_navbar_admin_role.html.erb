@@ -1,0 +1,40 @@
+
+<!-- Custom Admin Menu Bar -->
+<li>
+  <a href="<%=evaluation_periods_path%>"class="colorwhite" >Período Avaliativo</a>
+</li>
+<li>
+  <a href="<%=competences_path%>" class="colorwhite">Competências</a>
+</li>
+<li>
+  <a href="<%=goals_path%>" class="colorwhite">Metas</a>
+</li>
+<li>
+  <a href="<%=working_conditions_path%>" class="colorwhite">Condições de Trabalho</a>
+</li>
+<li>
+  <a href="<%=teams_path%>" class="colorwhite">Equipes</a>
+</li>
+<li>
+  <a href="<%=learning_solutions_path%>" class="colorwhite">Soluções de Aprendizagem</a>
+</li>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="<%=auto_evaluations_path%>" id ="dropDown"class="colorwhite"> Autoavaliação</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="<%=user_path(current_user.id)%>">Perfil</a>
+    </li>
+    <li>
+      <a href="<%=permissions_path%>" class="colorwhite">Permissões</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+    </li>
+  </ul>
+</li>

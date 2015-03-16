@@ -13,20 +13,16 @@
  *= require_tree .
  *= require_self
  /*/
-.btn-group{ display: inline-block;}
+
+.btn-group{display: inline-block;}
 .navbar .nav > li > a, .navbar .nav > li > a,
-.navbar .nav > li.current-menu-item > a, 
-.navbar .nav > li.current-menu-ancestor > a {
-
-color:white;
-
-}
-.navbar .nav > li > a:hover, .navbar .nav > li > a 
+.navbar .nav > li.current-menu-item > a,
+.navbar .nav > li.current-menu-ancestor > a {color:white;}
+.navbar .nav > li > a:hover, .navbar .nav > li > a
 .navbar .nav > li.current-menu-item > a,:hover
-.navbar .nav > li.current-menu-ancestor > a:hover{ 
+.navbar .nav > li.current-menu-ancestor > a:hover{
 color:          white;
 text-shadow:    black;
-font-size: 18px;
 }
 .margin-bottom-20 {margin-bottom: 20px;}
 .margin-top-20 {margin-top: 20px;}
@@ -77,12 +73,11 @@ font-size: 18px;
     width: 1000px;
     height: 600px;
 }
-#example-navbar-collapse{
+#navbar-collapse{
     color: white;
 }
 .navbar-default{
     background-color: #003366;
-
 }
 
 .colorwhite{
@@ -105,13 +100,13 @@ font-size: 18px;
     text-shadow: 2px 2px white;
 }
 .simple_form input[type='submit'] {
-width:250px ;
-height:35px;
-margin-right: 2px;
-margin-left: 2px;
+    width:250px ;
+    height:35px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
 .simple_form input{
-  float: left;
-  height: 40px;
-  width:500px;
+    float: left;
+    height: 40px;
+    width:500px;
 }
