@@ -29,7 +29,9 @@
       <%= f.text_field :cost_center%>
 
       <%= f.label "Data de Admissão: " %>
-      <%= f.input :admission_date, :label => false %>
+      <%= f.input :admission_date,as: :date, start_year: Date.today.year - 30,
+                              end_year: Date.today.year, discard_day: false,
+                              order: [:day,:month, :year], :label => false %>
 
       <%= f.label :email, "E-mail: " %>
       <%= f.text_field :email %>
