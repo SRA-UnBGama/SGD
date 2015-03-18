@@ -22,11 +22,11 @@
 <div>
   <div class="field">
     <%= f.label "Início do Período Avaliativo: " %>
-    <%= f.text_field :start_date_evaluation,:value => (f.object.start_date_evaluation.strftime('%m/%d/%Y') if f.object.start_date_evaluation) ,'data-behaviour' => 'datepicker',:rows => "4",class: "form-control" %>
+    <%= f.text_field :start_date_evaluation,:value => (f.object.start_date_evaluation.strftime('%d/%m/%Y') if f.object.start_date_evaluation) ,'data-behaviour' => 'datepicker',:rows => "4",class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label "Fim do Período Avaliativo" %>
-    <%= f.text_field :end_date_evaluation,:value => (f.object.end_date_evaluation.strftime('%m/%d/%Y') if f.object.end_date_evaluation),'data-behaviour' => 'datepicker',:rows => "4",class: "form-control" %>
+    <%= f.text_field :end_date_evaluation,:value => (f.object.end_date_evaluation.strftime('%d/%m/%Y') if f.object.end_date_evaluation),'data-behaviour' => 'datepicker',:rows => "4",class: "form-control" %>
   </div>
   <div class=  "action">
     <%= link_to raw("<i class=\"icon-white icon-arrow-left i\">Voltar</i>"), evaluation_periods_path , class:"btn btn-warning"%>
