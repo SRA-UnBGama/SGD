@@ -36,7 +36,7 @@ class CompetencesController < ApplicationController
     competences_actived = Competence.where(:is_active => true).count
 
     @competence = Competence.new(competence_params)
-    @competence.is_active = true
+    @competence.is_active = false
 
     respond_to do |format|
       if true
@@ -100,4 +100,4 @@ class CompetencesController < ApplicationController
     def competence_params
       params.require(:competence).permit(:name, :category, :auto_evaluation_grade, :pairs_evaluation_grade, :leader_evaluation_grade, :is_active)
     end
-end
+  end

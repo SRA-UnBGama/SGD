@@ -20,6 +20,13 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    teams_index = Team#index
+    team = Team.find( params[:team_id] )
+
+    team.is_confirm = CONFIRMED
+    team.save
+
+    redirect_to teams_index
   end
 
   def create
@@ -64,20 +71,12 @@ class TeamsController < ApplicationController
   def confirm_team
     teams_index = Team#index
     team = Team.find( params[:team_id] )
-
-    team.is_confirm = CONFIRMED
+    if team.is_confirm == CONFIRMED
+      team.is_confirm = NOT_CONFIRMED
+    else
+      team.is_confirm = CONFIRMED
+    end
     team.save
-
-    redirect_to teams_index
-  end
-
-  def not_confirm_team
-    teams_index = Team#index
-    team = Team.find( params[:team_id] )
-
-    team.is_confirm = NOT_CONFIRMED
-    team.save
-
     redirect_to teams_index
   end
 
