@@ -28,7 +28,7 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-   
+
    user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
@@ -37,7 +37,7 @@ class Ability
       can :manage, Goal
       can [:not_confirm_team, :confirm_team], Team
     elsif  user.has_role? :external_user
-      can :read, User
+      can [:show,:update],User,:id => user.id
     end
 
 
