@@ -14,20 +14,11 @@
  *= require_self
  /*/
 
-.btn-group{display: inline-block;}
-.navbar .nav > li > a, .navbar .nav > li > a,
-.navbar .nav > li.current-menu-item > a,
-.navbar .nav > li.current-menu-ancestor > a {color:white;}
-.navbar .nav > li > a:hover, .navbar .nav > li > a
-.navbar .nav > li.current-menu-item > a,:hover
-.navbar .nav > li.current-menu-ancestor > a:hover{
-color:          white;
-text-shadow:    black;
-}
-.margin-bottom-20 {margin-bottom: 20px;}
-.margin-top-20 {margin-top: 20px;}
-.margin-left-20 {margin-left: 20px;}
-.margin-right-20 {margin-right: 20px;}
+/* -----------------------------------*/
+/* ---------->>> GLOBAL <<<-----------*/
+/* -----------------------------------*/
+
+/*---------->>> ALERTAS <<<-----------*/
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -51,12 +42,11 @@ text-shadow:    black;
     border-color: #d6e9c6;
     color: #468847;
     text-align: center; }
-.i{
-    color:white;
-}
-.nolink{
-    text-decoration: none;
-}
+
+/*---------->>> SOBRESCRITA BOTÕES BOOTSTRAP <<<-----------*/
+.btn-group{display: inline-block;}
+
+/*---------->>> SOBRESCRITA CAROUSEL BOOTSTRAP <<<-----------*/
 .carousel{
     margin: 0 auto;
 
@@ -65,44 +55,13 @@ text-shadow:    black;
     margin: 0 auto;
 
 }
-.slide{
-    height: 600px;
-    width: 1000px;
-}
-.item{
-    width: 1000px;
-    height: 600px;
-}
-#navbar-collapse{
-    color: white;
-}
-.navbar-default{
-    background-color: #003366;
-}
 
+/*---------->>> CLASSE <<<-----------*/
 .colorwhite{
     color: white;
 }
-.papel{
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: 100%;
 
-}
-.text-black{
-    color: black;
-    text-shadow: 2px 2px white;
-}
-.simple_form input[type='submit'] {
-    width:250px ;
-    height:35px;
-    margin-right: 2px;
-    margin-left: 2px;
-}
-.simple_form input{
-    width:500px;
-}
-/****** Css login ******/
+/*---------->>> CSS-LOGIN <<<-----------*/
 .login-card {
   padding: 40px;
   width: 400px;
@@ -179,3 +138,73 @@ text-shadow:    black;
   text-align: center;
   font-size: 12px;
 }
+
+/*---------->>> ÍCONE <<<-----------*/
+.i{
+    color:white;
+}
+
+/*---------->>> CLASSE <<<-----------*/
+.item{
+    width: 1000px;
+    height: 600px;
+}
+
+/*---------->>> SOBRESCRITA NAVBAR BOOTSTRAP <<<-----------*/
+#navbar-collapse{
+    color: white;
+}
+.navbar-default{
+    background-color: #003366;
+}
+.navbar .nav > li > a, .navbar .nav > li > a,
+.navbar .nav > li.current-menu-item > a,
+.navbar .nav > li.current-menu-ancestor > a {color:white;}
+.navbar .nav > li > a:hover, .navbar .nav > li > a
+.navbar .nav > li.current-menu-item > a,:hover
+.navbar .nav > li.current-menu-ancestor > a:hover{
+color:          white;
+text-shadow:    black;
+}
+
+/*---------->>> CLASSES DE MARGEM <<<-----------*/
+.margin-bottom-20 {margin-bottom: 20px;}
+.margin-top-20 {margin-top: 20px;}
+.margin-left-20 {margin-left: 20px;}
+.margin-right-20 {margin-right: 20px;}
+
+/*---------->>> CLASSE <<<-----------*/
+.nolink{
+    text-decoration: none;
+}
+
+/*---------->>> CLASSE <<<-----------*/
+.papel{
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+/*---------->>> CLASSE <<<-----------*/
+.slide{
+    height: 600px;
+    width: 1000px;
+}
+/*---------->>> SOBRESCRITA SIMPLE-FORM <<<-----------*/
+.simple_form input[type='submit'] {
+    width:250px ;
+    height:35px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+.simple_form input{
+    width:500px;
+}
+
+/*---------->>> CLASSE <<<-----------*/
+.text-black{
+    color: black;
+    text-shadow: 2px 2px white;
+}
+
