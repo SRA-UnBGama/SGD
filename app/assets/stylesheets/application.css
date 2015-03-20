@@ -29,7 +29,6 @@
 .simple_form input{
     width:500px;
 }
-
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -73,10 +72,6 @@
 }
 
 /*---------->>> CSS-LOGIN <<<-----------*/
-<<<<<<< HEAD
-
-=======
->>>>>>> 6328ae582f937ba63974f9621e17a510201e69c8
 .login-help {
   width: 100%;
   text-align: center;
