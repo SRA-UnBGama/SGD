@@ -42,7 +42,7 @@ class EvaluationPeriod < ActiveRecord::Base
 
 	        if (today > start_phase) && (today > end_phase)
 				phase.update_attributes(:status_phase => "Encerrado")
-			elsif (today > start_phase) && (today < end_phase)
+			elsif (today >= start_phase) && (today <= end_phase)
 				phase.update_attributes(:status_phase => "Em Andamento")
 	        else
 				phase.update_attributes(:status_phase => "Aguardando")
@@ -58,7 +58,7 @@ class EvaluationPeriod < ActiveRecord::Base
 
     	if( ( today > start_period ) and ( today > end_period ) )
     		self.update_attributes(:status_evaluation_period=>"Encerrado")
-    	elsif( ( start_period < today ) and ( today < end_period ) )
+    	elsif( ( start_period <= today ) and ( today <= end_period ) )
     		self.update_attributes(:status_evaluation_period=>"Em Andamento")
     	else
     		self.update_attributes(:status_evaluation_period=>"Aguardando")
