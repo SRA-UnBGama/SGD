@@ -30,4 +30,8 @@ RSpec.configure do |config|
       add_group 'Helpers', 'app/helpers'
 
     end
+
+    RSpec.configure do |config|
+  		config.include Rails.application.routes.url_helpers
+	end
 end

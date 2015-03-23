@@ -29,7 +29,15 @@ Rails.application.routes.draw do
   post "users/activate_admin",to: "users#activate_admin"
   post '/permissions/:id/edit', to: 'permissions#update'
   get '/permissions/:id', to: 'permissions#index'
-  root 'home#index'
+  devise_scope :user do
+  authenticated :user do
+    root 'home#index'
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
