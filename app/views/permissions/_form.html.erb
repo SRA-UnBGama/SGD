@@ -38,7 +38,7 @@
                   </ul>
                   <% end %>
                   <%= hidden_field_tag "user[role_ids][]"%>
-                  <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+                  <%= radio_button_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
                   <% end %>
                </div>
             </div>
