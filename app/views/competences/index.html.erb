@@ -4,7 +4,7 @@
       <h1>Competências</h1>        
       </div>
     <h4>Competências Fundamentais</h4>
-      <table class="table table-striped">
+      <table class="table table-striped table-responsive">
         <thead>
           <tr>
             <th>Nome</th>
@@ -21,8 +21,8 @@
               <td><%= competence.name %></td>
               <td><%= competence.category %></td>
               <td><%= competence.is_active ? "Ativado" : "Desativado"   %></td>
-              <td><%= button_to 'Editar', edit_competence_path(competence), class: "btn btn-primary", :method => :get %></td>
-              <td><%= button_to (competence.is_active ? "Desativar" : "Ativar"), competence, tooltip: "%s Competência?" % ( competence.is_active ? "desativar" : "ativar"), class: "btn btn-large btn-danger", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta competência?' % ( competence.is_active ? "desativar" : "ativar")} %></td>
+              <td><%= button_to 'Editar', edit_competence_path(competence), class: "btn btn-primary btn-responsive", :method => :get %></td>
+              <td><%= button_to (competence.is_active ? "Desativar" : "Ativar"), competence, tooltip: "%s Competência?" % ( competence.is_active ? "desativar" : "ativar"), class: "btn btn-danger btn-responsive", method: :delete, data: {confirm: 'Tem certeza que deseja %s esta competência?' % ( competence.is_active ? "desativar" : "ativar")} %></td>
             </tr>
           <% end %>
         </tbody>
@@ -30,7 +30,7 @@
 
       <br>
     <h4>Competências Gerenciais</h4>
-      <table class="table table-striped">
+      <table class="table table-striped table-responsive">
         <thead>
           <tr>
             <th>Nome</th>
