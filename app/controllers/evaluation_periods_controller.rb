@@ -28,9 +28,8 @@ class EvaluationPeriodsController < ApplicationController
   # POST /evaluation_periods.json
   def create
     @evaluation_period = EvaluationPeriod.new(evaluation_period_params)
-    @phases = @evaluation_period.phases
 
-    define_default_period_to_phases(@phases)
+    @evaluation_period.define_default_period_to_phases
     @evaluation_period.define_status_phases
     @evaluation_period.define_status_evaluation_period
 
@@ -81,40 +80,5 @@ class EvaluationPeriodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_period_params
       params.require(:evaluation_period).permit(:start_date_evaluation, :end_date_evaluation, :status_evaluation_period)
-    end
-
-    PLANNING = 1
-    MONITORING = 2
-    FORMALIZATION = 3
-    DEVELOPMENT_PLAN = 4
-
-    def define_default_period_to_phases(phases)
-
-      position = PLANNING
-
-      start_date_period = @evaluation_period.start_date_evaluation
-      end_date_period = @evaluation_period.end_date_evaluation
-
-      phases.each do |phase|
-        case position
-          when PLANNING
-            phase.start_date_phase = start_date_period
-            phase.end_date_phase = (end_date_period-46.day)
-
-          when MONITORING
-            phase.start_date_phase = (end_date_period-45.day)
-            phase.end_date_phase = (end_date_period-31.day)
-
-          when FORMALIZATION
-            phase.start_date_phase = (end_date_period-30.day)
-            phase.end_date_phase = (end_date_period-16.day)
-
-          when DEVELOPMENT_PLAN
-            phase.start_date_phase = (end_date_period-15.day)
-            phase.end_date_phase = end_date_period
-        end
-
-        position += 1
-      end
     end
 end

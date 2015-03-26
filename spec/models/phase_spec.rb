@@ -103,7 +103,7 @@ RSpec.describe Phase, :type => :model do
 		end
 
 		it "monitoring phase is overlap end date" do
-			monitoring_phase.end_date_phase = "2014-11-27"
+			monitoring_phase.end_date_phase = "2014-12-29"
 			monitoring_phase.valid?
 
 			expect(monitoring_phase.errors[:end_date_phase]).to(
@@ -126,7 +126,7 @@ RSpec.describe Phase, :type => :model do
 		end
 
 		it "formalization phase is overlap end date" do
-			formalization_phase.end_date_phase = "2014-12-27"
+			formalization_phase.end_date_phase = "2015-01-13"
 			formalization_phase.valid?
 
 			expect(formalization_phase.errors[:end_date_phase]).to(
