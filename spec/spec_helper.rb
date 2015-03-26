@@ -22,16 +22,21 @@ require 'capybara/rspec'
 
 RSpec.configure do |config|
 
-    require 'simplecov'
-    SimpleCov.start do
+  require 'simplecov'
+  SimpleCov.start do
 
-      add_group 'Controllers', 'app/controllers'
-      add_group 'Models', 'app/models'
-      add_group 'Helpers', 'app/helpers'
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Models', 'app/models'
+    add_group 'Helpers', 'app/helpers'
 
-    end
+  end
 
-    RSpec.configure do |config|
-  		config.include Rails.application.routes.url_helpers
-	end
+ # REVIEW:
+ #   The code discussed below is breaking the application of the tests in
+ #   the project. So it is commented. There is a need to discuss the 
+ #   usefulness and use of it.
+ #
+ #  RSpec.configure do |config|
+ #  	config.include Rails.application.routes.url_helpers
+ # end
 end
