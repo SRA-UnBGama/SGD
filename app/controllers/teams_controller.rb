@@ -3,11 +3,6 @@ class TeamsController < ApplicationController
   load_and_authorize_resource
   check_authorization
   def index
-    @teams = []
-
-    verify_exist_teams
-    verify_new_users
-
     @teams = Team.all
   end
 
@@ -88,72 +83,5 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:leader, :members, :workplace, :is_confirm, :user_ids => [],
         :child_teams_ids => [])
-    end
-
-    def verify_exist_teams
-      if Team.all.empty?
-        initialize_teams
-      else
-        # Nothing To Do
-      end
-    end
-
-    def verify_new_users
-      actual_users = User.all
-
-      qtd_allocated_users = select_users_with_team.size
-      qtd_users = actual_users.size
-
-      if !qtd_allocated_users.equal? qtd_users
-        destroy_teams
-
-        initialize_teams
-      else
-        # Nothing To Do
-      end
-    end
-
-    def initialize_teams
-      users = User.all
-
-      mount_teams( users )
-    end
-
-    def mount_teams( users )
-      while( !users.empty? )
-        workplace = users.at( 0 ).cost_center
-
-        team = Team.create( :workplace => workplace )
-        team.initialize_team
-
-        users = select_users_without_team( users, workplace )
-      end
-    end
-
-    def select_users_without_team( users, workplace )
-      users = users.select do |user|
-        user.cost_center != workplace
-      end
-
-      users
-    end
-
-    def select_users_with_team
-      allocated_users = []
-      teams = Team.all
-
-      teams.each do |team|
-        members = team.users
-
-        members.each do |member|
-          allocated_users << member
-        end
-      end
-
-      allocated_users
-    end
-
-    def destroy_teams
-      Team.all.destroy_all   
     end
 end

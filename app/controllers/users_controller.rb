@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
- 
+
   load_and_authorize_resource
   check_authorization
  # GET /users
@@ -32,10 +32,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.is_active_user = true
     @user.add_role "admin"
-    
+
     respond_to do |format|
       if @user.save
-        
+        @user.alocate_team(params[:cost_center], params[:user_id])
+        puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        puts  "@user =  #{@user}"
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :index, status: :created, location: @user }
 
