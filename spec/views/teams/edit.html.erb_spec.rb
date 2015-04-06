@@ -4,7 +4,6 @@ RSpec.describe "teams/edit", :type => :view do
   before(:each) do
     @team = assign(:team, Team.create!(
       :leader => "MyString",
-      :members => "MyString",
       :workplace => "MyString"
     ))
   end
@@ -15,8 +14,6 @@ RSpec.describe "teams/edit", :type => :view do
     assert_select "form[action=?][method=?]", team_path(@team), "post" do
 
       assert_select "input#team_leader[name=?]", "team[leader]"
-
-      assert_select "input#team_members[name=?]", "team[members]"
 
       assert_select "input#team_workplace[name=?]", "team[workplace]"
     end

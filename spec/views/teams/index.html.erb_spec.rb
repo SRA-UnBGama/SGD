@@ -5,12 +5,10 @@ RSpec.describe "teams/index", :type => :view do
     assign(:teams, [
       Team.create!(
         :leader => "Leader",
-        :members => "Members",
         :workplace => "Workplace"
       ),
       Team.create!(
         :leader => "Leader",
-        :members => "Members",
         :workplace => "Workplace"
       )
     ])

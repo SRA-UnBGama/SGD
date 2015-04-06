@@ -28,8 +28,6 @@ class User < ActiveRecord::Base
 
 
   	def alocate_team
-  		puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-  		puts "ENTROU"
   		arrayusuario = Array.new()
   		arrayusuario = [self]
   		team = Team.find_by_workplace(self.cost_center)

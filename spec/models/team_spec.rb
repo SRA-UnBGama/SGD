@@ -20,18 +20,6 @@ RSpec.describe Team, :type => :model do
 		team = Team.new( :workplace => "PLACE_2" )
 	}
 
-	# All tests in this block are related to the method initialize_team.
-	describe "#initialize_team" do
-
-		it "assigns users sought to the Team" do
-			team_valid.initialize_team
-			team_users = team_valid.users
-			expected = team_valid.search_by_workplace
-
-			expect(team_users).to eq(expected)
-		end
-	end
-
 	# All tests in this block are related to the method search_by_workplace.
 	describe "#search_by_workplace" do
 
@@ -53,8 +41,7 @@ RSpec.describe Team, :type => :model do
 	describe "#list_name_members" do
 
 		it "returns an ordered list name of team members" do
-			team_valid.initialize_team
-			list_name = team_valid.list_name_members
+			list_name = Team.last.list_name_members
 
 			expected = []
 			expected << User.last.name_user
