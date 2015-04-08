@@ -70,3 +70,5 @@ group :test do
 end
 
 gem 'warden', '~> 1.2.3'
+
+gem 'metric_fu'
